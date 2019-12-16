@@ -33,19 +33,7 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 
 grails.plugin.springsecurity.logout.postOnly = false
 
-grails {
-	plugin {
-		selfie {
-			storage {
-				path = 'uploads/:class/:id/:propertyName/'
-				bucket = 'uploads'
-				providerOptions {
-					provider = 'local'
-					basePath = 'storage'
-					defaultFileACL = 'jota'
-					baseUrl  = 'http://localhost:8080/image-test/storage'
-				}
-			}
-		}
-	}
-}
+grails.plugin.karman.serveLocalStorage = true
+grails.plugin.karman.serveLocalMapping = 'storage'
+grails.plugin.karman.storagePath = '/tmp'
+grails.plugin.karman.defaultFileACL = com.bertramlabs.plugins.karman.CloudFileACL.PublicRead

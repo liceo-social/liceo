@@ -1,6 +1,5 @@
 package ma.security
 
-import com.bertramlabs.plugins.selfie.Attachment
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
@@ -10,7 +9,6 @@ class Person implements Serializable {
 
     private static final long serialVersionUID = 1
 
-    Attachment photo
     String username
     String password
     boolean enabled = true
@@ -36,7 +34,6 @@ class Person implements Serializable {
     static constraints = {
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
-        photo nullable: true, contentType: ['png','jpg'], fileSize:1024*1024
     }
 
     static mapping = {

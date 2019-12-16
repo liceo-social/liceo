@@ -31,6 +31,7 @@ class BootStrap {
         }
 
         new Requestmap(url: '/',              configAttribute: 'ROLE_USER,ROLE_ADMIN').save()
+        new Requestmap(url: '/storage/**',    configAttribute: 'ROLE_USER,ROLE_ADMIN').save()
         new Requestmap(url: '/h2-console/**', configAttribute: 'ROLE_ADMIN').save()
         new Requestmap(url: '/profile/**',    configAttribute: 'ROLE_USER,ROLE_ADMIN').save()
         new Requestmap(url: '/admin/**',      configAttribute: 'ROLE_USER,ROLE_ADMIN').save()
