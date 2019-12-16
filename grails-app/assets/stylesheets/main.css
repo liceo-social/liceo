@@ -1,0 +1,75 @@
+.nav-item {
+    margin-right: 1em;
+}
+
+.nav-item a {
+    color: black;
+}
+
+.card-header > .card-tools .nav {
+    margin-top: 0;
+}
+
+ul.nav-grails {
+    margin-bottom: .8em; margin-left: 0.2em;
+}
+
+fieldset.buttons {
+    margin-top: 2em;
+}
+
+fieldset.buttons a, input {
+    width: 10em;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 1em;
+}
+
+span.currentStep {
+  color: white;
+  background: #007bff;
+  border: 1px solid #007bff;
+  padding: .5rem .75rem;
+}
+
+.pagination a {
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: .5rem .75rem;
+}
+
+body.login-page {
+    background-image: url('/assets/newspapers_bg.jpg');
+}
+
+.remember {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: row;
+}
+
+.remember input {
+    margin: 0;
+    padding: 0;
+    width: 1em;
+}
+
+.remember label {
+    margin-left: .5em;
+    line-height: 1em;
+    padding: 0;
+}
+
+.login-logo {
+    color: white;
+}
+
+input[type='file'] {
+    border: 1px solid #ebebeb;
+    display: block;
+    width: 40em;
+}
