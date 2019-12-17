@@ -21,10 +21,25 @@ class UrlMappings {
             }
         }
 
+        /**
+         * HOME
+         */
         '/'(controller: 'home')
+
+        /**
+         * LOGIN
+         */
         '/login/auth'(controller: 'login', action: 'auth')
         '/login/authfail'(view: '/login/auth')
 
+        /**
+         * FILES
+         */
+        "/storage/$file"(controller: 'storage', action: 'serve')
+
+        /**
+         * HTTP ERRORS
+         */
         "/error"(view: '/error')
         "500"(view:'/error')
         "404"(view:'/notFound')

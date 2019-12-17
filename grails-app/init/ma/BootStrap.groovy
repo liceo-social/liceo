@@ -4,6 +4,7 @@ import ma.security.Authority
 import ma.security.Person
 import ma.security.PersonAuthority
 import ma.security.Requestmap
+import ma.storage.Attachment
 
 class BootStrap {
 
@@ -46,14 +47,18 @@ class BootStrap {
     }
 
     private void createAdminUser() {
-        Person admin = new Person(username: 'admin', password: 'admin').save()
+        File file = new File('/tmp/photo.jpg')
+        Attachment photo = new Attachment(filename: 'photo2.jpg', fileStream: file.newInputStream())
+        Person admin = new Person(username: 'admin', password: 'admin', photo: photo).save(failOnError: true)
         Authority authority = new Authority(authority: 'ROLE_ADMIN').save()
 
         PersonAuthority.create(admin, authority)
     }
 
     private void createSimpleUser() {
-        Person john = new Person(username: 'john', password: 'john').save()
+        File file = new File('/tmp/photo.jpg')
+        Attachment photo = new Attachment(filename: 'photo3.jpg', fileStream: file.newInputStream())
+        Person john = new Person(username: 'john', password: 'john', photo: photo).save(failOnError: true)
         Authority user = new Authority(authority: 'ROLE_USER').save()
 
         PersonAuthority.create(john, user)

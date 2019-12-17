@@ -32,7 +32,7 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
             pattern = "%level %logger - %msg%n"
         }
     }
-    logger('homeland', DEBUG, ['STDOUT'], false)
+    logger('ma', DEBUG, ['STDOUT'], false)
     logger("StackTrace", ERROR, ['FULL_STACKTRACE'], false)
 }
 root(ERROR, ['STDOUT'])

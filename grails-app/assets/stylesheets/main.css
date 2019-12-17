@@ -73,3 +73,8 @@ input[type='file'] {
     display: block;
     width: 40em;
 }
+
+.widget-user-2 .widget-user-header {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}

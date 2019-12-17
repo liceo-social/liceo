@@ -33,7 +33,6 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 
 grails.plugin.springsecurity.logout.postOnly = false
 
-grails.plugin.karman.serveLocalStorage = true
-grails.plugin.karman.serveLocalMapping = 'storage'
-grails.plugin.karman.storagePath = '/tmp'
-grails.plugin.karman.defaultFileACL = com.bertramlabs.plugins.karman.CloudFileACL.PublicRead
+storage {
+	storagePath = '/tmp'
+}
