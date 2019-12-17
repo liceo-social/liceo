@@ -1,9 +1,21 @@
 package ma
 
-class Project extends Auditable {
+class Project {
 
-    static hasMany = [processes: Process]
+    static belongsTo = Person
+    static hasMany = [
+        processes: Process,
+        persons: Person
+    ]
 
     String name
     String description
+
+    String toString() {
+        return name
+    }
+
+    static constraints = {
+        description nullable: true
+    }
 }

@@ -78,6 +78,12 @@
                              <p>Procesos</p>
                            </g:link>
                        </li>
+                        <li class="nav-item">
+                            <g:link controller="person" class="nav-link" action="index">
+                             <i class="far fa-circle nav-icon"></i>
+                             <p>Persons</p>
+                           </g:link>
+                       </li>
                    </ul>
                  </li>
                  <sec:ifAllGranted roles='ROLE_ADMIN'>

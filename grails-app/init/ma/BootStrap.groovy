@@ -42,6 +42,7 @@ class BootStrap {
 
         createAdminUser()
         createSimpleUser()
+        loadData()
 
         springSecurityService.clearCachedRequestmaps()
     }
@@ -62,6 +63,14 @@ class BootStrap {
         Authority user = new Authority(authority: 'ROLE_USER').save()
 
         UserAuthority.create(john, user)
+    }
+
+    private void loadData() {
+        Project project = new Project(name: 'centro día')
+            .addToPersons(new Person(name: 'fulanito'))
+            .save(failOnError: true)
+
+        ProcessType processType = new ProcessType(name: 'coordinación').save(failOnError: true)
     }
 
     def destroy = {
