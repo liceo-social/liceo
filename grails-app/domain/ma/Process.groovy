@@ -1,18 +1,21 @@
 package ma
 
-
-class Process {
+class Process implements Auditable {
 
     static belongsTo = [
-        project: Project,
-        person: Person
+        person: Person,
+        project: Project
     ]
 
     String description
     ProcessType type
-    // Person person
 
     String toString() {
         return description
+    }
+
+    static constraints = {
+        description nullable: false
+        type nullable: false
     }
 }

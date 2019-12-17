@@ -1,6 +1,6 @@
 package ma
 
-class ProcessType {
+class ProcessType implements Auditable {
 
     static belongsTo = Process
 
@@ -12,6 +12,7 @@ class ProcessType {
     }
 
     static constraints = {
+        name nullable: false
         description nullable: true
     }
 }

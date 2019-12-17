@@ -1,6 +1,6 @@
 package ma
 
-class Project {
+class Project implements Auditable {
 
     static belongsTo = Person
     static hasMany = [
@@ -16,6 +16,7 @@ class Project {
     }
 
     static constraints = {
+        name nullable: false
         description nullable: true
     }
 }
