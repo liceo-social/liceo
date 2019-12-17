@@ -19,6 +19,7 @@ class AttachmentValueConverter implements ValueConverter {
         }
 
         new Attachment(
+            filename: value.originalFilename,
             contentType: value.contentType,
             originalFilename: value.originalFilename,
             fileSize: value.size,

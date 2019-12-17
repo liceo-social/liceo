@@ -36,6 +36,7 @@
                 </g:hasErrors>
                 <g:uploadForm name="upload" url="[action:'save']">
                   <fieldset class="form">
+                      <f:field bean="user" property="name"/>
                       <f:field bean="user" property="username"/>
                       <f:field bean="user" property="password" />
                       <label class="control-label" for="photo">Photo</label>

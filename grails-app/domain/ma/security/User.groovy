@@ -12,6 +12,7 @@ class User implements Serializable {
 
     Attachment photo
 
+    String name
     String username
     String password
 
@@ -41,6 +42,7 @@ class User implements Serializable {
      * @since 0.1.0
      */
     static constraints = {
+        name nullable: false
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
     }

@@ -7,7 +7,6 @@ import groovy.util.logging.Slf4j
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.nio.file.StandardCopyOption
 
 /**
  * Utility functions to handle {@link Attachment} persistence
@@ -30,12 +29,16 @@ class Utils {
         String storagePath = storage.storagePath?.toString()
         Path target = Paths.get(storagePath, attachment.filename)
 
+        if (target.toFile().exists()) {
+            return target.toString()
+        }
+
         log.debug("creating file at: $target")
 
         Files.createDirectories(target.parent)
-        Files.copy(attachment.fileStream, target, StandardCopyOption.REPLACE_EXISTING)
+        Files.copy(attachment.fileStream, target)
 
-        return Paths.get(attachment.filename).toString()
+        return target.toString()
     }
 
     /**

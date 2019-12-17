@@ -36,11 +36,18 @@
         <!-- Add the bg color to the header using any of the bg-* classes -->        
         <div class="widget-user-header bg-${this.user.isAdmin() ? 'danger': 'primary'}">
             <div class="widget-user-image">
-                <img class="img-circle elevation-2" src="/storage/${this.user.photo.filename}" alt="User Avatar">
+                <g:set var="photoUrl">
+                    <storage:resolve attachment="${this.user.photo}" />
+                </g:set>
+                <img class="img-circle elevation-2" src="${photoUrl}" alt="User Avatar">
             </div>
             <!-- /.widget-user-image -->
-            <h3 class="widget-user-username"><f:display bean="user" property="username" /></h3>
-            <h5 class="widget-user-desc">Lead Developer</h5>
+            <h3 class="widget-user-username">
+                <f:display bean="user" property="name" />
+            </h3>
+            <h5 class="widget-user-desc">
+                <f:display bean="user" property="username" />
+            </h5>
         </div>
         <div class="card-body">
             <g:if test="${flash.message}">

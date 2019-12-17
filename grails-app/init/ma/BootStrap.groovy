@@ -6,8 +6,18 @@ import ma.security.UserAuthority
 import ma.security.Requestmap
 import ma.storage.Attachment
 
+/**
+ * This class is responsible do some initialization stuff
+ *
+ * @since 0.1.0
+ */
 class BootStrap {
 
+    /**
+     * Allowed URL patterns by default
+     *
+     * @since 0.1.0
+     */
     static MAPPINGS = [
         '/error',
         '/**/favicon.ico',
@@ -42,7 +52,6 @@ class BootStrap {
 
         createAdminUser()
         createSimpleUser()
-        loadData()
 
         springSecurityService.clearCachedRequestmaps()
     }
@@ -50,7 +59,7 @@ class BootStrap {
     private void createAdminUser() {
         File file = new File('grails-app/assets/images/user2-160x160.jpg')
         Attachment photo = new Attachment(filename: 'photo2.jpg', fileStream: file.newInputStream())
-        User admin = new User(username: 'admin', password: 'admin', photo: photo).save(failOnError: true)
+        User admin = new User(name: 'Peter Kronos', username: 'admin', password: 'admin', photo: photo).save(failOnError: true)
         Authority authority = new Authority(authority: 'ROLE_ADMIN').save()
 
         UserAuthority.create(admin, authority)
@@ -59,18 +68,10 @@ class BootStrap {
     private void createSimpleUser() {
         File file = new File('grails-app/assets/images/user7-128x128.jpg')
         Attachment photo = new Attachment(filename: 'photo3.jpg', fileStream: file.newInputStream())
-        User john = new User(username: 'john', password: 'john', photo: photo).save(failOnError: true)
+        User john = new User(name: 'Jane Doe', username: 'jane@kaleidos.net', password: 'jane', photo: photo).save(failOnError: true)
         Authority user = new Authority(authority: 'ROLE_USER').save()
 
         UserAuthority.create(john, user)
-    }
-
-    private void loadData() {
-        Project project = new Project(name: 'centro día')
-            .addToPersons(new Person(name: 'fulanito'))
-            .save(failOnError: true)
-
-        ProcessType processType = new ProcessType(name: 'coordinación').save(failOnError: true)
     }
 
     def destroy = {
