@@ -24,6 +24,27 @@ class Attachment {
     String filename
 
     /**
+     * Original file name
+     *
+     * @since 0.1.0
+     */
+    String originalFilename
+
+    /**
+     * File content type
+     *
+     * @since 0.1.0
+     */
+    String contentType
+
+    /**
+     * File size
+     *
+     * @since 0.1.0
+     */
+    long fileSize
+
+    /**
      * Absolute file path
      *
      * @since 0.1.0
@@ -78,6 +99,10 @@ class Attachment {
      * @since 0.1.0
      */
     static constraints = {
+        filename nullable: false
+        originalFilename nullable: true
+        contentType nullable: true
+        fileSize nullable: true
         filePath nullable: true
     }
 }

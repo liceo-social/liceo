@@ -18,8 +18,12 @@ class AttachmentValueConverter implements ValueConverter {
             return null
         }
 
-        new Attachment(filename: value.originalFilename, fileStream: value.inputStream)
-        // new Attachment(contentType: value.contentType, originalFilename: value.originalFilename, fileSize: value.size, inputStream: value.inputStream)
+        new Attachment(
+            contentType: value.contentType,
+            originalFilename: value.originalFilename,
+            fileSize: value.size,
+            fileStream: value.inputStream
+        )
     }
 
     Class<?> getTargetType() {
