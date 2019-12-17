@@ -47,7 +47,7 @@ class BootStrap {
     }
 
     private void createAdminUser() {
-        File file = new File('/tmp/photo.jpg')
+        File file = new File('grails-app/assets/images/user2-160x160.jpg')
         Attachment photo = new Attachment(filename: 'photo2.jpg', fileStream: file.newInputStream())
         Person admin = new Person(username: 'admin', password: 'admin', photo: photo).save(failOnError: true)
         Authority authority = new Authority(authority: 'ROLE_ADMIN').save()
@@ -56,7 +56,7 @@ class BootStrap {
     }
 
     private void createSimpleUser() {
-        File file = new File('/tmp/photo.jpg')
+        File file = new File('grails-app/assets/images/user7-128x128.jpg')
         Attachment photo = new Attachment(filename: 'photo3.jpg', fileStream: file.newInputStream())
         Person john = new Person(username: 'john', password: 'john', photo: photo).save(failOnError: true)
         Authority user = new Authority(authority: 'ROLE_USER').save()
