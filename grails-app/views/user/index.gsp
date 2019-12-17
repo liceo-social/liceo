@@ -2,11 +2,11 @@
 <html>
     <head>
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'person.label', default: 'Person')}" />
+        <g:set var="entityName" value="${message(code: 'user.label', default: 'user')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div id="list-person" class="card" role="main">
+        <div id="list-user" class="card" role="main">
             <div class="card-header">
                 <h3 class="card-title">
                     <i class="nav-icon fas fa-list"></i>
@@ -27,10 +27,10 @@
                 <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>
                 </g:if>
-                <f:table properties="username, enabled, passwordExpired, accountLocked, accountExpired" collection="${personList}" />
+                <f:table properties="username, enabled, passwordExpired, accountLocked, accountExpired" collection="${userList}" />
 
                 <div class="pagination">
-                    <g:paginate total="${personCount ?: 0}" />
+                    <g:paginate total="${userCount ?: 0}" />
                 </div>
             </div>
         </div>

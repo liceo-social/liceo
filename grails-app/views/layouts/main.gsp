@@ -91,7 +91,7 @@
                        </a>
                        <ul class="nav nav-treeview">
                            <li class="nav-item">
-                               <g:link controller="person" class="nav-link" action="index">
+                               <g:link controller="user" class="nav-link" action="index">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Users</p>
                                </g:link>

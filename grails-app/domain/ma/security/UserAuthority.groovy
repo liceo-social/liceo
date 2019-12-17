@@ -8,16 +8,16 @@ import grails.compiler.GrailsCompileStatic
 
 @GrailsCompileStatic
 @ToString(cache=true, includeNames=true, includePackage=false)
-class PersonAuthority implements Serializable {
+class UserAuthority implements Serializable {
 
 	private static final long serialVersionUID = 1
 
-	Person person
+	User person
 	Authority authority
 
 	@Override
 	boolean equals(other) {
-		if (other instanceof PersonAuthority) {
+		if (other instanceof UserAuthority) {
 			other.personId == person?.id && other.authorityId == authority?.id
 		}
 	}
@@ -34,7 +34,7 @@ class PersonAuthority implements Serializable {
 		hashCode
 	}
 
-	static PersonAuthority get(long personId, long authorityId) {
+	static UserAuthority get(long personId, long authorityId) {
 		criteriaFor(personId, authorityId).get()
 	}
 
@@ -43,37 +43,37 @@ class PersonAuthority implements Serializable {
 	}
 
 	private static DetachedCriteria criteriaFor(long personId, long authorityId) {
-		PersonAuthority.where {
-			person == Person.load(personId) &&
+		UserAuthority.where {
+			person == User.load(personId) &&
 			authority == Authority.load(authorityId)
 		}
 	}
 
-	static PersonAuthority create(Person person, Authority authority, boolean flush = false) {
-		def instance = new PersonAuthority(person: person, authority: authority)
+	static UserAuthority create(User person, Authority authority, boolean flush = false) {
+		def instance = new UserAuthority(person: person, authority: authority)
 		instance.save(flush: flush)
 		instance
 	}
 
-	static boolean remove(Person u, Authority r) {
+	static boolean remove(User u, Authority r) {
 		if (u != null && r != null) {
-			PersonAuthority.where { person == u && authority == r }.deleteAll()
+			UserAuthority.where { person == u && authority == r }.deleteAll()
 		}
 	}
 
-	static int removeAll(Person u) {
-		u == null ? 0 : PersonAuthority.where { person == u }.deleteAll() as int
+	static int removeAll(User u) {
+		u == null ? 0 : UserAuthority.where { person == u }.deleteAll() as int
 	}
 
 	static int removeAll(Authority r) {
-		r == null ? 0 : PersonAuthority.where { authority == r }.deleteAll() as int
+		r == null ? 0 : UserAuthority.where { authority == r }.deleteAll() as int
 	}
 
 	static constraints = {
 	    person nullable: false
-		authority nullable: false, validator: { Authority r, PersonAuthority ur ->
+		authority nullable: false, validator: { Authority r, UserAuthority ur ->
 			if (ur.person?.id) {
-				if (PersonAuthority.exists(ur.person.id, r.id)) {
+				if (UserAuthority.exists(ur.person.id, r.id)) {
 				    return ['userRole.exists']
 				}
 			}

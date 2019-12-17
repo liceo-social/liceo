@@ -6,7 +6,7 @@ import ma.storage.Attachment
 
 @EqualsAndHashCode(includes='username')
 @ToString(includes='username', includeNames=true, includePackage=false)
-class Person implements Serializable {
+class User implements Serializable {
 
     private static final long serialVersionUID = 1
 
@@ -21,7 +21,7 @@ class Person implements Serializable {
     boolean passwordExpired
 
     Set<Authority> getAuthorities() {
-        (PersonAuthority.findAllByPerson(this) as List<PersonAuthority>)*.authority as Set<Authority>
+        (UserAuthority.findAllByPerson(this) as List<UserAuthority>)*.authority as Set<Authority>
     }
 
     boolean isAdmin() {

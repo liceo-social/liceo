@@ -4,8 +4,8 @@ grails.gorm.default.mapping = {
 }
 
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'ma.security.Person'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'ma.security.PersonAuthority'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'ma.security.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'ma.security.UserAuthority'
 grails.plugin.springsecurity.authority.className = 'ma.security.Authority'
 grails.plugin.springsecurity.requestMap.className = 'ma.security.Requestmap'
 grails.plugin.springsecurity.securityConfigType = 'Requestmap'

@@ -1,8 +1,8 @@
 package ma
 
 import ma.security.Authority
-import ma.security.Person
-import ma.security.PersonAuthority
+import ma.security.User
+import ma.security.UserAuthority
 import ma.security.Requestmap
 import ma.storage.Attachment
 
@@ -49,19 +49,19 @@ class BootStrap {
     private void createAdminUser() {
         File file = new File('grails-app/assets/images/user2-160x160.jpg')
         Attachment photo = new Attachment(filename: 'photo2.jpg', fileStream: file.newInputStream())
-        Person admin = new Person(username: 'admin', password: 'admin', photo: photo).save(failOnError: true)
+        User admin = new User(username: 'admin', password: 'admin', photo: photo).save(failOnError: true)
         Authority authority = new Authority(authority: 'ROLE_ADMIN').save()
 
-        PersonAuthority.create(admin, authority)
+        UserAuthority.create(admin, authority)
     }
 
     private void createSimpleUser() {
         File file = new File('grails-app/assets/images/user7-128x128.jpg')
         Attachment photo = new Attachment(filename: 'photo3.jpg', fileStream: file.newInputStream())
-        Person john = new Person(username: 'john', password: 'john', photo: photo).save(failOnError: true)
+        User john = new User(username: 'john', password: 'john', photo: photo).save(failOnError: true)
         Authority user = new Authority(authority: 'ROLE_USER').save()
 
-        PersonAuthority.create(john, user)
+        UserAuthority.create(john, user)
     }
 
     def destroy = {
