@@ -78,3 +78,7 @@ input[type='file'] {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+.form.row {
+    flex-direction: column;
+}

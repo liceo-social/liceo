@@ -9,6 +9,7 @@ class Identification {
     CameFrom cameFrom
     String cameFromAlternative
 
+    Date registrationAt
     Date deletedAt
     String deletionMotivation
 }

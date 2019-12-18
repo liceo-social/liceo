@@ -7,6 +7,6 @@ class PersonalInformation {
     Genre genre
     Date birthDate
     Country nationality
-    Region regionOfBirth
+    String regionOfBirth
     Country culturalUpbringing
 }

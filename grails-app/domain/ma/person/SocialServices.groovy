@@ -3,7 +3,8 @@ package ma.person
 class SocialServices {
     String center
     String socialWorker
-    String otherResourcesCase // ???
+    boolean hasOtherResourcesCase
+    String otherResourcesCase
     boolean hasPrimaryAttentionFile
     String etmfCase
     boolean hasCaiFile
