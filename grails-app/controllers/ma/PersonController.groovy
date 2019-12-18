@@ -19,4 +19,12 @@ class PersonController {
         cameFromList: CameFrom.list()
     ]
   }
+
+  def save() {
+    return []
+  }
+
+  def show() {
+    render(view: 'show')
+  }
 }

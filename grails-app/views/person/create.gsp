@@ -12,7 +12,6 @@
         <div id="create-person" class="card" role="main">
             <div class="card-header">
                 <h3 class="card-title">
-                    <i class="nav-icon fas fa-plus"></i>
                     <g:message code="default.create.label" args="[entityName]" />
                 </h3>
                 <div class="card-tools">
@@ -38,36 +37,35 @@
                 </ul>
                 </g:hasErrors>
                 <g:form resource="/person" method="POST" class="form row">
-                    <fieldset class="col-md-6">
-                        <div class="card card-info">
-                            <div class="card-header">
-                                <h3 class="card-title">Campos obligatorios*</h3>
-                            </div>
-                            <div class="card-body">
-                                <f:field label="Nombre" bean="person" property="personalInformation.name"/>
-                                <f:field label="Primer apellido" bean="person" property="personalInformation.firstSurname"/>
-                                <f:field label="Sexo"
-                                    bean="person"
-                                    property="personalInformation.genre" value="${genreList}"/>
-                                <f:field label="Fecha de nacimiento" bean="person" property="personalInformation.birthDate"/>
-                                <f:field label="Contacto" bean="person" property="address.contact1"/>
-                                <f:field label="Profesional de referencia" bean="person" property="identification.professionalReference.name"/>
-                                <f:field label="Via de acceso"
-                                    bean="person"
-                                    property="identification.cameFrom"
-                                    optionValue="${person?.identification?.cameFrom?.name}"
-                                    optionKey="id"
-                                    from="${cameFromList}" />
-                                <f:field label="Fecha de alta" bean="person" property="identification.registrationAt"/>
-                                <f:field label="Estado" bean="person" property="identification.active"/>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset class="col-md-6">
-                        <div class="card card-info collapsed-card">
+                    <div class="col-md-6">
+                        <fieldset>
+                            <f:field label="Nombre" bean="person" property="personalInformation.name"/>
+                            <f:field label="Primer apellido" bean="person" property="personalInformation.firstSurname"/>
+                            <f:field label="Sexo"
+                                bean="person"
+                                property="personalInformation.genre"
+                                optionValue="${person?.personalInformation?.genre?.name}"
+                                optionKey="id"
+                                from="${genreList}"
+                                />
+                            <f:field label="Fecha de nacimiento" bean="person" property="personalInformation.birthDate"/>
+                            <f:field label="Contacto" bean="person" property="address.contact1"/>
+                            <f:field label="Profesional de referencia" bean="person" property="identification.professionalReference.name"/>
+                            <f:field label="Via de acceso"
+                                bean="person"
+                                property="identification.cameFrom"
+                                optionValue="${person?.identification?.cameFrom?.name}"
+                                optionKey="id"
+                                from="${cameFromList}"
+                                />
+                            <f:field label="Fecha de alta" bean="person" property="identification.registrationAt"/>
+                            <f:field label="Estado" bean="person" property="identification.active"/>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-6">
+                        <fieldset class="card card-info collapsed-card">
                             <div class="card-header">
                                 <h3 class="card-title">Datos personales</h3>
-
                                 <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
                                 </button>
@@ -82,14 +80,11 @@
                                 <f:field label="Origen cultural" bean="person" property="personalInformation.culturalUpbringing.name"/>
                             </div>
                             <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                    </fieldset>
-                    <fieldset class="col-md-6">
-                        <div class="card card-info collapsed-card">
+                            <!-- /.card -->
+                        </fieldset>
+                        <fieldset class="card card-info collapsed-card">
                             <div class="card-header">
                                 <h3 class="card-title">Identification</h3>
-
                                 <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
                                 </button>
@@ -102,14 +97,11 @@
                                 <f:field label="Motivo de baja" bean="person" property="identification.deletionMotivation"/>
                             </div>
                             <!-- /.card-body -->
-                        </div>
                         <!-- /.card -->
-                    </fieldset>
-                    <fieldset class="col-md-6">
-                        <div class="card card-info collapsed-card">
+                        </fieldset>
+                        <fieldset class="card card-info collapsed-card">
                             <div class="card-header">
                                 <h3 class="card-title">Situación administrativa</h3>
-
                                 <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
                                 </button>
@@ -122,14 +114,11 @@
                                 <f:field label="Número" bean="person" property="administration.identification"/>
                             </div>
                             <!-- /.card-body -->
-                        </div>
                         <!-- /.card -->
-                    </fieldset>
-                    <fieldset class="col-md-6">
-                        <div class="card card-info collapsed-card">
+                        </fieldset>
+                        <fieldset class="card card-info collapsed-card">
                             <div class="card-header">
                                 <h3 class="card-title">Contacto</h3>
-
                                 <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
                                 </button>
@@ -141,26 +130,21 @@
                                 <f:field label="Tipo de vía" bean="person" property="address.streetType"/>
                                 <f:field label="Vía" bean="person" property="address.street"/>
                                 <f:field label="Número" bean="person" property="address.number"/>
-                                <f:field label="Vía" bean="person" property="address.street"/>
                                 <f:field label="Escalera" bean="person" property="address.ladder"/>
                                 <f:field label="Planta" bean="person" property="address.floor"/>
                                 <f:field label="Puerta" bean="person" property="address.door"/>
                                 <f:field label="Barrio" bean="person" property="address.neighborhood"/>
                                 <f:field label="Districto" bean="person" property="address.district"/>
                                 <f:field label="Código postal" bean="person" property="address.postalCode"/>
-                                <f:field label="Vía" bean="person" property="address.street"/>
                                 <f:field label="Contacto 2" bean="person" property="address.contact2"/>
                                 <f:field label="Contacto 3" bean="person" property="address.contact3"/>
                             </div>
                             <!-- /.card-body -->
-                        </div>
                         <!-- /.card -->
-                    </fieldset>
-                    <fieldset class="col-md-6">
-                        <div class="card card-info collapsed-card">
+                        </fieldset>
+                        <fieldset class="card card-info collapsed-card">
                             <div class="card-header">
                                 <h3 class="card-title">Formativo laboral</h3>
-
                                 <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
                                 </button>
@@ -175,14 +159,11 @@
                                 <f:field label="Experiencia profesional" bean="person" property="occupationalTraining.professionalBackground"/>
                             </div>
                             <!-- /.card-body -->
-                        </div>
                         <!-- /.card -->
-                    </fieldset>
-                    <fieldset class="col-md-6">
-                        <div class="card card-info collapsed-card">
+                        </fieldset>
+                        <fieldset class="card card-info collapsed-card">
                             <div class="card-header">
                                 <h3 class="card-title">Salud</h3>
-
                                 <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
                                 </button>
@@ -196,14 +177,11 @@
                                 <f:field label="Mediación" bean="person" property="health.medication"/>
                             </div>
                             <!-- /.card-body -->
-                        </div>
                         <!-- /.card -->
-                    </fieldset>
-                    <fieldset class="col-md-6">
-                        <div class="card card-info collapsed-card">
+                        </fieldset>
+                        <fieldset class="card card-info collapsed-card">
                             <div class="card-header">
                                 <h3 class="card-title">Servicios sociales</h3>
-
                                 <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
                                 </button>
@@ -222,9 +200,9 @@
                                 <f:field label="Caso en CAF" bean="person" property="socialServices.cafCase"/>
                             </div>
                             <!-- /.card-body -->
-                        </div>
                         <!-- /.card -->
-                    </fieldset>
+                        </fieldset>
+                    </div>
                     <fieldset class="buttons">
                         <g:submitButton
                         name="create"
