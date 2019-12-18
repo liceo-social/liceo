@@ -109,7 +109,7 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <f:field label="Documento de identificación" bean="person" property="administration.type.name"/>
-                                <f:field label="Número" bean="person" property="identification.identification"/>
+                                <f:field label="Número" bean="person" property="administration.identification"/>
                             </div>
                             <!-- /.card-body -->
                         </div>
