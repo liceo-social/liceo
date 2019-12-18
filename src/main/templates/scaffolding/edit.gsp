@@ -9,7 +9,6 @@
         <div id="edit-${propertyName}" class="card" role="main">
             <div class="card-header">
                 <h3 class="card-title">
-                    <i class="nav-icon fas fa-edit"></i>
                     <g:message code="default.edit.label" args="[entityName]" />
                 </h3>
                 <div class="card-tools">

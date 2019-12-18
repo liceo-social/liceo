@@ -9,7 +9,6 @@
         <div id="list-${propertyName}" class="card" role="main">
             <div class="card-header">
                 <h3 class="card-title">
-                    <i class="nav-icon fas fa-list"></i>
                     <g:message code="default.list.label" args="[entityName]" />
                 </h3>
                 <div class="card-tools">

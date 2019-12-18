@@ -9,7 +9,6 @@
         <div id="create-${propertyName}" class="card" role="main">
             <div class="card-header">
                 <h3 class="card-title">
-                    <i class="nav-icon fas fa-plus"></i>
                     <g:message code="default.create.label" args="[entityName]" />
                 </h3>
                 <div class="card-tools">
