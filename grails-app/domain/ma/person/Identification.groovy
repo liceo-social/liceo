@@ -12,4 +12,9 @@ class Identification {
     Date registrationAt
     Date deletedAt
     String deletionMotivation
+
+    static constraints = {
+        professionalReference nullable: true
+        cameFromAlternative nullable: true
+    }
 }

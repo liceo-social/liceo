@@ -37,6 +37,7 @@ class BootStrap {
     ]
 
     def springSecurityService
+    def importCsvService
 
     def init = { servletContext ->
         for (String url in MAPPINGS) {
@@ -56,6 +57,9 @@ class BootStrap {
         createSimpleUser()
         createGenres()
         createCameFrom()
+
+        importCsvService.loadInitialData()
+
 
         springSecurityService.clearCachedRequestmaps()
     }

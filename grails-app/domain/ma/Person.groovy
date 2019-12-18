@@ -22,7 +22,6 @@ class Person implements Auditable {
 
     static constraints = {
         identification nullable: false
-        personalInformation nullable: false
         administration nullable: false
         address nullable: false
         occupationalTraining nullable: false

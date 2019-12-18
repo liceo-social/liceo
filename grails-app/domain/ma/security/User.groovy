@@ -45,6 +45,7 @@ class User implements Serializable {
         name nullable: false
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
+        photo nullable: true
     }
 
     /**
