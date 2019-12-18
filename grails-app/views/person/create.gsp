@@ -1,3 +1,6 @@
+<content tag="breadcrumb">
+  <g:render template="/templates/breadcrumb" model="[title: 'Persona']" />
+</content>
 <!DOCTYPE html>
 <html>
     <head>

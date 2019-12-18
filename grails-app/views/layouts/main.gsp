@@ -160,10 +160,7 @@
          </aside>
 
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-
-            </div>
+            <g:pageProperty name="page.breadcrumb" />
             <section class="content">
               <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
