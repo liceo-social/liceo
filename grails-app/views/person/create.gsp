@@ -37,33 +37,26 @@
                 </ul>
                 </g:hasErrors>
                 <g:form resource="/person" method="POST" class="form row">
-                    <div class="col-md-6">
-                        <fieldset>
-                            <f:field label="Nombre" bean="person" property="personalInformation.name"/>
-                            <f:field label="Primer apellido" bean="person" property="personalInformation.firstSurname"/>
-                            <f:field label="Sexo"
-                                bean="person"
-                                property="personalInformation.genre"
-                                optionValue="${person?.personalInformation?.genre?.name}"
-                                optionKey="id"
-                                from="${genreList}"
-                                />
-                            <f:field label="Fecha de nacimiento" bean="person" property="personalInformation.birthDate"/>
-                            <f:field label="Contacto" bean="person" property="address.contact1"/>
-                            <f:field label="Profesional de referencia" bean="person" property="identification.professionalReference.name"/>
-                            <f:field label="Via de acceso"
-                                bean="person"
-                                property="identification.cameFrom"
-                                optionValue="${person?.identification?.cameFrom?.name}"
-                                optionKey="id"
-                                from="${cameFromList}"
-                                />
-                            <f:field label="Fecha de alta" bean="person" property="identification.registrationAt"/>
-                            <f:field label="Estado" bean="person" property="identification.active"/>
-                        </fieldset>
-                    </div>
-                    <div class="col-md-6">
-                        <fieldset class="card card-info collapsed-card">
+                    <fieldset class="col-md-6">
+                        <div class="card card-info">
+                            <div class="card-header">
+                                <h3 class="card-title">Campos obligatorios*</h3>
+                            </div>
+                            <div class="card-body">
+                                <f:field label="Nombre" bean="person" property="personalInformation.name"/>
+                                <f:field label="Primer apellido" bean="person" property="personalInformation.firstSurname"/>
+                                <f:field label="Sexo" bean="person" property="personalInformation.genre" value="${genreList}" />
+                                <f:field label="Fecha de nacimiento" bean="person" property="personalInformation.birthDate"/>
+                                <f:field label="Contacto" bean="person" property="address.contact1"/>
+                                <f:field label="Profesional de referencia" bean="person" property="identification.professionalReference.name"/>
+                                <f:field label="Via de acceso" bean="person" property="identification.cameFrom" from="${cameFromList}" />
+                                <f:field label="Fecha de alta" bean="person" property="identification.registrationAt"/>
+                                <f:field label="Estado" bean="person" property="identification.active"/>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="col-md-6">
+                        <div class="card card-info collapsed-card">
                             <div class="card-header">
                                 <h3 class="card-title">Datos personales</h3>
                                 <div class="card-tools">
@@ -75,9 +68,9 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <f:field label="Segundo apellido" bean="person" property="personalInformation.secondSurname"/>
-                                <f:field label="Nacionalidad" bean="person" property="personalInformation.nationality.name"/>
+                                <f:field label="Nacionalidad" bean="person" property="personalInformation.nationality" value="${countries}" />
                                 <f:field label="Provincia de nacimiento" bean="person" property="personalInformation.regionOfBirth"/>
-                                <f:field label="Origen cultural" bean="person" property="personalInformation.culturalUpbringing.name"/>
+                                <f:field label="Origen cultural" bean="person" property="personalInformation.culturalUpbringing" value="${countries}"/>
                             </div>
                             <!-- /.card-body -->
                             <!-- /.card -->
@@ -103,14 +96,14 @@
                             <div class="card-header">
                                 <h3 class="card-title">Situación administrativa</h3>
                                 <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
                                 </button>
                                 </div>
                                 <!-- /.card-tools -->
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <f:field label="Documento de identificación" bean="person" property="administration.type.name"/>
+                                <f:field label="Tipo de documento" bean="person" property="administration.type"/>
                                 <f:field label="Número" bean="person" property="administration.identification"/>
                             </div>
                             <!-- /.card-body -->

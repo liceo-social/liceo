@@ -1,6 +1,8 @@
 package ma
 
 import ma.person.CameFrom
+import ma.person.Country
+import ma.person.DocumentType
 import ma.person.Genre
 import ma.security.Authority
 import ma.security.User
@@ -57,6 +59,8 @@ class BootStrap {
         createSimpleUser()
         createGenres()
         createCameFrom()
+        createCountries()
+        createDocumentTypes()
 
         importCsvService.loadInitialData()
 
@@ -91,6 +95,18 @@ class BootStrap {
     private void createCameFrom() {
         ['Servicios Sociales', 'Colegio'].each { String name ->
             new CameFrom(name: name).save()
+        }
+    }
+
+    private void createCountries() {
+        ['Spain', 'France'].each { String name ->
+            new Country(name: name).save()
+        }
+    }
+
+    private void createDocumentTypes() {
+        ['DNI', 'Passport'].each { String name ->
+            new DocumentType(name: name).save()
         }
     }
 

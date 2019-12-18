@@ -1,6 +1,8 @@
 package ma
 
 import ma.person.CameFrom
+import ma.person.Country
+import ma.person.DocumentType
 import ma.person.Genre
 
 class PersonController {
@@ -16,15 +18,9 @@ class PersonController {
     return [
         person: new Person(),
         genreList: Genre.list(),
-        cameFromList: CameFrom.list()
+        cameFromList: CameFrom.list(),
+        countries: Country.list(),
+        documentTypes: DocumentType.list()
     ]
-  }
-
-  def save() {
-    return []
-  }
-
-  def show() {
-    render(view: 'show')
   }
 }
