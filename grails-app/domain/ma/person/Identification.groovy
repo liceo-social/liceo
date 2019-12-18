@@ -16,5 +16,7 @@ class Identification {
     static constraints = {
         professionalReference nullable: true
         cameFromAlternative nullable: true
+        deletionMotivation nullable: true
+        deletedAt nullable: true
     }
 }

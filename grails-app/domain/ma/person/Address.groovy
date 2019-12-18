@@ -6,7 +6,7 @@ class Address {
     String street
     Integer number
     String ladder
-    Integer floor
+    String floor
     String door
     String neighborhood
     String district
@@ -15,4 +15,10 @@ class Address {
     String contact1
     String contact2
     String contact3
+
+    static constraints = {
+        ladder nullable: true
+        contact3 nullable: true
+        contact3 nullable: true
+    }
 }

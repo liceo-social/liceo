@@ -1,0 +1,13 @@
+id,expNum,fExpNum,active,professionalReference,registrationAt,cameFrom,deletedAt,deletionMotivation,daysWithUs,name,lastName1,lastName2,gender,birthDate,age,country,province,origin,type,identification,streetType,street,number,ladder,floor,door,neighborhood,district,postalCode,contact1,contact2,contact3,level,jobSituation,studyCenter,experience,alergies,illnesses,medication,css,ts,hasEap,hasIor,resource,hasEtmf,hasCai,hasCaf
+1,1,1,TRUE,3,1/1/2019,Propia entidad,,,"
+",Pepito,Pérez,Gómez,Hombre,3/3/2005,,Española,Cochabamba,Bolivia,DNI,12345678X,Calle,Aguja,1,,Baja,C,Simancas,San Blas Canillejas,28016,914449976,666787543,,ESO,Estudiante,IES Las Musas,,Celíaco,,,Pablo Casals,Mónica López,Si,No,,Si,No,No
+2,2,2,FALSE,4,1/1/2010,Centro Educativo,1/2/2019,Cambio de domicilio,,Juanita,"López
+",López,Mujer,2/1/2003,,Ecuador,Madrid,España,NIE,"X12345678G
+",Vía,Carpetana,180,2,6,1,Los Cármenes,Latina,28047,999999999,765897065,,ESO,Estudiante,IES Renacimiento,,,TDAH,"Concerta
+ 100Mg",Gallur,Anabel Martín,Si,Si,Educacion Social,Si,"Si
+",Si
+3,3,3,TRUE,5,1/1/2017,Servicios Sociales,,,,Cayetano,Pinos,"de Santamaría
+",Hombre,28/10/2004,,Española,Albacete,España,DNI,12345678G,Avenida,Guadalajara,80,4,7,D,Las Rosas,San Blas Canillejas,28032,912345678,654987654,690875243,Bachillerato,Estudiante,"Colegio López Vicuña
+",,,,,Torre Arias,,No,Si,Orientación Centro Educativo,No,No,No
+4,4,3,TRUE,5,1/1/2017,"Servicios Sociales
+",,,,Esperanza,de Santamaría ,Franco,Mujer,1/12/1972,,Española,La Habana,Cuba,DNI,12345678S,Avenida,Guadalajara,80,4,7,D,Las Rosas,San Blas Canillejas,28032,912345678,654987654,,Primaria,Activo,,Hostelería,Marisco,Arritmia,Sintrom,Torre Arias,,No,Si,Agente Igualdad,No,No,No

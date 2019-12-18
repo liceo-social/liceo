@@ -27,5 +27,9 @@ class Person implements Auditable {
         occupationalTraining nullable: false
         health nullable: false
         socialServices nullable: false
+        address nullable: true
+        occupationalTraining nullable: true
+        health nullable: true
+        socialServices nullable: true
     }
 }
