@@ -1,5 +1,7 @@
 package ma
 
+import ma.person.CameFrom
+import ma.person.Genre
 import ma.security.Authority
 import ma.security.User
 import ma.security.UserAuthority
@@ -52,6 +54,8 @@ class BootStrap {
 
         createAdminUser()
         createSimpleUser()
+        createGenres()
+        createCameFrom()
 
         springSecurityService.clearCachedRequestmaps()
     }
@@ -72,6 +76,18 @@ class BootStrap {
         Authority user = new Authority(authority: 'ROLE_USER').save()
 
         UserAuthority.create(john, user)
+    }
+
+    private void createGenres() {
+        ['Hombre', 'Mujer'].each { String name ->
+            new Genre(name: name).save()
+        }
+    }
+
+    private void createCameFrom() {
+        ['Servicios Sociales', 'Colegio'].each { String name ->
+            new CameFrom(name: name).save()
+        }
     }
 
     def destroy = {

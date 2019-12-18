@@ -43,11 +43,18 @@
                             <div class="card-body">
                                 <f:field label="Nombre" bean="person" property="personalInformation.name"/>
                                 <f:field label="Primer apellido" bean="person" property="personalInformation.firstSurname"/>
-                                <f:field label="Sexo" bean="person" property="personalInformation.genre"/>
+                                <f:field label="Sexo"
+                                    bean="person"
+                                    property="personalInformation.genre" value="${genreList}"/>
                                 <f:field label="Fecha de nacimiento" bean="person" property="personalInformation.birthDate"/>
                                 <f:field label="Contacto" bean="person" property="address.contact1"/>
                                 <f:field label="Profesional de referencia" bean="person" property="identification.professionalReference.name"/>
-                                <f:field label="Via de acceso" bean="person" property="identification.cameFrom" optionValue="${person?.identification?.cameFrom?.name}" optionKey="id" from="${[]}" />
+                                <f:field label="Via de acceso"
+                                    bean="person"
+                                    property="identification.cameFrom"
+                                    optionValue="${person?.identification?.cameFrom?.name}"
+                                    optionKey="id"
+                                    from="${cameFromList}" />
                                 <f:field label="Fecha de alta" bean="person" property="identification.registrationAt"/>
                                 <f:field label="Estado" bean="person" property="identification.active"/>
                             </div>
