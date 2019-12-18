@@ -122,12 +122,6 @@
                                  <p>Paises</p>
                                </g:link>
                            </li>
-                            <li class="nav-item">
-                                <g:link controller="region" class="nav-link" action="index">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Provincias</p>
-                               </g:link>
-                           </li>
                              <li class="nav-item">
                                    <g:link controller="genre" class="nav-link" action="index">
                                     <i class="far fa-circle nav-icon"></i>
