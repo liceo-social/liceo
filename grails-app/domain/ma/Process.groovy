@@ -1,5 +1,7 @@
 package ma
 
+import grails.databinding.BindingFormat
+
 class Process implements Auditable {
 
     static belongsTo = [
@@ -7,6 +9,7 @@ class Process implements Auditable {
         project: Project
     ]
 
+    @BindingFormat('dd/MM/yyyy')
     Date meetingDate
     String description
     ProcessType type

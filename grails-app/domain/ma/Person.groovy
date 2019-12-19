@@ -65,4 +65,9 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
         center nullable: true
         etmfCase nullable: true
     }
+
+    @Override
+    String toString() {
+        return name
+    }
 }

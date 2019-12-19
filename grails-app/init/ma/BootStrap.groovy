@@ -61,6 +61,8 @@ class BootStrap {
         createCameFrom()
         createCountries()
         createDocumentTypes()
+        createProject()
+        createProcessType()
 
          importCsvService.loadInitialData()
 
@@ -114,6 +116,15 @@ class BootStrap {
         ['DNI', 'Passport'].each { String name ->
             new DocumentType(name: name).save()
         }
+    }
+
+    private void createProject() {
+        new Project(name: 'Centro de dia').save()
+    }
+
+    private void createProcessType() {
+        new ProcessType(name: 'Seguimiento escolar').save()
+        new ProcessType(name: 'Cordinacion escolar').save()
     }
 
     def destroy = {

@@ -16,6 +16,9 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
+    <g:eachError bean="${process}">
+        <li>${it}</li>
+    </g:eachError>
         <div id="create-process" class="card" role="main">
             <g:form resource="/process" method="POST">
                 <div class="card-header">
@@ -57,6 +60,8 @@
                          bean="process"
                          widget-rich="true"
                          property="description"/>
+                     <g:hiddenField name="person.id" value="${person?.id}" />
+                     <g:hiddenField name="project.id" value="${project?.id}" />
                    </div>
                 </div>
                 <div class="card-footer">
