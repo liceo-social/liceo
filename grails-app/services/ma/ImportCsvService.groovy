@@ -26,8 +26,8 @@ class ImportCsvService {
         try {
             loadUsers()
             loadProcessTypes()
-            loadPersons()
             loadProjects()
+            loadPersons()
             loadProcesses()
 
             log.debug '... finished creating initial data'
@@ -102,8 +102,8 @@ class ImportCsvService {
         personDataList.each { personData ->
 
             Person person = new Person(
-
                 birthDate: personData.birthDate,
+                project: personData.projectId ? Project.get(personData.projectId) : null,
 
                 // personalInformation
                 name: personData.name ,
