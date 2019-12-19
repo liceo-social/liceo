@@ -7,6 +7,7 @@
     </head>
     <body>
         <div id="show-${propertyName}" class="card" role="main">
+        <g:form resource="\${this.${propertyName}}" method="DELETE">
             <div class="card-header">
                 <h3 class="card-title">
                     <g:message code="default.show.label" args="[entityName]" />
@@ -33,13 +34,14 @@
                 <div class="message" role="status">\${flash.message}</div>
                 </g:if>
                 <f:display bean="${propertyName}" />
-                <g:form resource="\${this.${propertyName}}" method="DELETE">
-                    <fieldset class="buttons">
-                        <g:link class="btn btn-primary edit" action="edit" resource="\${this.${propertyName}}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                        <input class="btn btn-danger delete" type="submit" value="\${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('\${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                    </fieldset>
-                </g:form>
             </div>
+            <div class="card-footer">
+            <fieldset class="buttons">
+                                    <g:link class="btn btn-primary edit" action="edit" resource="\${this.${propertyName}}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                                    <input class="btn btn-danger delete" type="submit" value="\${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('\${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                </fieldset>
+            </div>
+            </g:form>
         </div>
     </body>
 </html>

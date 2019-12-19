@@ -1,5 +1,12 @@
+<content tag="title">Detalle Persona</content>
 <content tag="breadcrumb">
-  <g:render template="/templates/breadcrumb" model="[title: 'Persona']" />
+    <li class="breadcrumb-item">
+        <g:link controller="home">Home</g:link>
+     </li>
+    <li class="breadcrumb-item">
+        <g:link controller="person">Persona</g:link>
+    </li>
+    <li class="breadcrumb-item active">Detalle</li>
 </content>
 <!DOCTYPE html>
 <html>

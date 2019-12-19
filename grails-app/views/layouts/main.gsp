@@ -9,11 +9,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
 
-
+        <asset:stylesheet src="daterangepicker/daterangepicker.css"/>
+        <asset:stylesheet src="select2/select2.css"/>
         <asset:stylesheet src="adminlte.css"/>
         <asset:stylesheet src="all.css"/>
         <asset:stylesheet src="main.css"/>
+        <asset:javascript src="jquery.js"/>
+        <asset:javascript src="daterangepicker/moment.min.js" />
+        <asset:javascript src="daterangepicker/daterangepicker.js" />
+        <asset:javascript src="select2/select2.full.js" />
 
+        <script>
+        $(document).ready(function() {
+            $('select').select2();
+        });
+        </script>
         <g:layoutHead/>
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
@@ -154,7 +164,25 @@
          </aside>
 
         <div class="content-wrapper">
-            <g:pageProperty name="page.breadcrumb" />
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0 text-dark">
+                    <g:pageProperty name="page.title" />
+                </h1>
+              </div><!-- /.col -->
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <g:pageProperty name="page.breadcrumb" />
+                </ol>
+              </div><!-- /.col -->
+            </div><!-- /.row -->
+          </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content-header -->
+
             <section class="content">
               <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
@@ -170,6 +198,9 @@
     <asset:javascript src="jquery.js"/>
     <asset:javascript src="bootstrap.js"/>
     <asset:javascript src="adminlte.js"/>
+    <asset:javascript src="daterangepicker/moment.min.js" />
+    <asset:javascript src="daterangepicker/daterangepicker.js" />
+    <asset:javascript src="select2/select2.full.js" />
 
 </body>
 </html>

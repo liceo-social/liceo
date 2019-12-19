@@ -62,7 +62,7 @@ class BootStrap {
         createCountries()
         createDocumentTypes()
 
-        importCsvService.loadInitialData()
+        // importCsvService.loadInitialData()
 
 
         springSecurityService.clearCachedRequestmaps()
@@ -78,12 +78,18 @@ class BootStrap {
     }
 
     private void createSimpleUser() {
-        File file = new File('grails-app/assets/images/user7-128x128.jpg')
-        Attachment photo = new Attachment(filename: 'photo3.jpg', fileStream: file.newInputStream())
-        User john = new User(name: 'Jane Doe', username: 'jane@kaleidos.net', password: 'jane', photo: photo).save(failOnError: true)
-        Authority user = new Authority(authority: 'ROLE_USER').save()
+        // File file = new File('grails-app/assets/images/user7-128x128.jpg')
+        // Attachment photo = new Attachment(filename: 'photo3.jpg', fileStream: file.newInputStream())
+        (0..100).each { number ->
+            User john = new User(name: "user${number}", username: "user${number}@kaleidos.net", password: 'password').save(failOnError: true)
+            Authority user = new Authority(authority: 'ROLE_USER').save()
 
-        UserAuthority.create(john, user)
+            UserAuthority.create(john, user)
+        }
+        //User john = new User(name: 'Jane Doe', username: 'jane@kaleidos.net', password: 'jane', photo: photo).save(failOnError: true)
+        //Authority user = new Authority(authority: 'ROLE_USER').save()
+
+        //UserAuthority.create(john, user)
     }
 
     private void createGenres() {

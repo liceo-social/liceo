@@ -4,6 +4,7 @@ import ma.person.CameFrom
 import ma.person.Country
 import ma.person.DocumentType
 import ma.person.Genre
+import ma.security.User
 
 class PersonController {
 
@@ -20,7 +21,10 @@ class PersonController {
         genreList: Genre.list(),
         cameFromList: CameFrom.list(),
         countries: Country.list(),
-        documentTypes: DocumentType.list()
+        documentTypes: DocumentType.list(),
+        users: User.list()
     ]
   }
+
+
 }

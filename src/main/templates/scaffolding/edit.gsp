@@ -7,6 +7,7 @@
     </head>
     <body>
         <div id="edit-${propertyName}" class="card" role="main">
+                        <g:form resource="\${this.${propertyName}}" method="PUT">
             <div class="card-header">
                 <h3 class="card-title">
                     <g:message code="default.edit.label" args="[entityName]" />
@@ -39,16 +40,17 @@
                     </g:eachError>
                 </ul>
                 </g:hasErrors>
-                <g:form resource="\${this.${propertyName}}" method="PUT">
                     <g:hiddenField name="version" value="\${this.${propertyName}?.version}" />
                     <fieldset class="form">
                         <f:all bean="${propertyName}"/>
                     </fieldset>
-                    <fieldset class="buttons">
-                        <input class="btn btn-primary save" type="submit" value="\${message(code: 'default.button.update.label', default: 'Update')}" />
-                    </fieldset>
-                </g:form>
             </div>
+            <div class="card-footer">
+                <fieldset class="buttons">
+                    <input class="btn btn-primary save" type="submit" value="\${message(code: 'default.button.update.label', default: 'Update')}" />
+                </fieldset>
+            </div>
+            </g:form>
         </div>
     </body>
 </html>
