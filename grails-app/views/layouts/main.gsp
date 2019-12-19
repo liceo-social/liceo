@@ -86,12 +86,6 @@
                              <p>Personas</p>
                            </g:link>
                        </li>
-                        <li class="nav-item">
-                            <g:link controller="process" class="nav-link" action="index">
-                             <i class="far fa-calendar-alt nav-icon"></i>
-                             <p>Procesos</p>
-                           </g:link>
-                       </li>
                    </ul>
                  </li>
                  <sec:ifAllGranted roles='ROLE_ADMIN'>
