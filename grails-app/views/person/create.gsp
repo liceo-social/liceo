@@ -22,6 +22,7 @@
             </div>
             <div class="col-md-6">
                 <g:render template="templates/personal_data" />
+                <g:render template="templates/projects" />
                 <g:render template="templates/administration" />
                 <g:render template="templates/contact" />
                 <g:render template="templates/occupational" />
