@@ -62,9 +62,9 @@
                         <li class="nav-item">
                           <a class="nav-link" id="custom-tabs-one-projects-tab" data-toggle="pill" href="#custom-tabs-one-projects" role="tab" aria-controls="custom-tabs-one-projects" aria-selected="false">Proyectos</a>
                         </li>
-                        <li class="nav-item">
+                        <%-- <li class="nav-item">
                           <a class="nav-link" id="custom-tabs-one-relationships-tab" data-toggle="pill" href="#custom-tabs-one-relationships" role="tab" aria-controls="custom-tabs-one-relationships" aria-selected="false">Círculos familiares</a>
-                        </li>
+                        </li> --%>
                       </ul>
                     </div>
                     <div class="card-body">
@@ -116,18 +116,22 @@
                             </div>
                           </div>
                         </div>
-                        <div class="tab-pane fade" id="custom-tabs-one-projects" role="tabpanel" aria-labelledby="custom-tabs-one-projects-tab">
-                          ${person.project?.name}
-
-                               <g:set var="processList" value="${Process.findAllByPerson(person)}" />
-                          <f:table collection="processList" properties="type, description"/>
-
-
-                        <g:if test='${person.project}'>
-                          <g:link controller="process" action="create" params="[project: person.project?.id, person: person.id]">
-                            Crear Proceso
-                          </g:link>
-                        </g:if>
+                        <div class="tab-pane fade card-info" id="custom-tabs-one-projects" role="tabpanel" aria-labelledby="custom-tabs-one-projects-tab">
+                          <div class="card-header">
+                              <h4 class="float-left">${person.project?.name}</h4>
+                              <div class="float-right">
+                              <g:if test='${person.project}'>
+                                <g:link class="btn btn-primary edit" controller="process" action="create" params="[project: person.project?.id, person: person.id]">
+                                  Crear Proceso
+                                </g:link>
+                              </g:if>
+                              </div>
+                          </div>
+                          <div class="card-body">
+                            <h5>Procesos</h5>
+                            <g:set var="processList" value="${Process.findAllByPerson(person)}" />
+                            <f:table collection="processList" properties="type, description"/>
+                          </div>
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-one-relationships" role="tabpanel" aria-labelledby="custom-tabs-one-relationships-tab">
                           FAMILIA
