@@ -128,9 +128,11 @@
                           <f:table collection="processList" properties="type, description"/>
 
 
+                        <g:if test='${person.project}'>
                           <g:link controller="process" action="create" params="[project: person.project?.id, person: person.id]">
                             Crear Proceso
                           </g:link>
+                        </g:if>
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-one-relationships" role="tabpanel" aria-labelledby="custom-tabs-one-relationships-tab">
                           FAMILIA

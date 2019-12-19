@@ -142,7 +142,7 @@
                              <li class="nav-item">
                                <g:link controller="user" class="nav-link" action="index">
                                  <i class="fas fa-users nav-icon"></i>
-                                 <p>Users</p>
+                                 <p>Usuarios</p>
                                </g:link>
                            </li>
                          </ul>
