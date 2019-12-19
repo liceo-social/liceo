@@ -9,8 +9,8 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <f:field label="Tipo de documento" bean="person" property="administration.type" value="${documentTypes}"/>
-        <f:field label="Número" bean="person" property="administration.identification"/>
+        <f:field label="Tipo de documento" bean="person" property="type" value="${documentTypes}"/>
+        <f:field label="Número" bean="person" property="identification"/>
     </div>
     <!-- /.card-body -->
 <!-- /.card -->

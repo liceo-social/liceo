@@ -1,6 +1,6 @@
 package ma.person
 
-class Address {
+trait Address {
 
     String streetType
     String street
@@ -15,10 +15,4 @@ class Address {
     String contact1
     String contact2
     String contact3
-
-    static constraints = {
-        ladder nullable: true
-        contact3 nullable: true
-        contact3 nullable: true
-    }
 }

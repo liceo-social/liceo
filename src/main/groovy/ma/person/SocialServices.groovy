@@ -1,6 +1,6 @@
 package ma.person
 
-class SocialServices {
+trait SocialServices {
     String center
     String socialWorker
     boolean hasOtherResourcesCase

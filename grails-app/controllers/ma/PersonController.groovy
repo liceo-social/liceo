@@ -25,6 +25,4 @@ class PersonController {
         users: User.list()
     ]
   }
-
-
 }

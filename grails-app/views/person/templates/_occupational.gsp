@@ -9,10 +9,10 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <f:field label="Nivel formativo" bean="person" property="occupationalTraining.studiesLevel"/>
-        <f:field label="Situación formativo laboral" bean="person" property="occupationalTraining.studiesCenter"/>
-        <f:field label="Centro de estudios" bean="person" property="occupationalTraining.professionalStatus"/>
-        <f:field label="Experiencia profesional" bean="person" property="occupationalTraining.professionalBackground"/>
+        <f:field label="Nivel formativo" bean="person" property="studiesLevel"/>
+        <f:field label="Situación formativo laboral" bean="person" property="studiesCenter"/>
+        <f:field label="Centro de estudios" bean="person" property="professionalStatus"/>
+        <f:field label="Experiencia profesional" bean="person" property="professionalBackground"/>
     </div>
     <!-- /.card-body -->
 <!-- /.card -->

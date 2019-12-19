@@ -1,6 +1,6 @@
 package ma.person
 
-class Health {
+trait Health {
 
     String allergies
     String illnesses

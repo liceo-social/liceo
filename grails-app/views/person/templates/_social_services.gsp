@@ -10,14 +10,14 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <f:field label="Centro de servicios sociales" bean="person" property="socialServices.center"/>
-        <f:field label="Trabajador social" bean="person" property="socialServices.socialWorker"/>
-        <f:field label="Tiene expediente en atención primaria" bean="person" property="socialServices.hasPrimaryAttentionFile"/>
-        <f:field label="Tiene intervención con otros recursos" bean="person" property="socialServices.hasOtherResourcesCase"/>
-        <f:field label="Otros recursos" bean="person" property="socialServices.otherResourcesCase"/>
-        <f:field label="Caso en ETMF" bean="person" property="socialServices.etmfCase"/>
-        <f:field label="Tiene expediente en CAI" bean="person" property="socialServices.hasCaiFile"/>
-        <f:field label="Caso en CAF" bean="person" property="socialServices.cafCase"/>
+        <f:field label="Centro de servicios sociales" bean="person" property="center"/>
+        <f:field label="Trabajador social" bean="person" property="socialWorker"/>
+        <f:field label="Tiene expediente en atención primaria" bean="person" property="hasPrimaryAttentionFile"/>
+        <f:field label="Tiene intervención con otros recursos" bean="person" property="hasOtherResourcesCase"/>
+        <f:field label="Otros recursos" bean="person" property="otherResourcesCase"/>
+        <f:field label="Caso en ETMF" bean="person" property="etmfCase"/>
+        <f:field label="Tiene expediente en CAI" bean="person" property="hasCaiFile"/>
+        <f:field label="Caso en CAF" bean="person" property="cafCase"/>
     </div>
     <!-- /.card-body -->
 <!-- /.card -->

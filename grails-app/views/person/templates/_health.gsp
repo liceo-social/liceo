@@ -9,9 +9,9 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <f:field label="Alergia o intolerancia" bean="person" property="health.allergies"/>
-        <f:field label="Enfermedad" bean="person" property="health.illnesses"/>
-        <f:field label="Mediación" bean="person" property="health.medication"/>
+        <f:field label="Alergia o intolerancia" bean="person" property="allergies"/>
+        <f:field label="Enfermedad" bean="person" property="illnesses"/>
+        <f:field label="Mediación" bean="person" property="medication"/>
     </div>
     <!-- /.card-body -->
 <!-- /.card -->

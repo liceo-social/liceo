@@ -9,8 +9,8 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <f:field label="Fecha de baja" bean="person" property="identification.deletedAt"/>
-        <f:field label="Motivo de baja" bean="person" property="identification.deletionMotivation"/>
+        <f:field label="Fecha de baja" bean="person" property="deletedAt"/>
+        <f:field label="Motivo de baja" bean="person" property="deletionMotivation"/>
     </div>
     <!-- /.card-body -->
 <!-- /.card -->

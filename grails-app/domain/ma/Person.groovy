@@ -1,5 +1,6 @@
 package ma
 
+import grails.databinding.BindingFormat
 import ma.person.Address
 import ma.person.Administration
 import ma.person.Health
@@ -8,28 +9,58 @@ import ma.person.OccupationalTraining
 import ma.person.PersonalInformation
 import ma.person.SocialServices
 
-class Person implements Auditable {
+class Person implements Auditable, Identification, PersonalInformation, Administration, Address, OccupationalTraining, Health, SocialServices {
 
     static belongsTo = [project: Project]
 
-    Identification identification
-    PersonalInformation personalInformation
-    Administration administration
-    Address address
-    OccupationalTraining occupationalTraining
-    Health health
-    SocialServices socialServices
+    @BindingFormat('dd/MM/yyyy')
+    Date registrationAt
+
+    @BindingFormat('dd/MM/yyyy')
+    Date birthDate
 
     static constraints = {
+        project nullable: true
         identification nullable: false
-        administration nullable: false
-        address nullable: false
-        occupationalTraining nullable: false
-        health nullable: false
-        socialServices nullable: false
-        address nullable: true
-        occupationalTraining nullable: true
-        health nullable: true
-        socialServices nullable: true
+
+        street nullable: true
+        streetType nullable: true
+        number nullable: true
+        ladder nullable: true
+        floor nullable: true
+        door nullable: true
+        neighborhood nullable: true
+        district nullable: true
+        postalCode nullable: true
+        contact2 nullable: true
+        contact3 nullable: true
+
+        type nullable: true
+        identification nullable: true
+
+        allergies nullable: true
+        illnesses nullable: true
+        medication nullable: true
+
+        professionalReference nullable: true
+        cameFromAlternative nullable: true
+        deletionMotivation nullable: true
+        deletedAt nullable: true
+
+        studiesLevel nullable: true
+        studiesCenter nullable: true
+        professionalStatus nullable: true
+        professionalBackground nullable: true
+
+        secondSurname nullable: true
+        nationality nullable: true
+        regionOfBirth nullable: true
+        culturalUpbringing nullable: true
+
+        otherResourcesCase nullable: true
+        socialWorker nullable: true
+        cafCase nullable: true
+        center nullable: true
+        etmfCase nullable: true
     }
 }

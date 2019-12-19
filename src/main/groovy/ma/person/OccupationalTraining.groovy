@@ -1,9 +1,10 @@
 package ma.person
 
-class OccupationalTraining {
+trait OccupationalTraining {
 
     String studiesLevel
     String studiesCenter
     String professionalStatus
     String professionalBackground
+
 }

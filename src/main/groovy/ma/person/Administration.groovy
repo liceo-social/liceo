@@ -1,6 +1,6 @@
 package ma.person
 
-class Administration {
+trait Administration {
 
     DocumentType type
     String identification
