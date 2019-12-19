@@ -3,16 +3,13 @@ package ma
 import static com.xlson.groovycsv.CsvParser.parseCsv
 
 import groovy.util.logging.Slf4j
-import ma.person.Address
-import ma.person.Administration
 import ma.person.CameFrom
+import ma.person.Country
 import ma.person.DocumentType
-import ma.person.Identification
+import ma.person.Genre
 import ma.security.User
-import net.bytebuddy.implementation.bytecode.Throw
 
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
 
 @Slf4j
 class ImportCsvService {
@@ -54,7 +51,20 @@ class ImportCsvService {
         def personDataList = parseCsv(csv)
         personDataList.each { personData ->
 
-            Identification identification  = new Identification(
+            Person person = new Person(
+
+                birthDate: personData.birthDate,
+
+                // personalInformation
+                name: personData.name ,
+                firstSurname: personData.firstSurname,
+                secondSurname: personData.secondSurname,
+                genre: new Genre(name: personData.genre),
+                nationality: new Country(name: personData.nationality),
+                regionOfBirth: personData.regionOfBirth,
+                culturalUpbringing: new Country(name: personData.culturalUpbringing),
+
+                // identification
                 active: personData.active,
                 professionalReference: User.get(personData.professionalReference),
                 cameFrom: new CameFrom(name: personData.cameFrom).save(),
@@ -64,15 +74,13 @@ class ImportCsvService {
                 deletedAt: personData.deletedAt ?
                     new SimpleDateFormat('dd/MM/yyyy').parse(personData.deletedAt)
                     : null,
-                deletionMotivation:  personData.deletionMotivation
-            ).save(failOnError: true)
+                deletionMotivation:  personData.deletionMotivation,
 
-            Administration administration = new Administration(
+                // administration
                 type: new DocumentType(name: personData.identification ),
-                identification: personData.identification
-            ).save(failOnError: true)
+                identification: personData.identification,
 
-            Address address = new Address(
+                // address
                 streetType: personData.streetType,
                 street: personData.street,
                 number: personData.number,
@@ -84,17 +92,29 @@ class ImportCsvService {
                 postalCode: personData.postalCode,
                 contact1: personData.contact1,
                 contact2: personData.contact2,
-                contact3: personData.contact3
-            ).save(failOnError: true)
+                contact3: personData.contact3,
 
-            Person person = new Person(
-                identification: identification,
-                administration: administration,
-                address: address,
-                // TODO: Finish next fieldsets
-//                occupationalTraining: ,
-//                health: ,
-//                socialServices:
+                // occupationalTraining
+                studiesLevel: personData.studiesLevel,
+                studiesCenter: personData.studiesCenter,
+                professionalStatus: personData.professionalStatus,
+                professionalBackground: personData.professionalBackground,
+
+                // health
+                allergies: personData.allergies,
+                illnesses: personData.illnesses,
+                medication: personData.medication,
+
+                // socialServices
+                center: personData.center,
+                socialWorker: personData.socialWorker,
+                hasOtherResourcesCase: personData.hasOtherResourcesCase,
+                otherResourcesCase: personData.otherResourcesCase,
+                hasPrimaryAttentionFile: personData.hasPrimaryAttentionFile,
+                etmfCase: personData.etmfCase,
+                hasCaiFile: personData.hasCaiFile,
+                cafCase: personData.cafCase,
+
             ).save(failOnError: true)
         }
     }

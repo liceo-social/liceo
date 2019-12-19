@@ -62,7 +62,7 @@ class BootStrap {
         createCountries()
         createDocumentTypes()
 
-        // importCsvService.loadInitialData()
+         importCsvService.loadInitialData()
 
 
         springSecurityService.clearCachedRequestmaps()
