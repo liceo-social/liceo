@@ -12,16 +12,20 @@
         <asset:stylesheet src="daterangepicker/daterangepicker.css"/>
         <asset:stylesheet src="select2/select2.css"/>
         <asset:stylesheet src="adminlte.css"/>
+        <asset:stylesheet src="summernote/summernote-bs4.css"/>
         <asset:stylesheet src="all.css"/>
         <asset:stylesheet src="main.css"/>
         <asset:javascript src="jquery.js"/>
+        <asset:javascript src="bootstrap/bootstrap.bundle.js" />
         <asset:javascript src="daterangepicker/moment.min.js" />
         <asset:javascript src="daterangepicker/daterangepicker.js" />
         <asset:javascript src="select2/select2.full.js" />
+        <asset:javascript src="summernote/summernote-bs4.js" />
 
         <script>
         $(document).ready(function() {
             $('select').select2();
+             $('.summernote').summernote();
         });
         </script>
         <g:layoutHead/>
@@ -188,11 +192,11 @@
           </div>
     </div>
     <asset:javascript src="jquery.js"/>
-    <asset:javascript src="bootstrap.js"/>
+    <asset:javascript src="bootstrap/bootstrap.bundle.js" />
     <asset:javascript src="adminlte.js"/>
     <asset:javascript src="daterangepicker/moment.min.js" />
     <asset:javascript src="daterangepicker/daterangepicker.js" />
     <asset:javascript src="select2/select2.full.js" />
-
+    <asset:javascript src="summernote/summernote-bs4.js" />
 </body>
 </html>

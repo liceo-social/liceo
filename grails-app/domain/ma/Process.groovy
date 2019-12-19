@@ -7,6 +7,7 @@ class Process implements Auditable {
         project: Project
     ]
 
+    Date meetingDate
     String description
     ProcessType type
 
@@ -17,5 +18,6 @@ class Process implements Auditable {
     static constraints = {
         description nullable: false
         type nullable: false
+        meetingDate nullable: true
     }
 }

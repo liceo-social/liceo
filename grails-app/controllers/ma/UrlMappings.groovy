@@ -13,6 +13,8 @@ class UrlMappings {
          * WEB SCAFFOLDING
          */
         group "/admin", {
+            "/process/$person/$project/create"(controller: 'process', action: 'create')
+
             "/$controller/$action?/$id?"{
                 constraints {
                     // apply constraints here
