@@ -2,6 +2,6 @@ package ma.person
 
 trait Administration {
 
-    DocumentType type
+    DocumentType documentType
     String identification
 }

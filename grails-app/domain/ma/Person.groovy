@@ -20,6 +20,13 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
     Date birthDate
 
     static constraints = {
+        name nullable: false
+        firstSurname nullable: false
+        secondSurname nullable: true
+        nationality nullable: true
+        regionOfBirth nullable: true
+        culturalUpbringing nullable: true
+
         project nullable: true
         identification nullable: false
 
@@ -35,7 +42,7 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
         contact2 nullable: true
         contact3 nullable: true
 
-        type nullable: true
+        documentType nullable: true
         identification nullable: true
 
         allergies nullable: true
@@ -51,11 +58,6 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
         studiesCenter nullable: true
         professionalStatus nullable: true
         professionalBackground nullable: true
-
-        secondSurname nullable: true
-        nationality nullable: true
-        regionOfBirth nullable: true
-        culturalUpbringing nullable: true
 
         otherResourcesCase nullable: true
         socialWorker nullable: true
