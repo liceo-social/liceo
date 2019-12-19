@@ -23,7 +23,7 @@ fieldset.buttons {
     margin-top: 2em;
 }
 
-fieldset.buttons a, input {
+fieldset.buttons a {
     width: 10em;
 }
 
@@ -90,11 +90,6 @@ input[type='file'] {
     border-top-right-radius: 0;
 }
 
-/* .card-main:not(.card-outline) .card-header {
-    background-color: #3d9970;
-    color: #fff;
-} */
-
 .card-info:not(.card-outline) .card-header {
     background-color: #92a3957a;
     color: #3e6956;
@@ -108,4 +103,16 @@ input[type='file'] {
 .btn-primary {
     background-color: #3d9970;
     border-color: #3d9970;
+}
+
+.show-data {
+    display: flex;
+}
+
+.block-data {
+    background-color: #60804d12;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    max-width: 45%;
 }
