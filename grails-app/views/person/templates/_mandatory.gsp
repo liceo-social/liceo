@@ -1,9 +1,9 @@
 <%@ page import="ma.*" %>
 <%@ page import="ma.person.*" %>
 <%@ page import="ma.security.*" %>
-<div class="card card-danger">
+<div class="card card-main">
     <div class="card-header">
-        <h3 class="card-title">Datos basicos*</h3>
+        <h3 class="card-title">Datos obligatorios</h3>
     </div>
     <div class="card-body">
         <fieldset>

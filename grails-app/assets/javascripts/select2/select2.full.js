@@ -1933,7 +1933,7 @@ S2.define('select2/selection/allowClear',[
       return;
     }
 
-    var removeAll = this.options.get('translations').get('removeAllItems');   
+    var removeAll = this.options.get('translations').get('removeAllItems');
 
     var $remove = $(
       '<span class="select2-selection__clear" title="' + removeAll() +'">' +
@@ -4540,7 +4540,7 @@ S2.define('select2/dropdown/attachBody',[
     if (this.options.get('dropdownAutoWidth')) {
       css.minWidth = css.width;
       css.position = 'relative';
-      css.width = 'auto';
+      css.width = '100%';
     }
 
     this.$dropdown.css(css);
@@ -5052,7 +5052,7 @@ S2.define('select2/defaults',[
       amdLanguageBase: './i18n/',
       closeOnSelect: true,
       debug: false,
-      dropdownAutoWidth: false,
+      dropdownAutoWidth: true,
       escapeMarkup: Utils.escapeMarkup,
       language: {},
       matcher: matcher,
@@ -5449,6 +5449,8 @@ S2.define('select2/core',[
 
     if (width != null) {
       $container.css('width', width);
+    } else {
+      $container.css('width', '100%');
     }
   };
 
@@ -5469,10 +5471,11 @@ S2.define('select2/core',[
       var elementWidth = $element.outerWidth(false);
 
       if (elementWidth <= 0) {
-        return 'auto';
+        return '100%';
       }
 
-      return elementWidth + 'px';
+      // return elementWidth + 'px';
+      return '100%';
     }
 
     if (method == 'style') {

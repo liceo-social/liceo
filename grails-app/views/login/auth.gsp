@@ -14,7 +14,7 @@
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Introduce tu email y contraseña</p>
                 <form class="form-signin" action="${postUrl ?: '/login/authenticate'}"
                     method="POST" id="loginForm" autocomplete="off">
                     <div class="input-group mb-3">
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" name="${passwordParameter ?: 'password'}" id="password"/>
+                        <input type="password" class="form-control" placeholder="Contraseña" name="${passwordParameter ?: 'password'}" id="password"/>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -41,13 +41,13 @@
                                      name="${rememberMeParameter ?: 'remember-me'}"
                                      id="remember_me" <g:if test='${hasCookie}'>checked="checked"</g:if>/>
                                 <label for="remember-me">
-                                    Remember Me
+                                    Recuérdame
                                 </label>
                             </div>
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block">Logarme</button>
                         </div>
                         <!-- /.col -->
                     </div>
@@ -56,7 +56,7 @@
                 <!-- /.social-auth-links -->
 
                 <p class="mb-1">
-                    <a href="forgot-password.html">I forgot my password</a>
+                    <a href="forgot-password.html">Olvidé mi contraseña</a>
                 </p>
             </div>
             <!-- /.login-card-body -->

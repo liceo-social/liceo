@@ -1,5 +1,10 @@
-.nav-item {
-    margin-right: 1em;
+a, a:hover,
+.nav-pills .nav-link:not(.active):hover  {
+    color: #3d9970;
+}
+
+.main-sidebar {
+    background-color: #6efd1412;
 }
 
 .nav-item a {
@@ -64,6 +69,12 @@ body.login-page {
     padding: 0;
 }
 
+.login-page {
+    background-image: url('/assets/login-bg.jpg');
+    background-size: cover;
+    background-position: center bottom;
+}
+
 .login-logo {
     color: black;
 }
@@ -77,4 +88,24 @@ input[type='file'] {
 .widget-user-2 .widget-user-header {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+/* .card-main:not(.card-outline) .card-header {
+    background-color: #3d9970;
+    color: #fff;
+} */
+
+.card-info:not(.card-outline) .card-header {
+    background-color: #92a3957a;
+    color: #3e6956;
+}
+
+.bg-info .btn-tool, .bg-gradient-info .btn-tool, .card-info:not(.card-outline) .btn-tool,
+.bg-info .btn-tool:hover, .bg-gradient-info .btn-tool:hover, .card-info:not(.card-outline) .btn-tool:hover {
+    color: #3e6956;
+}
+
+.btn-primary {
+    background-color: #3d9970;
+    border-color: #3d9970;
 }

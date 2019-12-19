@@ -29,19 +29,11 @@
     <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
       <!-- Navbar -->
-      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <nav class="main-header navbar navbar-expand navbar-light">
         <!-- Left navbar links -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-          </li>
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="/" class="nav-link">Home</a>
-          </li>
-        </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-            <g:link controller='logout'>
+            <g:link controller='logout' class="nav-link">
                 Logout
                 <i class="fas fa-sign-out-alt"></i>
             </g:link>
@@ -49,11 +41,11 @@
         </ul>
        </nav>
          <!-- Main Sidebar Container -->
-         <aside class="main-sidebar sidebar-dark-primary elevation-4">
+         <aside class="main-sidebar sidebar-light-olive elevation-4">
            <!-- Brand Logo -->
            <a href="index3.html" class="brand-link">
-             <asset:image src="AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8" />
-             <span class="brand-text font-weight-light">masave</span>
+             <asset:image src="Logo.png" alt="AdminLTE Logo" class="brand-image img-circle" style="opacity: .8" />
+             <span class="brand-text font-weight-light">Masiaventura</span>
            </a>
 
            <!-- Sidebar -->
@@ -77,7 +69,7 @@
                       with font-awesome or any other icon font library -->
                  <li class="nav-item has-treeview menu-open">
                    <a href="#" class="nav-link active">
-                     <i class="nav-icon fas fa-database"></i>
+                     <i class="nav-icon fas fa-home"></i>
                      <p>
                        Asociacion
                        <i class="right fas fa-angle-left"></i>
@@ -86,13 +78,13 @@
                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <g:link controller="person" class="nav-link" action="index">
-                             <i class="far fa-circle nav-icon"></i>
+                             <i class="far fa-user nav-icon"></i>
                              <p>Personas</p>
                            </g:link>
                        </li>
                         <li class="nav-item">
                             <g:link controller="process" class="nav-link" action="index">
-                             <i class="far fa-circle nav-icon"></i>
+                             <i class="far fa-calendar-alt nav-icon"></i>
                              <p>Procesos</p>
                            </g:link>
                        </li>
@@ -110,31 +102,31 @@
                        <ul class="nav nav-treeview">
                           <li class="nav-item">
                               <g:link controller="project" class="nav-link" action="index">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-project-diagram nav-icon"></i>
                                 <p><g:message code="layout.main.projects"/></p>
                               </g:link>
                           </li>
                           <li class="nav-item">
                                 <g:link controller="documentType" class="nav-link" action="index">
-                                  <i class="far fa-circle nav-icon"></i>
+                                  <i class="fas fa-file nav-icon"></i>
                                   <p>Tipos de documento ID</p>
                                 </g:link>
                             </li>
                             <li class="nav-item">
                                 <g:link controller="processType" class="nav-link" action="index">
-                                 <i class="far fa-circle nav-icon"></i>
+                                 <i class="fas fa-calendar-plus nav-icon"></i>
                                  <p>Tipos de procesos</p>
                                </g:link>
                            </li>
                             <li class="nav-item">
                                 <g:link controller="country" class="nav-link" action="index">
-                                 <i class="far fa-circle nav-icon"></i>
+                                 <i class="fas fa-globe-africa nav-icon"></i>
                                  <p>Paises</p>
                                </g:link>
                            </li>
                              <li class="nav-item">
                                    <g:link controller="genre" class="nav-link" action="index">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fas fa-venus-mars nav-icon"></i>
                                     <p>Generos</p>
                                   </g:link>
                               </li>
@@ -151,7 +143,7 @@
                          <ul class="nav nav-treeview">
                              <li class="nav-item">
                                <g:link controller="user" class="nav-link" action="index">
-                                 <i class="far fa-circle nav-icon"></i>
+                                 <i class="fas fa-users nav-icon"></i>
                                  <p>Users</p>
                                </g:link>
                            </li>
