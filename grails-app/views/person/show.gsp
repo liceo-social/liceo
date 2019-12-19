@@ -123,6 +123,11 @@
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-one-projects" role="tabpanel" aria-labelledby="custom-tabs-one-projects-tab">
                           ${person.project?.name}
+
+                               <g:set var="processList" value="${Process.findAllByPerson(person)}" />
+                          <f:table collection="processList" properties="type, description"/>
+
+
                           <g:link controller="process" action="create" params="[project: person.project?.id, person: person.id]">
                             Crear Proceso
                           </g:link>
