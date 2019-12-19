@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-6">
                             <div class="remember">
                                  <input type="checkbox"
                                      name="${rememberMeParameter ?: 'remember-me'}"
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <!-- /.col -->
-                        <div class="col-4">
+                        <div class="col-6">
                             <button type="submit" class="btn btn-primary btn-block">Logarme</button>
                         </div>
                         <!-- /.col -->

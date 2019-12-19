@@ -26,7 +26,7 @@ class UrlMappings {
         /**
          * HOME
          */
-        '/'(controller: 'home')
+        '/'(controller: 'person')
 
         /**
          * LOGIN
