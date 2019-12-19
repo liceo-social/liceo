@@ -16,13 +16,19 @@ class ImportCsvService {
 
     private static final String USERS_CSV_FILE = "csv/users.csv"
     private static final String PERSONS_CSV_FILE = "csv/persons.csv"
+    private static final String PROCESS_TYPES_CSV_FILE = "csv/process_types.csv"
+    private static final String PROCESSES_CSV_FILE = "csv/processes.csv"
+    private static final String PROJECTS_CSV_FILE = "csv/projects.csv"
 
     def loadInitialData() {
         log.debug 'Creating initial data ...'
 
         try {
             loadUsers()
+            loadProcessTypes()
             loadPersons()
+            loadProjects()
+            loadProcesses()
 
             log.debug '... finished creating initial data'
             log.debug ''
@@ -41,6 +47,50 @@ class ImportCsvService {
                 name: userData.name,
                 username: userData.username,
                 password: userData.password
+            ).save(failOnError: true)
+        }
+    }
+
+    void loadProcessTypes() {
+        String csv = new File(PROCESS_TYPES_CSV_FILE).getText('UTF-8')
+
+        def processTypesList = parseCsv(csv)
+
+        processTypesList.each { processTypeData ->
+            ProcessType processType = new ProcessType(
+               name: processTypeData.name,
+               description: processTypeData.description
+            ).save(failOnError: true)
+        }
+    }
+
+    void loadProjects() {
+        String csv = new File(PROJECTS_CSV_FILE).getText('UTF-8')
+
+        def projectsList = parseCsv(csv)
+
+        projectsList.each { projectsData ->
+            Project project = new Project(
+                name: projectsData.name,
+                description: projectsData.description
+            ).save(failOnError: true)
+        }
+    }
+
+    void loadProcesses() {
+        String csv = new File(PROCESSES_CSV_FILE).getText('UTF-8')
+
+        def processList = parseCsv(csv)
+
+        processList.each { processData ->
+            Process processType = new Process(
+                meetingDate: processData.meetingDate ?
+                    new SimpleDateFormat('dd/MM/yyyy').parse(processData.meetingDate)
+                    : null,
+                description: processData.description,
+                type: ProcessType.get(processData.typeId),
+                person: Person.get(processData.personId),
+                project: Project.get(processData.projectId),
             ).save(failOnError: true)
         }
     }
