@@ -1,3 +1,7 @@
+<%@ page import="ma.*" %>
+<%@ page import="ma.person.*" %>
+<%@ page import="ma.security.*" %>
+
 <content tag="title">Detalle Persona</content>
 <content tag="breadcrumb">
     <li class="breadcrumb-item">
@@ -118,7 +122,10 @@
                           </div>
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-one-projects" role="tabpanel" aria-labelledby="custom-tabs-one-projects-tab">
-                          PROYECTOS
+                          ${person.project?.name}
+                          <g:link controller="process" action="create" params="[project: person.project?.id, person: person.id]">
+                            Crear Proceso
+                          </g:link>
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-one-relationships" role="tabpanel" aria-labelledby="custom-tabs-one-relationships-tab">
                           FAMILIA
