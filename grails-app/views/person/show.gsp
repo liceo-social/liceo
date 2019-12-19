@@ -38,17 +38,17 @@
                 </div>
                 <div class="card-body show-data">
                   <div class="col-md-6">
-                    <p>Nombre</p>
-                    <p>Primer apellido</p>
-                    <p>Sexo</p>
-                    <p>Fecha de nacimiento</p>
-                    <p>Contacto</p>
+                    <p><strong>Nombre: </strong><f:display bean="person" property="name"/></p>
+                    <p><strong>Primer apellido: </strong><f:display bean="person" property="firstSurname"/></p>
+                    <p><strong>Segundo apellido: </strong><f:display bean="person" property="secondSurname"/></p>
+                    <p><strong>Fecha de nacimiento: </strong><f:display bean="person" property="birthDate"/></p>
+                    <p><strong>Contacto: </strong><f:display bean="person" property="contact1"/></p>
                   </div>
                   <div class="col-md-6">
-                    <p>Profesional de referencia</p>
-                    <p>Via de acceso</p>
-                    <p>Fecha de alta</p>
-                    <p>Estado</p>
+                    <p><strong>Profesional de referencia: </strong><f:display bean="person" property="professionalReference"/></p>
+                    <p><strong>Via de acceso: </strong><f:display bean="person" property="cameFrom"/></p>
+                    <p><strong>Fecha de alta: </strong><f:display bean="person" property="registrationAt"/></p>
+                    <p><strong>Estado: </strong><f:display bean="person" property="active"/></p>
                   </div>
                 </div>
               </div>
@@ -72,52 +72,47 @@
                         <div class="tab-pane fade show active col-12" id="custom-tabs-one-person" role="tabpanel" aria-labelledby="custom-tabs-one-person-tab">
                           <div class="row show-data">
                             <div class="col-md-6 block-data">
-                              <p>Segundo apellido</p>
-                              <p>Nacionalidad</p>
-                              <p>Provincia de nacimiento</p>
-                              <p>Origen cultural</p>
+                              <p>Nacionalidad: <f:display bean="person" property="nationality"/></p>
+                              <p>Provincia de nacimiento: <f:display bean="person" property="regionOfBirth"/></p>
+                              <p>Origen cultural: <f:display bean="person" property="culturalUpbringing"/></p>
                             </div>
                             <div class="col-md-6 block-data">
-                              <p>Nivel formativo</p>
-                              <p>Situación formativo laboral</p>
-                              <p>Centro de estudios</p>
-                              <p>Experiencia profesional</p>
+                              <p>Nivel formativo: <f:display bean="person" property="studiesLevel"/></p>
+                              <p>Situación formativo laboral: <f:display bean="person" property="studiesCenter"/></p>
+                              <p>Centro de estudios: <f:display bean="person" property="professionalStatus"/></p>
+                              <p>Experiencia profesional: <f:display bean="person" property="professionalBackground"/></p>
                             </div>
                             <div class="col-md-6 block-data">
-                              <p>Fecha de baja</p>
-                              <p>Motivo de baja</p>
+                              <p>Tipo de vía: <f:display bean="person" property="streetType"/></p>
+                              <p>Vía: <f:display bean="person" property="street"/></p>
+                              <p>Número: <f:display bean="person" property="number"/></p>
+                              <p>Escalera: <f:display bean="person" property="ladder"/></p>
+                              <p>Planta: <f:display bean="person" property="floor"/></p>
+                              <p>Puerta: <f:display bean="person" property="door"/></p>
+                              <p>Barrio: <f:display bean="person" property="neighborhood"/></p>
+                              <p>Districto: <f:display bean="person" property="district"/></p>
+                              <p>Código postal: <f:display bean="person" property="postalCode"/></p>
+                              <p>Contacto 2: <f:display bean="person" property="contact2"/></p>
+                              <p>Contacto 3: <f:display bean="person" property="contact3"/></p>
                             </div>
                             <div class="col-md-6 block-data">
-                              <p>Documento de identificación</p>
-                              <p>Número</p>
+                              <p>Centro de servicios sociales: <f:display bean="person" property="center"/></p>
+                              <p>Trabajador social: <f:display bean="person" property="socialWorker"/></p>
+                              <p>Tiene expediente en atención primaria: <f:display bean="person" property="hasPrimaryAttentionFile"/></p>
+                              <p>Tiene intervención con otros recursos: <f:display bean="person" property="hasOtherResourcesCase"/></p>
+                              <p>Otros recursos: <f:display bean="person" property="otherResourcesCase"/></p>
+                              <p>Caso en ETMF: <f:display bean="person" property="etmfCase"/></p>
+                              <p>Tiene expediente en CAI: <f:display bean="person" property="hasCaiFile"/></p>
+                              <p>Caso en CAF: <f:display bean="person" property="cafCase"/></p>
                             </div>
                             <div class="col-md-6 block-data">
-                              <p>Tipo de vía</p>
-                              <p>Vía</p>
-                              <p>Número</p>
-                              <p>Escalera</p>
-                              <p>Planta</p>
-                              <p>Puerta</p>
-                              <p>Barrio</p>
-                              <p>Districto</p>
-                              <p>Código postal</p>
-                              <p>Contacto 2</p>
-                              <p>Contacto 3</p>
+                              <p>Alergia o intolerancia: <f:display bean="person" property="allergies"/></p>
+                              <p>Enfermedad: <f:display bean="person" property="illnesses"/></p>
+                              <p>Mediación: <f:display bean="person" property="medication"/></p>
                             </div>
                             <div class="col-md-6 block-data">
-                              <p>Centro de servicios sociales</p>
-                              <p>Trabajador social</p>
-                              <p>Tiene expediente en atención primaria</p>
-                              <p>Tiene intervención con otros recursos</p>
-                              <p>Otros recursos</p>
-                              <p>Caso en ETMF</p>
-                              <p>Tiene expediente en CAI</p>
-                              <p>Caso en CAF</p>
-                            </div>
-                            <div class="col-md-6 block-data">
-                              <p>Alergia o intolerancia</p>
-                              <p>Enfermedad</p>
-                              <p>Mediación</p>
+                              <p>Documento de identificación: <f:display bean="person" property="documentType"/></p>
+                              <p>Número: <f:display bean="person" property="identification"/></p>
                             </div>
                           </div>
                         </div>
