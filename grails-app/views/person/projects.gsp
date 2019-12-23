@@ -1,4 +1,4 @@
-<content tag="title">Detalle Persona</content>
+<content tag="title">Projectos</content>
 <content tag="breadcrumb">
     <li class="breadcrumb-item">
         <g:link controller="home">Home</g:link>
@@ -6,7 +6,7 @@
     <li class="breadcrumb-item">
         <g:link controller="person">Persona</g:link>
     </li>
-    <li class="breadcrumb-item active">Detalle</li>
+    <li class="breadcrumb-item active">Proyectos</li>
 </content>
 <!DOCTYPE html>
 <html>
@@ -28,11 +28,11 @@
           <div class="col-md-12">
               <div class="card card-primary card-tabs">
                   <div class="card-header p-0 pt-1">
-                      <g:render template="show/tabs" model="[tabName: 'detail']" />
+                      <g:render template="show/tabs" model="[tabName: 'projects']" />
                   </div>
                   <div class="card-body">
                     <div class="tab-content" id="custom-tabs-one-tabContent">
-                      <g:render template="show/tab_personal_data" />
+                      <g:render template="show/tab_projects" />
                   </div>
               </div>
           </div>

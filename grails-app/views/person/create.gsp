@@ -18,16 +18,16 @@
     <body>
         <g:form resource="/person" method="POST" class="form row">
             <div class="col-md-6">
-                <g:render template="templates/mandatory" />
+                <g:render template="create/mandatory" />
             </div>
             <div class="col-md-6">
-                <g:render template="templates/projects" />
-                <g:render template="templates/personal_data" />
-                <g:render template="templates/administration" />
-                <g:render template="templates/contact" />
-                <g:render template="templates/occupational" />
-                <g:render template="templates/health" />
-                <g:render template="templates/social_services" />
+                <g:render template="create/projects" />
+                <g:render template="create/personal_data" />
+                <g:render template="create/administration" />
+                <g:render template="create/contact" />
+                <g:render template="create/occupational" />
+                <g:render template="create/health" />
+                <g:render template="create/social_services" />
             </div>
         </g:form>
     </body>

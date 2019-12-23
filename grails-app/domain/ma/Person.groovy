@@ -11,7 +11,7 @@ import ma.person.SocialServices
 
 class Person implements Auditable, Identification, PersonalInformation, Administration, Address, OccupationalTraining, Health, SocialServices {
 
-    static belongsTo = [project: Project]
+    static hasMany = [projects: Project]
 
     @BindingFormat('dd/MM/yyyy')
     Date registrationAt
@@ -27,7 +27,7 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
         regionOfBirth nullable: true
         culturalUpbringing nullable: true
 
-        project nullable: true
+        projects nullable: true
         identification nullable: false
 
         street nullable: true

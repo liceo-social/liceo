@@ -1,0 +1,1 @@
+<g:formatDate format="dd/MM/yyyy" value="${value}" />

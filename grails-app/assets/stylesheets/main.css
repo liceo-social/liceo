@@ -15,6 +15,10 @@ a, a:hover,
     margin-top: 0;
 }
 
+.card-body p {
+    margin-bottom: .5em;
+}
+
 ul.nav-grails {
     margin-bottom: .8em; margin-left: 0.2em;
 }

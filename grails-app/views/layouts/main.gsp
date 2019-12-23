@@ -25,7 +25,9 @@
         <script>
         $(document).ready(function() {
             $('select').select2();
-             $('.summernote').summernote();
+             $('.summernote').summernote({
+              height: 250
+             });
         });
         </script>
         <g:layoutHead/>

@@ -9,13 +9,13 @@
     <!-- /.card-header -->
     <div class="card-body">
         <f:field
-            label="Proyecto"
+            label="Elige a que proyectos estara vinculada la persona"
             bean="person"
-            property="project"
-            value="${person?.project}"
+            property="projects"
+
             widget-optionKey="id"
             widget-optionValue="name"
-            widget-value="${person?.project?.id}"
+
             widget-from="${Project.list()}" />
     </div>
     <!-- /.card-body -->

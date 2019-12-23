@@ -16,9 +16,6 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-    <g:eachError bean="${process}">
-        <li>${it}</li>
-    </g:eachError>
         <div id="create-process" class="card" role="main">
             <g:form resource="/process" method="POST">
                 <div class="card-header">
@@ -39,7 +36,7 @@
                 </div>
                 <div class="card-body">
                    <div class="col-md-12">
-                    <g:render template="/templates/header_info" />
+                    <g:render template="create/header_info" />
                      <f:field
                          label="Fecha"
                          bean="process"
