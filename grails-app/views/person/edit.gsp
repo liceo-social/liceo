@@ -6,7 +6,7 @@
     <li class="breadcrumb-item">
         <g:link controller="person">Persona</g:link>
     </li>
-    <li class="breadcrumb-item active">Nueva</li>
+    <li class="breadcrumb-item active">Editar</li>
 </content>
 <!DOCTYPE html>
 <html>
@@ -16,7 +16,7 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <g:form resource="/person" method="POST" class="form row">
+        <g:form name="edit-form" action="update" id="${person.id}" class="form row">
             <div class="col-md-6">
                 <div class="card card-main">
                     <div class="card-header">
@@ -27,9 +27,9 @@
                     </div>
                     <div class="card-footer">
                         <g:submitButton
-                            name="create"
+                            name="update"
                             class="btn btn-primary save"
-                            value="${message(code: 'default.button.create.label', default: 'Create')}" />
+                            value="${message(code: 'default.button.update.label', default: 'Update')}" />
                     </div>                
                 </div>
             </div>

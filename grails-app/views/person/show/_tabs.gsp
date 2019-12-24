@@ -11,14 +11,6 @@
   </li>
   <li class="nav-item">
     <g:link controller="person"
-        action="projects"
-        id="${person.id}"
-        class="nav-link ${tabName == 'projects' ? 'active' : ''}"
-        aria-controls="custom-tabs-one-projects"
-        aria-selected="false">Proyectos</g:link>
-  </li>
-  <li class="nav-item">
-    <g:link controller="person"
         action="processes"
         id="${person.id}"
         class="nav-link ${tabName == 'processes' ? 'active' : ''}"

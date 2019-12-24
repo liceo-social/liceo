@@ -49,7 +49,7 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
         illnesses nullable: true
         medication nullable: true
 
-        professionalReference nullable: true
+        professionalReference nullable: false
         cameFromAlternative nullable: true
         deletionMotivation nullable: true
         deletedAt nullable: true
