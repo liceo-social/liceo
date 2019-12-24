@@ -23,4 +23,8 @@ class Process implements Auditable {
         type nullable: false
         meetingDate nullable: true
     }
+
+    static mapping = {
+        sort meetingDate: 'desc'
+    }
 }

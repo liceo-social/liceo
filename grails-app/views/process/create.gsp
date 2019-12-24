@@ -1,3 +1,6 @@
+<%@ page import="ma.*" %>
+<%@ page import="ma.person.*" %>
+<%@ page import="ma.security.*" %>
 <content tag="title">Nuevo proceso</content>
 <content tag="breadcrumb">
     <li class="breadcrumb-item">
@@ -16,50 +19,42 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div id="create-process" class="card" role="main">
+        <div class="card card-widget widget-user-2">
             <g:form resource="/process" method="POST">
-                <div class="card-header">
-                    <h3 class="card-title">
-                        ${message}
-                        <g:message code="default.create.label" args="[entityName]" />
-                    </h3>
-                    <div class="card-tools">
-                        <ul class="nav nav-grails">
-                            <li class="nav-item">
-                                <g:link class="list" action="index">
-                                   <i class="nav-icon fas fa-list"></i>
-                                   <g:message code="default.list.label" args="[entityName]" />
-                                </g:link>
-                             </li>
-                        </ul>
+                <!-- Add the bg color to the header using any of the bg-* classes -->
+                <div class="widget-user-header bg-primary">
+                    <div class="widget-user-image">
+                        <g:img class="img-circle elevation-2" dir="images" file="default_user.jpg" />
                     </div>
+                    <!-- /.widget-user-image -->
+                    <h3 class="widget-user-username">Persona: ${process?.person?.name}</h3>
+                    <h5 class="widget-user-desc">Proyecto: ${process?.project?.name ?: 'Sin proyecto'}</h5>
                 </div>
                 <div class="card-body">
-                   <div class="col-md-12">
-                    <g:render template="create/header_info" />
-                     <f:field
-                         label="Fecha"
-                         bean="process"
-                         property="meetingDate"
-                         widget-value="${process?.meetingDate}"/>
-                    <f:field
-                        label="Tipo de proceso"
-                        bean="process"
-                        property="type"
-                        value="${process?.type}"
-                        widget-optionKey="id"
-                        widget-optionValue="name"
-                        widget-value="${process?.type?.id}"
-                        widget-from="${processTypeList}" />
-                     <f:field
-                         widget-placeholder="Contenido"
-                         label="Contenido"
-                         bean="process"
-                         widget-rich="true"
-                         property="description"/>
-                     <g:hiddenField name="person.id" value="${person?.id}" />
-                     <g:hiddenField name="project.id" value="${project?.id}" />
-                   </div>
+                    <fieldset>
+                        <f:field
+                            label="Fecha"
+                            bean="process"
+                            property="meetingDate"
+                            widget-value="${process?.meetingDate}"/>
+                        <f:field
+                            label="Tipo de proceso"
+                            bean="process"
+                            property="type"
+                            value="${process?.type}"
+                            widget-optionKey="id"
+                            widget-optionValue="name"
+                            widget-value="${process?.type?.id}"
+                            widget-from="${ProcessType.list()}" />
+                        <f:field
+                            widget-placeholder="Contenido"
+                            label="Contenido"
+                            bean="process"
+                            widget-rich="true"
+                            property="description"/>
+                        <g:hiddenField name="person.id" value="${process?.person?.id}" />
+                        <g:hiddenField name="project.id" value="${process?.project?.id}" />                        
+                    </fieldset>
                 </div>
                 <div class="card-footer">
                     <fieldset class="buttons">

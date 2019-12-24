@@ -12,11 +12,21 @@ class ProcessController {
         }
 
         return [
-            person: Person.get(creation.person),
-            project: Project.get(creation.project),
-            processTypeList: ProcessType.list(),
-            process: new Process()
+            process: new Process(
+                person: Person.get(creation.person),
+                project: Project.get(creation.project)
+            )
         ]
+    }
+
+    def save(Process process) {
+        if (process.hasErrors()) {
+            respond(process.errors, view: 'create', model: [process: process])
+            return
+        }
+
+        process.save()
+        redirect(controller: 'person', action: 'processes', id: process.person.id)
     }
 }
 
