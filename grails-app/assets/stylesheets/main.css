@@ -124,3 +124,16 @@ input[type='file'] {
 .error span.select2-selection.select2-selection--single {
     border-color: var(--red);
 }
+
+.error div.note-editor.note-frame.card {
+    border-color: var(--red);
+}
+
+.breadcrumb-item {
+    font-variant: small-caps;
+}
+
+.show-html {
+    border: 1px solid var(--cyan);
+    padding: 1.5em;
+}

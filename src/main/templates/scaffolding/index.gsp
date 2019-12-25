@@ -1,8 +1,17 @@
+<g:set var="entityName" value="\${message(code: '${propertyName}.label', default: '${className}')}" />
+<content tag="title"><g:message code="default.list.label" args="[entityName]" />s</content>
+<content tag="breadcrumb">
+    <li class="breadcrumb-item">
+        <g:link url="/">Home</g:link>
+     </li>
+    <li class="breadcrumb-item">
+        <g:link controller="person"><g:message code="default.list.label" args="[entityName]" /></g:link>
+    </li>
+</content>
 <!DOCTYPE html>
 <html>
     <head>
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="\${message(code: '${propertyName}.label', default: '${className}')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>

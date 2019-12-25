@@ -1,6 +1,6 @@
-id,personId,typeId,description,projectId,meetingDate
-1,1,1,Nos hemos reunido para la gestión de la ayuda económica del 2020. Sin presupuesto.,1,01/01/2019
-2,2,2,"La reunión ha sido productiva, Juanita ha mejorado mucho en los objetivos planteados para el trimestre y la valoración de su tutora es positiva.",2,01/01/2019
-3,3,3,Definimos conjuntamente con la familia los objetivos a trabajar en el proyecto. ,3,
-4,3,2,Recogemos información del centro educativo para conocer la situación escolar de Cayetano a petición del centro. Informamos de la posibilidad de participar en el proyecto de atención psicológica de la asociación.,2,01/01/2019
-5,4,3,"Esperanza no considera que su hijo necesite atención psicológica, pero verbaliza que lo pensarán. Quedamos a la espera de confirmación para plaza.",2,01/01/2019
+id,personId,typeId,description,content,projectId,meetingDate
+1,1,1,"Nos hemos reunido para la gestión de la ayuda económica del 2020. Sin presupuesto.",content,1,01/01/2019
+2,2,2,"La reunión ha sido productiva, Juanita ha mejorado mucho en los objetivos planteados para el trimestre y la valoración de su tutora es positiva.",content,2,01/01/2019
+3,3,3,"Definimos conjuntamente con la familia los objetivos a trabajar en el proyecto.",content,3,01/01/2019
+4,3,2,"Recogemos información del centro educativo para conocer la situación escolar de Cayetano a petición del centro. Informamos de la posibilidad de participar en el proyecto de atención psicológica de la asociación.",content,2,01/01/2019
+5,4,3,"Primera evaluacion psicológica.",content,2,01/01/2019

@@ -66,6 +66,10 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
         etmfCase nullable: true
     }
 
+    String getFullname() {
+        return "${this.name} ${this.firstSurname}"
+    }
+
     @Override
     String toString() {
         return name

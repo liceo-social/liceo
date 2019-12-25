@@ -1,6 +1,3 @@
-<%@ page import="ma.*" %>
-<%@ page import="ma.person.*" %>
-<%@ page import="ma.security.*" %>
 <content tag="title">Nuevo proceso</content>
 <content tag="breadcrumb">
     <li class="breadcrumb-item">
@@ -25,7 +22,7 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <g:form resource="/process" method="POST">
+        <g:form name="process-update" action="update" id="${process.id}" method="POST">
             <div class="card">    
                 <!-- Add the bg color to the header using any of the bg-* classes -->
                 <div class="card-header">
@@ -36,7 +33,7 @@
                 </div>
                 <div class="card-footer">
                     <fieldset class="buttons">
-                        <g:submitButton name="create" class="btn btn-primary save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+                        <g:submitButton name="create" class="btn btn-primary save" value="${message(code: 'default.button.update.label', default: 'Update')}" />
                         <g:link 
                             controller="person" 
                             action="processes" 

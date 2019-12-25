@@ -88,6 +88,7 @@ class ImportCsvService {
                     new SimpleDateFormat('dd/MM/yyyy').parse(processData.meetingDate)
                     : null,
                 description: processData.description,
+                content: processData.content,
                 type: ProcessType.get(processData.typeId),
                 person: Person.get(processData.personId),
                 project: Project.get(processData.projectId),

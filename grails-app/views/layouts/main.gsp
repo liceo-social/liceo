@@ -49,10 +49,10 @@
          <!-- Main Sidebar Container -->
          <aside class="main-sidebar sidebar-light-olive elevation-4">
            <!-- Brand Logo -->
-           <a href="index3.html" class="brand-link">
+           <g:link controller="person" class="brand-link">
              <asset:image src="Logo.png" alt="AdminLTE Logo" class="brand-image img-circle" style="opacity: .8" />
              <span class="brand-text font-weight-light">Masiaventura</span>
-           </a>
+           </g:link>
 
            <!-- Sidebar -->
            <div class="sidebar">
@@ -175,17 +175,23 @@
         </section>
         <!-- /.content-header -->
 
-            <section class="content">
-              <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
-                <div class="row">
-                  <div class="col-12">
-                      <g:layoutBody/>
-                  </div>
-                </div>
+        <section class="content">
+          <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+              <div class="col-md-12">
+                <g:render template="/templates/messages/flash_message" />
               </div>
-            </section>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                  <g:layoutBody/>
+              </div>
+            </div>
           </div>
+        </section>
+        
+      </div>
     </div>
     <asset:javascript src="jquery.js"/>
     <asset:javascript src="bootstrap/bootstrap.bundle.js" />

@@ -12,6 +12,7 @@ class Process implements Auditable {
     @BindingFormat('dd/MM/yyyy')
     Date meetingDate
     String description
+    String content
     ProcessType type
 
     String toString() {
@@ -20,11 +21,13 @@ class Process implements Auditable {
 
     static constraints = {
         description nullable: false
+        content nullable: false
         type nullable: false
-        meetingDate nullable: true
+        meetingDate nullable: false
     }
 
     static mapping = {
         sort meetingDate: 'desc'
+        content type: 'text'
     }
 }

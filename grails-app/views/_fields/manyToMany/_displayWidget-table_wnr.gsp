@@ -1,0 +1,1 @@
+manytomany table_wnr

@@ -1,12 +1,15 @@
-<content tag="title">Detalle Persona</content>
+<content tag="title">Persona</content>
 <content tag="breadcrumb">
     <li class="breadcrumb-item">
-        <g:link controller="home">Home</g:link>
+        <g:link controller="home">home</g:link>
      </li>
     <li class="breadcrumb-item">
-        <g:link controller="person">Persona</g:link>
+        <g:link controller="person">personas</g:link>
     </li>
-    <li class="breadcrumb-item active">Detalle</li>
+    <li class="breadcrumb-item">
+        <g:link controller="person" action="show" id="${person.id}">detalle</g:link>
+    </li>
+    <li class="breadcrumb-item active">datos personales</li>
 </content>
 <!DOCTYPE html>
 <html>
@@ -16,16 +19,11 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="row">
-          <div class="col-md-12">
-              <g:if test="${flash.message}">
-                  <div class="message" role="status">\${flash.message}</div>
-              </g:if>
-              <g:render template="show/person_header" />
-          </div>
-        </div>
       <div class="row">
-          <div class="col-md-12">
+         <div class="col-md-3">
+            <g:render template="show/person_header" />
+         </div>
+          <div class="col-md-9">
               <div class="card card-primary card-tabs">
                   <div class="card-header p-0 pt-1">
                       <g:render template="show/tabs" model="[tabName: 'detail']" />

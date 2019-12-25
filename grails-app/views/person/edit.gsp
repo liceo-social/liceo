@@ -1,4 +1,4 @@
-<content tag="title">Nueva Persona</content>
+<content tag="title">${person.fullname}</content>
 <content tag="breadcrumb">
     <li class="breadcrumb-item">
         <g:link controller="home">Home</g:link>
@@ -6,7 +6,7 @@
     <li class="breadcrumb-item">
         <g:link controller="person">Persona</g:link>
     </li>
-    <li class="breadcrumb-item active">Editar</li>
+    <li class="breadcrumb-item active">Edicion</li>
 </content>
 <!DOCTYPE html>
 <html>

@@ -32,7 +32,11 @@
            </div>
            <div class="card-body">
                 <g:if test="${processes}">
-                    <f:table collection="${processes}" properties="id, meetingDate, project, type, description"/>
+                    <f:table 
+                        collection="${processes}" 
+                        displayStyle="table_wnr"                         
+                        properties="description, meetingDate, project, type" 
+                        linkColumn="description" />
                 </g:if>
                 <g:else>
                     No hay resultados

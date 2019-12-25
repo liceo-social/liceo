@@ -1,12 +1,12 @@
 <content tag="title">Nueva Persona</content>
 <content tag="breadcrumb">
     <li class="breadcrumb-item">
-        <g:link controller="home">Home</g:link>
+        <g:link controller="home">home</g:link>
      </li>
     <li class="breadcrumb-item">
-        <g:link controller="person">Persona</g:link>
+        <g:link controller="person">personas</g:link>
     </li>
-    <li class="breadcrumb-item active">Nueva</li>
+    <li class="breadcrumb-item active">nueva</li>
 </content>
 <!DOCTYPE html>
 <html>

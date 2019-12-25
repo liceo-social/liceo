@@ -1,0 +1,1 @@
+oneToMany table_wnr

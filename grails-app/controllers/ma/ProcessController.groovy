@@ -26,7 +26,12 @@ class ProcessController {
         }
 
         process.save()
-        redirect(controller: 'person', action: 'processes', id: process.person.id)
+
+        redirect(
+            controller: 'process', 
+            action: 'show', 
+            id: process.id
+        )
     }
 }
 
