@@ -14,7 +14,7 @@
         action="processes"
         id="${person.id}"
         class="nav-link ${tabName == 'processes' ? 'active' : ''}"
-        aria-controls="custom-tabs-one-projects"
+        aria-controls="custom-tabs-two-projects"
         aria-selected="false">Procesos</g:link>
   </li>
 </ul>

@@ -137,3 +137,11 @@ input[type='file'] {
     border: 1px solid var(--cyan);
     padding: 1.5em;
 }
+
+.profile-username {
+    margin-bottom: 2em;
+}
+
+.img-profile {
+    height: 160px;
+}

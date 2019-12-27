@@ -1,18 +1,10 @@
 package ma
 
+import ma.storage.Attachment
+
 class PersonController {
 
   static scaffold = Person
-
-  /**
-   * Shows all projects of a given person
-   *
-   * @param person person to get the projects from
-   * @since 0.1.0
-   */
-  def projects(Person person) {
-    render(view: 'projects', model: [person: person])
-  }
 
   /**
    * Shows processes of a given person and if provided
@@ -35,5 +27,29 @@ class PersonController {
             project: projectId ? Project.get(projectId) : null
         ]
     )
+  }
+
+  /**
+   * Shows person's photo edit form
+   *
+   * @param person the person u want to change the photo of
+   */
+  def editPhoto(Person person) {
+    render(view: 'photoEdit', model: [person: person])
+  }
+
+  /**
+   * Stores the new person's photo
+   *
+   * @param person the person u want to change the photo of
+   */
+  def updatePhoto(Person person) {
+    if (person.photo) {
+      Person.withTransaction {
+        person.save(failOnError: true, flush: true)
+      }
+    }
+
+    redirect(action: 'show', params: [id: person.id])
   }
 }

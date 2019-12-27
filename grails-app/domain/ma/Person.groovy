@@ -8,6 +8,7 @@ import ma.person.Identification
 import ma.person.OccupationalTraining
 import ma.person.PersonalInformation
 import ma.person.SocialServices
+import ma.storage.Attachment
 
 class Person implements Auditable, Identification, PersonalInformation, Administration, Address, OccupationalTraining, Health, SocialServices {
 
@@ -18,6 +19,8 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
 
     @BindingFormat('dd/MM/yyyy')
     Date birthDate
+
+    Attachment photo
 
     static constraints = {
         name nullable: false
@@ -64,6 +67,8 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
         cafCase nullable: true
         center nullable: true
         etmfCase nullable: true
+
+        photo nullable: true
     }
 
     String getFullname() {

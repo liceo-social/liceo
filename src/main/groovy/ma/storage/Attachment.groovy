@@ -1,5 +1,6 @@
 package ma.storage
 
+import grails.gorm.annotation.Entity 
 import grails.util.Holders
 
 /**
@@ -7,6 +8,7 @@ import grails.util.Holders
  *
  * @since 0.1.0
  */
+ @Entity
 class Attachment {
 
     /**

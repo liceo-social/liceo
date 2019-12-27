@@ -21,7 +21,7 @@
     <body>
       <div class="row">
          <div class="col-md-3">
-            <g:render template="show/person_header" />
+            <g:applyLayout name="personHeader" template="photo/show" />
          </div>
           <div class="col-md-9">
               <div class="card card-primary card-tabs">
