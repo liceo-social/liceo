@@ -97,8 +97,9 @@ class BootStrap {
     }
 
     private void createCountries() {
-        ['Spain', 'France'].each { String name ->
-            new Country(name: name).save()
+        [['Spain', 'ES'], ['France', 'FR']].each { List values ->
+            def (name, code) = values
+            new Country(name: name, code: code).save()
         }
     }
 
