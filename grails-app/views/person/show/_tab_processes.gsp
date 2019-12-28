@@ -30,13 +30,13 @@
            <div class="card-header">
                <h3 class="card-title">Procesos:</h3>
            </div>
-           <div class="card-body">
+           <div class="card-body p-0">
                 <g:if test="${processes}">
                     <f:table 
                         collection="${processes}" 
-                        displayStyle="table_wnr"                         
-                        properties="description, meetingDate, project, type" 
-                        linkColumn="description" />
+                        displayStyle="table_wnr"
+                        template="table_processes"
+                        properties="description, meetingDate, project, type" />
                 </g:if>
                 <g:else>
                     No hay resultados

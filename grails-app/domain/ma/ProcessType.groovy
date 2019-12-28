@@ -1,5 +1,7 @@
 package ma
 
+import ma.domain.Utils
+
 class ProcessType implements Auditable {
 
     static belongsTo = Process
@@ -8,7 +10,7 @@ class ProcessType implements Auditable {
     String description
 
     String toString() {
-        return name
+        Utils.getAcronym(this, "name")        
     }
 
     static constraints = {

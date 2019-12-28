@@ -1,5 +1,7 @@
 package ma
 
+import ma.domain.Utils
+
 class Project implements Auditable {
 
     static belongsTo = Person
@@ -12,7 +14,7 @@ class Project implements Auditable {
     String description
 
     String toString() {
-        return name
+        return Utils.getAcronym(this, "name")
     }
 
     static constraints = {

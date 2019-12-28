@@ -145,3 +145,17 @@ input[type='file'] {
 .img-profile {
     height: 160px;
 }
+
+.table-ma td {
+    height: 4em;
+    vertical-align: middle;
+}
+
+.table-ma td.contained {
+    line-height: 1.5em;
+    
+}
+
+.table-ma td.actions {
+    width: 18em;
+}
