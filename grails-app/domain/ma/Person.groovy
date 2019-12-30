@@ -9,6 +9,7 @@ import ma.person.OccupationalTraining
 import ma.person.PersonalInformation
 import ma.person.SocialServices
 import ma.storage.Attachment
+import ma.domain.Utils
 
 class Person implements Auditable, Identification, PersonalInformation, Administration, Address, OccupationalTraining, Health, SocialServices {
 
@@ -72,7 +73,11 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
     }
 
     String getFullname() {
-        return "${this.name} ${this.firstSurname}"
+        return "${this.name} ${this.firstSurname} ${this.secondSurname}"
+    }
+
+    Integer getAge() {
+        return Utils.calculateAge(this.birthDate)
     }
 
     @Override

@@ -13,8 +13,16 @@ class Project implements Auditable {
     String name
     String description
 
-    String toString() {
+    String getAcronym() {
         return Utils.getAcronym(this, "name")
+    }
+
+    String getCompleteName() {
+        return "$name ($acronym)"
+    }
+
+    String toString() {
+        return acronym
     }
 
     static constraints = {

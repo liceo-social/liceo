@@ -8,7 +8,7 @@
     <g:else>
         <asset:image
             class="img-circle elevation-2" 
-            src="default-image.jpg"
+            src="default_user.jpg"
             alt="default image" />
     </g:else>
 </div>

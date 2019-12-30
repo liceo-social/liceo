@@ -152,10 +152,33 @@ input[type='file'] {
 }
 
 .table-ma td.contained {
-    line-height: 1.5em;
-    
+    line-height: 1.5em;    
 }
 
 .table-ma td.actions {
     width: 18em;
+}
+
+.manyToMany-inline {    
+    display: inline;
+    list-style: none;    
+    padding: 0;
+    margin: 0;
+}
+
+.manyToMany-inline li {
+    display: inline;
+}
+
+.manyToMany-inline li:after {
+    content: ", ";
+}
+
+.manyToMany-inline li:last-child:after {
+    content: "";
+}
+
+.user-table-photo-block img {
+    height: 50px;
+    width: 50px;
 }

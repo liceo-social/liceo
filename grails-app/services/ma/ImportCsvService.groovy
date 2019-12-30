@@ -102,6 +102,12 @@ class ImportCsvService {
         def personDataList = parseCsv(csv)
         personDataList.each { personData ->
 
+            Genre genre = Genre.findOrCreateByName(personData.genre)
+            Country nationality = Country.findOrCreateByNameAndCode(personData.nationality, personData.nationalityCode)
+            Country culturalUpbringing = Country.findOrCreateByNameAndCode(personData.culturalUpbringing, personData.culturalUpbringingCode)
+            DocumentType documentType = DocumentType.findOrCreateByName(personData.documentType)
+            CameFrom cameFrom = CameFrom.findOrCreateByName(personData.cameFrom)
+
             Person person = new Person(
                 birthDate: personData.birthDate,
                 project: personData.projectId ? Project.get(personData.projectId) : null,
@@ -110,15 +116,15 @@ class ImportCsvService {
                 name: personData.name ,
                 firstSurname: personData.firstSurname,
                 secondSurname: personData.secondSurname,
-                genre: new Genre(name: personData.genre),
-                nationality: new Country(name: personData.nationality),
+                genre: genre,
+                nationality: nationality,
                 regionOfBirth: personData.regionOfBirth,
-                culturalUpbringing: new Country(name: personData.culturalUpbringing),
+                culturalUpbringing: culturalUpbringing,
 
                 // identification
                 active: personData.active,
                 professionalReference: User.get(personData.professionalReference),
-                cameFrom: new CameFrom(name: personData.cameFrom).save(),
+                cameFrom: cameFrom,
                 registrationAt: personData.registrationAt ?
                     new SimpleDateFormat('dd/MM/yyyy').parse(personData.registrationAt)
                     : null,
@@ -128,7 +134,7 @@ class ImportCsvService {
                 deletionMotivation:  personData.deletionMotivation,
 
                 // administration
-                type: new DocumentType(name: personData.identification ),
+                documentType: documentType,
                 identification: personData.identification,
 
                 // address

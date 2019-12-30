@@ -9,7 +9,7 @@
                     <g:select
                         from="${person.projects}"
                         optionKey="id"
-                        optionValue="name"
+                        optionValue="completeName"
                         noSelection="${['':'Sin filtrar']}"
                         onchange="submit()"
                         value="${project?.id}"

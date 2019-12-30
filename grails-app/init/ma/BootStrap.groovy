@@ -57,10 +57,6 @@ class BootStrap {
 
         createAdminUser()
         createSimpleUser()
-        createGenres()
-        createCameFrom()
-        createCountries()
-        createDocumentTypes()
 
         importCsvService.loadInitialData()
         springSecurityService.clearCachedRequestmaps()
@@ -81,31 +77,6 @@ class BootStrap {
             Authority user = new Authority(authority: 'ROLE_USER').save()
 
             UserAuthority.create(john, user)
-        }
-    }
-
-    private void createGenres() {
-        ['Hombre', 'Mujer'].each { String name ->
-            new Genre(name: name).save()
-        }
-    }
-
-    private void createCameFrom() {
-        ['Servicios Sociales', 'Colegio'].each { String name ->
-            new CameFrom(name: name).save()
-        }
-    }
-
-    private void createCountries() {
-        [['Spain', 'ES'], ['France', 'FR']].each { List values ->
-            def (name, code) = values
-            new Country(name: name, code: code).save()
-        }
-    }
-
-    private void createDocumentTypes() {
-        ['DNI', 'Passport'].each { String name ->
-            new DocumentType(name: name).save()
         }
     }
 

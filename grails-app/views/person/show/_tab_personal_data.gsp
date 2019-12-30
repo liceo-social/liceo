@@ -15,7 +15,7 @@
       <f:display bean="person" property="professionalReference" label="Profesional de referencia" wrapper="display/inline" />
       <f:display bean="person" property="cameFrom" label="Via de acceso" wrapper="display/inline" />
       <f:display bean="person" property="registrationAt" label="Fecha de alta" wrapper="display/inline" />
-      <f:display bean="person" property="active" label="Estado" wrapper="display/inline" />
+      <f:display bean="person" property="active" label="Estado" widget="active" wrapper="display/inline" />
     </div>
   </div>
   <div class="row show-data">
