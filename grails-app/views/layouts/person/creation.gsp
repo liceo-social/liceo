@@ -19,21 +19,7 @@
             </g:applyLayout>
          </div>
           <div class="col-md-9">
-              <div class="card card-primary card-tabs">
-                  <div class="card-header p-0 pt-1">
-                      <g:pageProperty name="page.selection" />
-                  </div>
-                  <div class="card-body">
-                    <div class="tab-content" id="custom-tabs-one-tabContent">
-                        <g:pageProperty name="page.detail" />
-                    </div>
-                  </div>
-                  <g:if test="${g.pageProperty(name: 'page.actions')}">
-                    <div class="card-footer">
-                        <g:pageProperty name="page.actions" />
-                    </div>
-                  </g:if>
-               </div>
+              <g:pageProperty name="page.form" />
            </div>
         </div>
     </body>

@@ -1,5 +1,5 @@
 <g:applyLayout name="person/details">
-    <content tag="title">Persona</content>
+    <content tag="title">Datos personales</content>
     <content tag="breadcrumb">
         <li class="breadcrumb-item">
             <g:link controller="home">home</g:link>

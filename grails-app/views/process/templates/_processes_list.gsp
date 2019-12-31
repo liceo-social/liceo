@@ -5,7 +5,7 @@
                <h3 class="card-title">Filtra por proyecto:</h3>
            </div>
            <div class="card-body">
-               <g:form controller="person" action="processes" id="${person.id}">
+               <g:form controller="process" action="index" id="${person.id}">
                     <g:select
                         from="${person.projects}"
                         optionKey="id"
@@ -32,8 +32,8 @@
            </div>
            <div class="card-body p-0">
                 <g:if test="${processes}">
-                    <f:table 
-                        collection="${processes}" 
+                    <f:table
+                        collection="${processes}"
                         displayStyle="table_wnr"
                         template="table_processes"
                         properties="description, meetingDate, project, type" />

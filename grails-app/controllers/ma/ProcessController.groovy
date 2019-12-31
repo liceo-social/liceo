@@ -33,17 +33,18 @@ class ProcessController {
             return
         }
 
+        Person person = Person.get(creation.person)
+        Project project = Project.get(creation.project)
+
         return [
-            process: new Process(
-                person: Person.get(creation.person),
-                project: Project.get(creation.project)
-            )
+            person: person,
+            process: new Process(person: person, project: project)
         ]
     }
 
     def save(Process process) {
         if (process.hasErrors()) {
-            respond(process.errors, view: 'create', model: [process: process])
+            respond(process.errors, view: 'create', model: [process: process, person: process.person])
             return
         }
 
@@ -53,6 +54,20 @@ class ProcessController {
             controller: 'process',
             action: 'show',
             id: process.id
+        )
+    }
+
+    def edit(Process process) {
+        render(view: 'edit', model: [process: process, person: process.person])
+    }
+
+    def show(Process process) {
+        render(
+            view: 'show',
+            model: [
+                person: process.person,
+                process: process
+            ]
         )
     }
 }
