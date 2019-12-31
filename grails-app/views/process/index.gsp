@@ -13,12 +13,12 @@
         <li class="breadcrumb-item active">procesos</li>
     </content>
     <content tag="photoStatus">
-        <g:render template="photo/show" />
+        <g:render template="/person/photo/show" />
     </content>
     <content tag="selection">
-        <g:render template="show/tabs" model="[tabName: 'processes']" />
+        <g:render template="/person/show/tabs" model="[tabName: 'processes']" />
     </content>
     <content tag="detail">
-        <g:render template="show/tab_processes" />
+        <g:render template="templates/processes_list" />
     </content>
 </g:applyLayout>

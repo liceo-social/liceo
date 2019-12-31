@@ -7,29 +7,6 @@ class PersonController {
   static scaffold = Person
 
   /**
-   * Shows processes of a given person and if provided
-   * filtered by project
-   *
-   * @param person person to get the processes from
-   * @param project project to filter those processes
-   * @since 0.1.0
-   */
-  def processes(Person person, Long projectId) {
-    def processes = projectId
-      ? Process.findAllByProjectAndPerson(Project.get(projectId), person)
-      : Process.findAllByPerson(person)
-
-    render(
-        view: 'processes',
-        model: [
-            processes: processes,
-            person: person,
-            project: projectId ? Project.get(projectId) : null
-        ]
-    )
-  }
-
-  /**
    * Shows person's photo edit form
    *
    * @param person the person u want to change the photo of

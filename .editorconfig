@@ -17,4 +17,4 @@ indent_size = 4
 [*.{groovy,gradle,java}]
 trim_trailing_whitespace = true
 indent_style = space
-indent_size = 2
+indent_size = 4

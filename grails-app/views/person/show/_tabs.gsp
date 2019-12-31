@@ -10,8 +10,8 @@
         aria-selected="false">Datos personales</g:link>
   </li>
   <li class="nav-item">
-    <g:link controller="person"
-        action="processes"
+    <g:link controller="process"
+        action="index"
         id="${person.id}"
         class="nav-link ${tabName == 'processes' ? 'active' : ''}"
         aria-controls="custom-tabs-two-projects"
