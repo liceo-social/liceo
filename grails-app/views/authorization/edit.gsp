@@ -1,5 +1,5 @@
 <g:applyLayout name="person/creation">
-    <content tag="title">Nuevo proceso</content>
+    <content tag="title">Nueva autorizacion</content>
     <content tag="breadcrumb">
         <li class="breadcrumb-item">
             <g:link controller="home">home</g:link>
@@ -8,34 +8,37 @@
             <g:link controller="person">personas</g:link>
         </li>
         <li class="breadcrumb-item">
-            <g:link controller="person" action="show" id="${process.person.id}">detalle</g:link>
+            <g:link controller="person" action="show" id="${authorization.person.id}">detalle</g:link>
         </li>
         <li class="breadcrumb-item">
-            <g:link controller="person" action="processes" id="${process.person.id}">procesos</g:link>
+            <g:link controller="person" action="authorizations" id="${authorization.person.id}">autorizaciones</g:link>
         </li>
-        <li class="breadcrumb-item active">nuevo</li>
+        <li class="breadcrumb-item active">nueva</li>
     </content>
     <content tag="photoStatus">
         <g:render template="/person/photo/show" />
     </content>
     <content tag="form">
         <div class="card">
-            <g:form resource="/process" method="POST">
+            <g:uploadForm name="authorization-update" action="updateAuthorization" method="POST">
                 <div class="card-body">
                     <div class="tab-content" id="custom-tabs-one-tabContent">
-                        <g:render template="templates/body" />
+                        <g:render template="templates/edit_form" />
                     </div>
                 </div>
                 <div class="card-footer">
-                    <g:submitButton name="create" class="btn btn-primary save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+                    <g:submitButton
+                        name="create"
+                        class="btn btn-primary save"
+                        value="${message(code: 'default.button.update.label', default: 'Update')}" />
                     <g:link
-                        controller="process"
+                        controller="authorization"
                         action="index"
-                        id="${process.person.id}"
+                        id="${authorization.person.id}"
                         type="submit"
                         class="btn btn-default float-right">Volver a listado</g:link  >
                 </div>
-            </g:form>
+            </g:uploadForm>
         </div>
     </content>
 </g:applyLayout>

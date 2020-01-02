@@ -1,6 +1,6 @@
 package ma.storage
 
-import grails.gorm.annotation.Entity 
+import grails.gorm.annotation.Entity
 import grails.util.Holders
 
 /**
@@ -70,9 +70,13 @@ class Attachment {
     def beforeValidate() {
         Map<String, String> options = Holders.getConfig()?.storage
         Config config = new Config(options)
-        filePath = Utils.save(this)
 
-        return true
+        if (this.fileStream) {
+            filePath = Utils.save(this)
+            return true
+        }
+
+        return false
     }
 
     /**

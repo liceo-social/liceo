@@ -14,7 +14,10 @@ class AttachmentValueConverter implements ValueConverter {
     }
 
     def convert(value) {
-        if (isNull(value) || !(value instanceof MultipartFile) || !((MultipartFile) value).originalFilename) {
+        if (isNull(value) ||
+            !(value instanceof MultipartFile) ||
+            !((MultipartFile) value).originalFilename ||
+            !((MultipartFile) value).inputStream) {
             return null
         }
 

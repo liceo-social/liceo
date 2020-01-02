@@ -33,7 +33,7 @@ class SecurityTagLib {
     def userPhoto = { attrs, body ->
         if (springSecurityService.currentUser) {
             User user = User.findById(springSecurityService.currentUser.id)
-            out << '<img class="img-circle elevation-2" src="/storage/' + user.photo.filename + '" alt="User Image">'
+            out << '<img class="img-circle elevation-2" src="/storage/' + user.photo?.filename + '" alt="User Image">'
         }
     }
 

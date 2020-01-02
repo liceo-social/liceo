@@ -1,5 +1,5 @@
 <g:applyLayout name="person/creation">
-    <content tag="title">Nuevo proceso</content>
+    <content tag="title">Editar proceso</content>
     <content tag="breadcrumb">
         <li class="breadcrumb-item">
             <g:link controller="home">home</g:link>
@@ -13,7 +13,7 @@
         <li class="breadcrumb-item">
             <g:link controller="person" action="processes" id="${process.person.id}">procesos</g:link>
         </li>
-        <li class="breadcrumb-item active">edicion</li>
+        <li class="breadcrumb-item active">editar</li>
     </content>
     <content tag="photoStatus">
         <g:render template="/person/photo/show" />
@@ -33,7 +33,7 @@
                         action="index"
                         id="${process.person.id}"
                         type="submit"
-                        class="btn btn-default float-right">Cancel</g:link  >
+                        class="btn btn-default float-right">Volver a listado</g:link  >
                 </div>
             </g:form>
         </div>

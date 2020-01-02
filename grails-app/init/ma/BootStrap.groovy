@@ -72,12 +72,10 @@ class BootStrap {
     }
 
     private void createSimpleUser() {
-        (0..100).each { number ->
-            User john = new User(name: "user${number}", username: "user${number}@kaleidos.net", password: 'password').save(failOnError: true)
-            Authority user = new Authority(authority: 'ROLE_USER').save()
+        User john = new User(name: "John Doe", username: "john.doe@kaleidos.net", password: 'password').save(failOnError: true)
+        Authority user = new Authority(authority: 'ROLE_USER').save()
 
-            UserAuthority.create(john, user)
-        }
+        UserAuthority.create(john, user)
     }
 
     def destroy = {
