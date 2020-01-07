@@ -1,5 +1,5 @@
 <g:applyLayout name="person/creation">
-    <content tag="title">Nueva autorizacion</content>
+    <content tag="title">Editar autorizacion</content>
     <content tag="breadcrumb">
         <li class="breadcrumb-item">
             <g:link controller="home">home</g:link>
@@ -13,7 +13,7 @@
         <li class="breadcrumb-item">
             <g:link controller="person" action="authorizations" id="${authorization.person.id}">autorizaciones</g:link>
         </li>
-        <li class="breadcrumb-item active">nueva</li>
+        <li class="breadcrumb-item active">edicion</li>
     </content>
     <content tag="photoStatus">
         <g:render template="/person/photo/show" />

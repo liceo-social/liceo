@@ -1,3 +1,6 @@
-<span title="${attrs.description}">
-    ${value?.name?.size() > 60 ? value?.name?.take(60) + "..." : value }
-</span>
+<g:if test="${value}">
+    <span title="${value.name}">${value}</span>
+</g:if>
+<g:else>
+    <span>N/A</span>
+</g:else>

@@ -43,5 +43,6 @@ class Authorization implements Auditable {
     static constraints = {
         description nullable: false, blank: false
         attachment nullable: false
+        project nullable: true
     }
 }

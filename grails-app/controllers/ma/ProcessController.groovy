@@ -70,6 +70,26 @@ class ProcessController {
             ]
         )
     }
+
+    def attachments(Process process) {
+        render(
+            view: 'attachments/list',
+            model: [
+                process: process,
+                person: process.person
+            ]
+        )
+    }
+
+    def addAttachment(Process process) {
+        render(
+            view: 'attachments/create',
+            model: [
+                process: process,
+                person: process.person
+            ]
+        )
+    }
 }
 
 class ProcessCreation implements grails.validation.Validateable {

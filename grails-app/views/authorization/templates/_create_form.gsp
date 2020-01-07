@@ -14,4 +14,4 @@
     value="${authorization.person.id}" />
 <g:hiddenField
     name="project.id"
-    value="${authorization.project.id}" />
+    value="${authorization.project?.id}" />

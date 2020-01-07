@@ -10,21 +10,19 @@
                         from="${person.projects}"
                         optionKey="id"
                         optionValue="completeName"
-                        noSelection="${['':'Sin filtrar']}"
+                        noSelection="${['':'Sin proyecto']}"
                         onchange="submit()"
                         value="${project?.id}"
                         name="projectId"/>
                 </g:form>
            </div>
-           <g:if test="${project}">
-               <div class="card-footer">
-                     <g:link
-                         class="btn btn-primary edit"
-                         controller="authorization"
-                         action="create"
-                         params="[person: person.id, project: project.id]">Crear nueva autorizacion</g:link>
-               </div>
-           </g:if>
+            <div class="card-footer">
+                <g:link
+                    class="btn btn-primary edit"
+                    controller="authorization"
+                    action="create"
+                    params="[person: person.id, project: project?.id]">Crear nueva autorizacion</g:link>
+            </div>
         </div>
         <div class="card card-primary">
            <div class="card-header">
@@ -35,10 +33,11 @@
                     <f:table
                         collection="${authorizations}"
                         displayStyle="table_wnr"
+                        template="table_authorizations"
                         properties="description, project, dateCreated, lastUpdated" />
                 </g:if>
                 <g:else>
-                    No hay resultados
+                    <g:render template="/templates/tables/no_results" />
                 </g:else>
            </div>
         </div>

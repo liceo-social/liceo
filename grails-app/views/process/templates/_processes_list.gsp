@@ -39,7 +39,7 @@
                         properties="description, meetingDate, project, type" />
                 </g:if>
                 <g:else>
-                    No hay resultados
+                    <g:render template="/templates/tables/no_results" />
                 </g:else>
            </div>
         </div>
