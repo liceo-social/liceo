@@ -36,7 +36,7 @@
                         action="index"
                         id="${authorization.person.id}"
                         type="submit"
-                        class="btn btn-default float-right">Volver a listado</g:link  >
+                        class="btn btn-default float-right">Volver a autorizaciones</g:link  >
                 </div>
             </g:uploadForm>
         </div>

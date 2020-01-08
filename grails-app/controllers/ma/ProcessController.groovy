@@ -1,5 +1,8 @@
 package ma
 
+import ma.process.ProcessCreation
+import ma.process.ProcessAttachmentCreation
+
 class ProcessController {
 
     static scaffold = Process
@@ -85,14 +88,28 @@ class ProcessController {
         render(
             view: 'attachments/create',
             model: [
-                process: process,
+                command: new ProcessAttachmentCreation(process: process),
                 person: process.person
             ]
         )
     }
-}
 
-class ProcessCreation implements grails.validation.Validateable {
-    Long person
-    Long project
+    def saveAttachment(ProcessAttachmentCreation command) {
+        if (command.hasErrors()) {
+            respond(process.errors, view: 'create', model: [command: command, person: process.person])
+            return
+        }
+
+        Process.withTransaction {
+            command.process.addToAttachments(command.attachment)
+            command.process.save()
+        }
+
+
+        redirect(
+            controller: 'process',
+            action: 'attachments',
+            id: command.process.id
+        )
+    }
 }

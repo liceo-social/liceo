@@ -22,7 +22,7 @@
         <g:render template="templates/tabs" model="[tabName: 'attachments']" />
     </content>
     <content tag="detail">
-        <g:render template="attachments/templates/list" />
+        <g:render template="attachments/templates/list" model="[attachments: process.attachments]" />
     </content>
      <content tag="actions">
         <g:link
@@ -30,5 +30,10 @@
             action="addAttachment"
             id="${process.id}"
             class="btn btn-primary">Agregar nuevo adjunto</g:link>
+        <g:link
+            controller="process"
+            action="index"
+            id="${process.person.id}"
+            class="btn btn-default float-right">Volver a procesos</g:link>
     </content>
 </g:applyLayout>
