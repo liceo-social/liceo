@@ -1,6 +1,6 @@
 package ma
 
-import ma.storage.Attachment
+import ma.storage.Attachable
 
 /**
  * Represents an authorization given by the person
@@ -8,7 +8,7 @@ import ma.storage.Attachment
  *
  * @since 0.1.0
  */
-class Authorization implements Auditable {
+class Authorization implements Auditable, Attachable {
 
     /**
      * An authorization belongs to a given person
@@ -20,20 +20,6 @@ class Authorization implements Auditable {
       project: Project,
       person: Person
     ]
-
-    /**
-     * Describes the content of the authorization
-     *
-     * @since 0.1.0
-     */
-    String description
-
-    /**
-     * File containing the authorization
-     *
-     * @since 0.1.0
-     */
-    Attachment attachment
 
     /**
      * Validation constraints
