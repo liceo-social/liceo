@@ -83,6 +83,19 @@ class ImportCsvService {
         def processList = parseCsv(csv)
 
         processList.each { processData ->
+            Project project = Project.get(processData.projectId)
+
+
+            if (!project) {
+                throw new RuntimeException('Project not found')
+            }
+
+            Person person = Person.get(processData.personId)
+
+            if (!person) {
+                throw new RuntimeException('Person not found')
+            }
+
             Process processType = new Process(
                 meetingDate: processData.meetingDate ?
                     new SimpleDateFormat('dd/MM/yyyy').parse(processData.meetingDate)
@@ -90,8 +103,8 @@ class ImportCsvService {
                 description: processData.description,
                 content: processData.content,
                 type: ProcessType.get(processData.typeId),
-                person: Person.get(processData.personId),
-                project: Project.get(processData.projectId),
+                person: person,
+                project: project,
             ).save(failOnError: true)
         }
     }
@@ -110,8 +123,6 @@ class ImportCsvService {
 
             Person person = new Person(
                 birthDate: personData.birthDate,
-                project: personData.projectId ? Project.get(personData.projectId) : null,
-
                 // personalInformation
                 name: personData.name ,
                 firstSurname: personData.firstSurname,
@@ -173,6 +184,10 @@ class ImportCsvService {
                 cafCase: personData.cafCase,
 
             ).save(failOnError: true)
+
+            if (personData.projectId) {
+                person.addToProjects(Project.get(personData.projectId))
+            }
         }
     }
 }
