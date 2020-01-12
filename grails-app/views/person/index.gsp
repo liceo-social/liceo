@@ -35,8 +35,8 @@
                 <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>
                 </g:if>
-                <f:table 
-                        collection="${personList}" 
+                <f:table
+                        collection="${personList}"
                         displayStyle="table_wnr"
                         template="table_people"
                         properties="photo, name" />

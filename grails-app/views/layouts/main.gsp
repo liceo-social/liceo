@@ -34,6 +34,26 @@
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+          <g:link controller='logout'>
+              Salir
+              <i class="fas fa-sign-out-alt"></i>
+          </g:link>
+          </li>
+      </ul>
+      </nav>
+
+
       <!-- Main Sidebar Container -->
       <aside class="main-sidebar sidebar-light-olive elevation-4">
         <!-- Brand Logo -->
@@ -57,7 +77,7 @@
           </div>
 
           <!-- Sidebar Menu -->
-          <nav class="mt-2 user-panel">
+          <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <!-- Add icons to the links using the .nav-icon class
                   with font-awesome or any other icon font library -->
@@ -140,15 +160,6 @@
                  </sec:ifAllGranted>
                </ul>
              </nav>
-
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-              <div class="info">
-                <g:link controller='logout' class="nav-link">
-                      Salir
-                      <i class="fas fa-sign-out-alt"></i>
-                  </g:link>
-              </div>
-            </div>
            </div>
          </aside>
 
