@@ -1,7 +1,7 @@
 package ma
 
 import ma.authorization.CreateCommand
-import ma.authorization.UpdateCommand
+import ma.authorization.UpdateAuthorizationAttachmentCommand
 import ma.storage.Attachment
 
 class AuthorizationController {
@@ -77,7 +77,7 @@ class AuthorizationController {
      *
      * @since 0.1.0
      */
-    def updateAuthorization(UpdateCommand update) {
+    def updateAuthorization(UpdateAuthorizationAttachmentCommand update) {
         if (update.hasErrors()) {
             respond(
                 update.errors,

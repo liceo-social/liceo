@@ -19,8 +19,15 @@
         <g:render template="/person/photo/show" />
     </content>
     <content tag="form">
-        <div class="card">
-            <g:uploadForm name="authorization-update" action="updateAuthorization" method="POST">
+        <g:uploadForm name="authorization-update" action="updateAuthorization" method="POST">
+            <div class="card card-primary card-tabs">
+                <div class="card-header p-0 pt-1">
+                    <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                        <li class="nav-item">
+                            <span class="nav-link">Detalle de autorizacion</span>
+                        </li>
+                    </ul>
+                </div>
                 <div class="card-body">
                     <div class="tab-content" id="custom-tabs-one-tabContent">
                         <g:render template="templates/edit_form" />
@@ -37,8 +44,8 @@
                         id="${authorization.person.id}"
                         type="submit"
                         class="btn btn-default float-right">Volver a listado</g:link  >
-                </div>
-            </g:uploadForm>
-        </div>
+                   </div>
+            </div>
+        </g:uploadForm>
     </content>
 </g:applyLayout>

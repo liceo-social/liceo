@@ -1,7 +1,7 @@
 package ma
 
 import ma.process.ProcessCreation
-import ma.process.ProcessAttachmentCreation
+import ma.process.UpdateProcessAttachmentCommand
 
 class ProcessController {
 
@@ -88,28 +88,82 @@ class ProcessController {
         render(
             view: 'attachments/create',
             model: [
-                command: new ProcessAttachmentCreation(process: process),
+                command: new ProcessAttachment(process: process),
+                process: process,
                 person: process.person
             ]
         )
     }
 
-    def saveAttachment(ProcessAttachmentCreation command) {
+    def saveAttachment(ProcessAttachment command) {
         if (command.hasErrors()) {
-            respond(process.errors, view: 'create', model: [command: command, person: process.person])
+            respond(
+                command.errors,
+                view: 'attachments/create',
+                model: [
+                    command: command,
+                    process: command.process,
+                    person: command.process.person
+                ]
+            )
+
             return
         }
 
         Process.withTransaction {
-            command.process.addToAttachments(command.attachment)
+            command.process.addToAttachments(command)
             command.process.save()
         }
-
 
         redirect(
             controller: 'process',
             action: 'attachments',
             id: command.process.id
+        )
+    }
+
+    def editAttachment(ProcessAttachment command) {
+        render(
+            view: 'attachments/edit',
+            model: [
+                command: command,
+                process: command.process,
+                person: command.process.person
+            ]
+        )
+    }
+
+    def updateAttachment(UpdateProcessAttachmentCommand command) {
+        def processAttachment = ProcessAttachment.get(command.id)
+        def process = processAttachment.process
+
+        if (command.hasErrors()) {
+            respond(
+                command.errors,
+                view: 'attachments/edit',
+                model: [
+                    command: command,
+                    process: process,
+                    person: process.person
+                ]
+            )
+
+            return
+        }
+
+        Process.withTransaction {
+            if (command.attachment) {
+                processAttachment.attachment = command.attachment
+            }
+
+            processAttachment.description = command.description
+            processAttachment.save()
+        }
+
+        redirect(
+            controller: 'process',
+            action: 'attachments',
+            id: process.id
         )
     }
 }

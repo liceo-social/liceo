@@ -2,6 +2,7 @@
     widget-placeholder="Introduce una descripcion para la autorizacion"
     bean="authorization"
     property="description" />
+<label>Archivo</label>
 <f:field
     bean="authorization"
     property="attachment"

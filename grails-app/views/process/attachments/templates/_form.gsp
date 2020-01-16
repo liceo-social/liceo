@@ -1,4 +1,8 @@
-<label>Adjunto</label>
+<f:field
+    widget-placeholder="Introduce una descripcion para el adjunto"
+    bean="command"
+    property="description" />
+<label>Archivo</label>
 <f:field
     bean="command"
     property="attachment"
@@ -7,6 +11,9 @@
     widget-name="process-attachment"
     widget-placeholder="Pulsa para subir un fichero" />
 <g:hiddenField
+    name="id"
+    value="${command.id}" />
+<!-- ONLY FOR CREATION -->
+<g:hiddenField
     name="process.id"
     value="${command?.process?.id}" />
-

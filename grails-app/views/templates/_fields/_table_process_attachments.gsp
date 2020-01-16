@@ -1,7 +1,8 @@
 <table class="table table-striped table-ma">
     <thead>
          <tr>
-            <g:sortableColumn property="filename" title="Nombre de archivo" />
+            <g:sortableColumn property="description" title="Descripcion" />
+            <g:sortableColumn property="attachment.filename" title="Archivo" />
             <th class="text-center"></th>
         </tr>
     </thead>
@@ -11,18 +12,28 @@
                 <td class="contained">
                     <f:display
                         bean="${bean}"
-                        property="filename"
+                        property="description"
+                        displayStyle="${displayStyle?:'table'}"
+                        theme="${theme}"/>
+                </td>
+                <td class="contained">
+                    <f:display
+                        bean="${bean}"
+                        property="attachment.filename"
                         displayStyle="${displayStyle?:'table'}"
                         theme="${theme}"/>
                 </td>
                 <td class="text-right actions">
                     <g:link class="btn btn-warning btn-sm"
-                        controller="authorization" action="download" id="${bean.id}">
+                        controller="attachment" action="donwload" id="${bean.id}">
                         <i class="fas fa-download"></i>
                         descargar
                     </g:link>
-                    <g:link class="btn btn-primary btn-sm"
-                        controller="authorization" action="edit" id="${bean.id}">
+                    <g:link
+                        class="btn btn-primary btn-sm"
+                        controller="process"
+                        action="editAttachment"
+                        id="${bean.id}">
                         <i class="fas fa-pen"></i>
                         editar
                     </g:link>

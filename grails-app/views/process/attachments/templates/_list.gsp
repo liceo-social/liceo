@@ -9,7 +9,7 @@
                 collection="${attachments}"
                 template="table_process_attachments"
                 displayStyle="table_wnr"
-                properties="filename" />
+                properties="description, attachment.filename" />
         </g:if>
         <g:else>
             <g:render template="/templates/tables/no_results" />

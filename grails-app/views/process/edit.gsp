@@ -19,8 +19,11 @@
         <g:render template="/person/photo/show" />
     </content>
     <content tag="form">
-        <div class="card">
-            <g:form name="process-update" action="update" id="${process.id}" method="POST">
+        <g:form name="process-update" action="update" id="${process.id}" method="POST">
+            <div class="card card-default card-tabs">
+                <div class="card-header p-0 pt-1">
+                    <g:render template="templates/tabs" model="[tabName: 'detail', disableRemainingTabs: true]" />
+                </div>
                 <div class="card-body">
                     <div class="tab-content" id="custom-tabs-one-tabContent">
                         <g:render template="templates/body" />
@@ -35,7 +38,7 @@
                         type="submit"
                         class="btn btn-default float-right">Volver a listado</g:link  >
                 </div>
-            </g:form>
-        </div>
+            </div>
+        </g:form>
     </content>
 </g:applyLayout>

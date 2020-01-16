@@ -1,15 +1,10 @@
 package ma.authorization
 
-import grails.validation.Validateable
-
-import ma.Person
 import ma.Authorization
-import ma.storage.Attachment
+import ma.attachment.UpdateAttachmentCommand
 
-class UpdateCommand implements Validateable {
+class UpdateAuthorizationAttachmentCommand implements UpdateAttachmentCommand {
 
-    String description
-    Attachment attachment
     Authorization authorization
 
     static constraints = {
