@@ -19,7 +19,7 @@
         <g:render template="/person/photo/show" />
     </content>
     <content tag="form">
-        <g:uploadForm controller="process" action="saveAttachment" method="POST">
+        <g:uploadForm controller="process" action="updateAttachment" method="POST">
             <div class="card card-primary card-tabs">
                 <div class="card-header p-0 pt-1">
                     <g:render template="/process/templates/tabs" model="[tabName: 'new_attachment']" />

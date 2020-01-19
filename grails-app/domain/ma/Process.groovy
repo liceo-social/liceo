@@ -28,7 +28,7 @@ class Process implements Auditable {
      * @since 0.1.0
      */
     static hasMany = [
-        attachments: Attachment
+        attachments: ProcessAttachment
     ]
 
     /**
