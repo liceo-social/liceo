@@ -32,9 +32,6 @@
                 </div>
             </div>
             <div class="card-body p-0">
-                <g:if test="${flash.message}">
-                    <div class="message" role="status">${flash.message}</div>
-                </g:if>
                 <f:table
                         collection="${personList}"
                         displayStyle="table_wnr"

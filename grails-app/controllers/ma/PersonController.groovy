@@ -29,4 +29,18 @@ class PersonController {
 
     redirect(action: 'show', params: [id: person.id])
   }
+
+  def delete(Person person) {
+        Person.withTransaction {
+            Process.where {
+                person == person
+            }.deleteAll()
+
+            person.delete()
+        }
+
+        flash.message = "El registro de ${person.fullname} se ha borrado correctamente"
+
+        redirect(action: 'index')
+  }
 }

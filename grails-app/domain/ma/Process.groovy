@@ -87,5 +87,6 @@ class Process implements Auditable {
     static mapping = {
         sort meetingDate: 'desc'
         content type: 'text'
+        attachments cascade: 'all-delete-orphan'
     }
 }
