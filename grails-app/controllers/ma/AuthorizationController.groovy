@@ -1,10 +1,11 @@
 package ma
 
+import ma.controller.FlashMessageAware
 import ma.authorization.CreateCommand
 import ma.authorization.UpdateAuthorizationAttachmentCommand
 import ma.storage.Attachment
 
-class AuthorizationController {
+class AuthorizationController implements FlashMessageAware {
 
     /**
     * Shows processes of a given person and if provided
@@ -38,6 +39,7 @@ class AuthorizationController {
      */
     def create(CreateCommand creation) {
         if (creation.hasErrors()) {
+            showValidationErrorMessage()
             render status: 404
             return
         }
@@ -59,6 +61,7 @@ class AuthorizationController {
      */
     def save(Authorization authorization) {
         if (authorization.hasErrors()) {
+            showValidationErrorMessage()
             respond(authorization.errors, view: 'create', model: [authorization: authorization, person: authorization.person])
             return
         }
@@ -79,6 +82,7 @@ class AuthorizationController {
      */
     def updateAuthorization(UpdateAuthorizationAttachmentCommand update) {
         if (update.hasErrors()) {
+            showValidationErrorMessage()
             respond(
                 update.errors,
                 view: 'update',
@@ -111,8 +115,7 @@ class AuthorizationController {
             authorization.delete()
         }
 
-        flash.message = 'Autorizacion borrada correctamente'
-
+        showSuccessMessage("authorization.delete.success.description")
         redirect(
             controller: 'authorization',
             view: 'index',

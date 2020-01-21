@@ -1,9 +1,10 @@
 package ma
 
+import ma.controller.FlashMessageAware
 import ma.process.ProcessCreation
 import ma.process.UpdateProcessAttachmentCommand
 
-class ProcessController {
+class ProcessController implements FlashMessageAware {
 
     static scaffold = Process
 
@@ -32,6 +33,7 @@ class ProcessController {
 
     def create(ProcessCreation creation) {
         if (creation.hasErrors()) {
+            showValidationErrorMessage()
             render status: 404
             return
         }
@@ -47,6 +49,7 @@ class ProcessController {
 
     def save(Process process) {
         if (process.hasErrors()) {
+            showValidationErrorMessage()
             respond(process.errors, view: 'create', model: [process: process, person: process.person])
             return
         }
@@ -79,7 +82,7 @@ class ProcessController {
             process.delete()
         }
 
-        flash.message = "Proceso borrado correctamente"
+        showSuccessMessage("process.delete.success.description")
         redirect(
             controller: 'process',
             action: 'index',
@@ -110,6 +113,7 @@ class ProcessController {
 
     def saveAttachment(ProcessAttachment command) {
         if (command.hasErrors()) {
+            showValidationErrorMessage()
             respond(
                 command.errors,
                 view: 'attachments/create',
@@ -152,8 +156,7 @@ class ProcessController {
             command.delete()
         }
 
-        flash.message = 'Fichero eliminado correctamente'
-
+        showSuccessMessage("attachment.delete.success.description")
         redirect(
             controller: 'process',
             action: 'attachments',
@@ -166,6 +169,7 @@ class ProcessController {
         def process = processAttachment.process
 
         if (command.hasErrors()) {
+            showValidationErrorMessage()
             respond(
                 command.errors,
                 view: 'attachments/edit',

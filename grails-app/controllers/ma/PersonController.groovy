@@ -1,8 +1,9 @@
 package ma
 
+import ma.controller.FlashMessageAware
 import ma.storage.Attachment
 
-class PersonController {
+class PersonController implements FlashMessageAware {
 
   static scaffold = Person
 
@@ -39,8 +40,7 @@ class PersonController {
             person.delete()
         }
 
-        flash.message = "El registro de ${person.fullname} se ha borrado correctamente"
-
+        showSuccessMessage("person.delete.success.description", person.fullname)
         redirect(action: 'index')
   }
 }
