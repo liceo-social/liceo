@@ -17,4 +17,8 @@ class ProcessAttachment {
             }
         }
     }
+
+    static mapping = {
+        attachment cascade: 'all-delete-orphan'
+    }
 }

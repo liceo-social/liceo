@@ -18,6 +18,7 @@ class Process implements Auditable {
      * @since 0.1.0
      */
     static belongsTo = [
+        type: ProcessType,
         person: Person,
         project: Project
     ]
@@ -53,14 +54,6 @@ class Process implements Auditable {
      * @since 0.1.0
      */
     String content
-
-    /**
-     * The category this process belongs. Useful to
-     * filter out processes by type
-     *
-     * @since 0.1.0
-     */
-    ProcessType type
 
     @Override
     String toString() {

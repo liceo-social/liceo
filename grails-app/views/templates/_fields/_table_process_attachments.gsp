@@ -25,7 +25,7 @@
                 </td>
                 <td class="text-right actions">
                     <g:link class="btn btn-warning btn-sm"
-                        controller="attachment" action="download" id="${bean.id}">
+                        controller="attachment" action="download" id="${bean.attachment.id}">
                         <i class="fas fa-download"></i>
                         descargar
                     </g:link>
