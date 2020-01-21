@@ -195,3 +195,7 @@ input[type='file'] {
 .nav-tabs .nav-link.disabled {
     color: var(--cyan);
 }
+
+td > form {
+    display: inline;    
+}

@@ -38,11 +38,11 @@
                         editar
                     </g:link>
                     <sec:ifAllGranted roles='ROLE_ADMIN'>
-                        <g:link class="btn btn-danger btn-sm"
-                            controller="authorization" action="delete" id="${bean.id}">
-                            <i class="fas fa-trash"></i>
-                            borrar
-                        </g:link>
+                        <g:set var="action" value="deleteAttachment" />
+                        <g:set var="controller" value="process" />
+                        <g:render
+                            template="/templates/modals/delete"
+                            model="[bean: bean, action: action, controller: controller, id: bean.id]" />
                     </sec:ifAllGranted>
                 </td>
             </tr>

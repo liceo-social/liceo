@@ -106,6 +106,20 @@ class AuthorizationController {
         )
     }
 
+    def delete(Authorization authorization) {
+        Authorization.withNewTransaction {
+            authorization.delete()
+        }
+
+        flash.message = 'Autorizacion borrada correctamente'
+
+        redirect(
+            controller: 'authorization',
+            view: 'index',
+            id: authorization.person.id
+        )
+    }
+
     def edit(Authorization authorization) {
         render(view: 'edit', model: [authorization: authorization, person: authorization.person])
     }

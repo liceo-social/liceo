@@ -74,6 +74,19 @@ class ProcessController {
         )
     }
 
+    def delete(Process process) {
+        Process.withTransaction {
+            process.delete()
+        }
+
+        flash.message = "Proceso borrado correctamente"
+        redirect(
+            controller: 'process',
+            action: 'index',
+            id: process.person.id
+        )
+    }
+
     def attachments(Process process) {
         render(
             view: 'attachments/list',
@@ -130,6 +143,21 @@ class ProcessController {
                 process: command.process,
                 person: command.process.person
             ]
+        )
+    }
+
+    def deleteAttachment(ProcessAttachment command) {
+
+        ProcessAttachment.withTransaction {
+            command.delete()
+        }
+
+        flash.message = 'Fichero eliminado correctamente'
+
+        redirect(
+            controller: 'process',
+            action: 'attachments',
+            id: command.process.id
         )
     }
 

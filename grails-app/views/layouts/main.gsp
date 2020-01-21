@@ -24,9 +24,9 @@
 
       <script>
       $(document).ready(function() {
-          $('select').select2();
+            $('select').select2();
             $('.summernote').summernote({
-            height: 250
+                height: 250
             });
       });
       </script>
