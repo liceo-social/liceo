@@ -30,9 +30,6 @@
                 </div>
             </div>
             <div class="card-body">
-                <g:if test="\${flash.message}">
-                <div class="message" role="status">\${flash.message}</div>
-                </g:if>
                 <g:hasErrors bean="\${this.${propertyName}}">
                 <ul class="errors" role="alert">
                     <g:eachError bean="\${this.${propertyName}}" var="error">
