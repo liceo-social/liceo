@@ -21,6 +21,7 @@
       <asset:javascript src="daterangepicker/daterangepicker.js" />
       <asset:javascript src="select2/select2.full.js" />
       <asset:javascript src="summernote/summernote-bs4.js" />
+      <asset:javascript src="adminlte.js" />
 
       <script>
       $(document).ready(function() {
@@ -32,7 +33,7 @@
       </script>
       <g:layoutHead/>
     </head>
-    <body class="hold-transition sidebar-mini layout-fixed">
+    <body class="sidebar-mini layout-fixed ${session.toggle}">
     <div class="wrapper">
 
     <!-- Navbar -->
@@ -40,7 +41,10 @@
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+          <a class="nav-link"
+            href="${request.forwardURI}?toggle=${session.toggle == '' ? 'close' : 'open'}">
+                <i class="fas fa-bars"></i>
+           </a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
@@ -203,7 +207,7 @@
     </div>
     <asset:javascript src="jquery.js"/>
     <asset:javascript src="bootstrap/bootstrap.bundle.js" />
-    <asset:javascript src="adminlte.js"/>
+
     <asset:javascript src="daterangepicker/moment.min.js" />
     <asset:javascript src="daterangepicker/daterangepicker.js" />
     <asset:javascript src="select2/select2.full.js" />
