@@ -32,7 +32,3 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 ]
 
 grails.plugin.springsecurity.logout.postOnly = false
-
-storage {
-	storagePath = '/tmp'
-}

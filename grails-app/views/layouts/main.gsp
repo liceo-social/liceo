@@ -42,7 +42,7 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link"
-            href="${request.forwardURI}?toggle=${session.toggle == '' ? 'close' : 'open'}">
+            href="${request.forwardURI}?toggle=${!session.toggle ? 'close' : 'open'}">
                 <i class="fas fa-bars"></i>
            </a>
         </li>
@@ -71,7 +71,16 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-              <masec:userPhoto />
+              <g:set var="photo" value="${masec.userPhoto()}" />
+              <g:if test="${photo}">
+             <img class="img-circle elevation-2" src="${photo}" alt="User Image">'
+             </g:if>
+             <g:else>
+             <asset:image
+                         class="img-circle elevation-2"
+                         src="default_user.jpg"
+                         alt="default image" />
+             </g:else>
             </div>
             <div class="info">
               <a href="#" class="d-block">
@@ -105,7 +114,7 @@
               <sec:ifAllGranted roles='ROLE_ADMIN'>
                   <li class="nav-item has-treeview menu-open">
                     <a href="#" class="nav-link">
-                      <i class="nav-icon fas fa-list"></i>
+                      <i class="nav-icon fas fa-database"></i>
                       <p>
                         Datos maestros
                         <i class="right fas fa-angle-left"></i>
@@ -120,7 +129,7 @@
                       </li>
                       <li class="nav-item">
                             <g:link controller="documentType" class="nav-link" action="index">
-                              <i class="fas fa-file nav-icon"></i>
+                              <i class="fas fa-passport nav-icon"></i>
                               <p>Tipos de documento ID</p>
                             </g:link>
                         </li>
@@ -128,6 +137,12 @@
                             <g:link controller="processType" class="nav-link" action="index">
                               <i class="fas fa-calendar-plus nav-icon"></i>
                               <p>Tipos de procesos</p>
+                            </g:link>
+                        </li>
+                        <li class="nav-item">
+                            <g:link controller="cameFrom" class="nav-link" action="index">
+                              <i class="fas fa-road nav-icon"></i>
+                              <p>Vias de acceso</p>
                             </g:link>
                         </li>
                         <li class="nav-item">
