@@ -1,14 +1,6 @@
 package ma
 
-import ma.person.CameFrom
-import ma.person.Country
-import ma.person.DocumentType
-import ma.person.Genre
-import ma.security.Authority
 import ma.security.User
-import ma.security.UserAuthority
-import ma.security.Requestmap
-import ma.storage.Attachment
 
 /**
  * This class is responsible do some initialization stuff
@@ -18,66 +10,40 @@ import ma.storage.Attachment
 class BootStrap {
 
     /**
-     * Allowed URL patterns by default
+     * Reference to the Grails' application
      *
      * @since 0.1.0
      */
-    static MAPPINGS = [
-        '/error',
-        '/**/favicon.ico',
-        '/shutdown',
-        '/assets/**',
-        '/**/js/**',
-        '/**/css/**',
-        '/**/images/**',
-        '/login',
-        '/login.*',
-        '/login/*',
-        '/logout',
-        '/logout.*',
-        '/logout/*'
-    ]
+    def application
 
-    def springSecurityService
+    /**
+     * Service to load csv files
+     *
+     * @since 0.1.0
+     */
     def importCsvService
 
+    /**
+     * Service to load initial security data
+     *
+     * @since 0.1.0
+     */
+    def securityDataService
+
+    /**
+     * Executes initial tasks at startup
+     *
+     * @since 0.1.0
+     */
     def init = { servletContext ->
-        for (String url in MAPPINGS) {
-            new Requestmap(url: url, configAttribute: 'permitAll').save()
-        }
-
-        new Requestmap(url: '/',              configAttribute: 'ROLE_USER,ROLE_ADMIN').save()
-        new Requestmap(url: '/storage/**',    configAttribute: 'ROLE_USER,ROLE_ADMIN').save()
-        new Requestmap(url: '/h2-console/**', configAttribute: 'ROLE_ADMIN').save()
-        new Requestmap(url: '/profile/**',    configAttribute: 'ROLE_USER,ROLE_ADMIN').save()
-        new Requestmap(url: '/**',      configAttribute: 'ROLE_USER,ROLE_ADMIN').save()
-        new Requestmap(url: '/role/**', configAttribute: 'ROLE_SUPERVISOR').save()
-        new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN,ROLE_SUPERVISOR').save()
-        new Requestmap(url: '/login/impersonate', configAttribute: 'ROLE_SWITCH_USER,isFullyAuthenticated()').save()
-
-        createAdminUser()
-        createSimpleUser()
-
+        securityDataService.loadInitialData()
         importCsvService.loadInitialData()
-        springSecurityService.clearCachedRequestmaps()
     }
 
-    private void createAdminUser() {
-        File file = new File('grails-app/assets/images/default_user.jpg')
-        Attachment photo = new Attachment(filename: 'photo2.jpg', fileStream: file.newInputStream())
-        User admin = new User(name: 'Peter Kronos', username: 'admin', password: 'admin', photo: photo).save(failOnError: true)
-        Authority authority = new Authority(authority: 'ROLE_ADMIN').save()
-
-        UserAuthority.create(admin, authority)
-    }
-
-    private void createSimpleUser() {
-        User john = new User(name: "John Doe", username: "john.doe@kaleidos.net", password: 'password').save(failOnError: true)
-        Authority user = new Authority(authority: 'ROLE_USER').save()
-
-        UserAuthority.create(john, user)
-    }
-
-    def destroy = {
-    }
+    /**
+     * Executes clean up tasks at shutdown
+     *
+     * @since 0.1.0
+     */
+    def destroy = { }
 }

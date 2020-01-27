@@ -2,7 +2,7 @@
 grails:
     profile: web
     codegen:
-        defaultPackage: newspaper.api
+        defaultPackage: ma
     gorm:
         reactor:
             # Whether to translate GORM events into Reactor events
@@ -101,12 +101,25 @@ hibernate:
         queries: false
         use_second_level_cache: false
         use_query_cache: false
+        
 dataSource:
     pooled: true
     jmxExport: true
     driverClassName: org.h2.Driver
     username: sa
     password: ''
+
+# where attachments are going to be
+# stored in the system
+storage:
+    storagePath: /tmp
+
+# default admin values, please change it! 
+# once the application is up and running
+admin:
+    name: John Admin
+    username: admin
+    password: admin
 
 environments:
     development:
@@ -118,24 +131,17 @@ environments:
             dbCreate: update
             url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     production:
+        admin:
+            name: '${ADMIN_NAME:admin}'
+            username: '${ADMIN_USERNAME:admin}'
+            password: '${ADMIN_PASSWORD:admin}'
         dataSource:
-            dbCreate: none
-            url: jdbc:h2:./prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            dbCreate: update
+            url: '${DATABASE_URL:jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE}'
+            driverClassName: '${DATABASE_DRIVER_CLASSNAME:org.h2.Driver}'
+            username: '${DATABASE_USERNAME:masiaventura}'
+            password: '${DATABASE_PASSWORD:masiaventura}'
             properties:
-                jmxEnabled: true
-                initialSize: 5
-                maxActive: 50
-                minIdle: 5
-                maxIdle: 25
-                maxWait: 10000
-                maxAge: 600000
-                timeBetweenEvictionRunsMillis: 5000
-                minEvictableIdleTimeMillis: 60000
-                validationQuery: SELECT 1
-                validationQueryTimeout: 3
-                validationInterval: 15000
-                testOnBorrow: true
-                testWhileIdle: true
-                testOnReturn: false
-                jdbcInterceptors: ConnectionState
-                defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+                autocommit: false
+        storage:
+            storagePath: '${STORAGE_PATH:/tmp}'
