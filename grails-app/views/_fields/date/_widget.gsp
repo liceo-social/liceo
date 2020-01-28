@@ -9,20 +9,23 @@
     name="${property}"
     value="${g.formatDate(date:attrs.value, format: 'dd/MM/yyyy')}" />
 
+<g:set var="dateFormat" value="DD/MM/YYYY"/>
 <script>
-
-
-$(function() {
-  $("input[name='${property}']").daterangepicker({
-    locale: {
-    "format": "DD/MM/YYYY"
-    },
-    singleDatePicker: true,
-    showDropdowns: true,
-    minYear: parseInt(moment().format('YYYY')),
-    maxYear: parseInt(moment().format('YYYY'),10)
-  }, function (startDate, endDate, period) {
-      $(this).val(startDate.format('L') + ' – ' + endDate.format('L'))
-  });
-});
+    $(function() {
+        $("input[name='${property}']").daterangepicker({
+            locale: {
+            "format": "${dateFormat}"
+            },
+            singleDatePicker: true,
+            showDropdowns: true,
+            <g:if test="${since}">
+            minYear: ${raw(since)},
+            </g:if>
+            <g:if test="${to}">
+            maxYear: ${raw(to)}
+            </g:if>
+        }, function (startDate, endDate, period) {
+            $(this).val(startDate.format('L') + ' – ' + endDate.format('L'))
+        });
+    });
 </script>

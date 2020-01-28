@@ -14,7 +14,12 @@
         widget-value="${person?.genre?.id}"
         widget-from="${Genre.list()}" />
 
-    <f:field label="Fecha de nacimiento" bean="person" property="birthDate" widget-value="${person?.birthDate}" />
+    <f:field
+        label="Fecha de nacimiento"
+        bean="person"
+        property="birthDate"
+        widget-to="${g.formatDate(date: new Date(), format: 'yyyy')}"
+        widget-value="${person?.birthDate}" />
     <f:field widget-placeholder="Telefono o Email de contacto" label="Contacto" bean="person" property="contact1"/>
     <f:field
         label="Profesional de referencia"
