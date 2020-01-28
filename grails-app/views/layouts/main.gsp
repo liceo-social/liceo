@@ -227,5 +227,6 @@
     <asset:javascript src="daterangepicker/daterangepicker.js" />
     <asset:javascript src="select2/select2.full.js" />
     <asset:javascript src="summernote/summernote-bs4.js" />
+    <asset:javascript src="adminlte.js" />
 </body>
 </html>
