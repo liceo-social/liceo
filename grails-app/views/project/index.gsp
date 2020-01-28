@@ -32,6 +32,7 @@
                 </div>
             </div>
             <div class="card-body p-0">
+                <g:if test="${projectList}">
                 <f:table
                         collection="${projectList}"
                         displayStyle="table_wnr"
@@ -39,6 +40,10 @@
                 <div class="pagination">
                     <g:paginate total="${projectCount ?: 0}" />
                 </div>
+                </g:if>
+                <g:else>
+                    <g:render template="/templates/tables/no_results" />
+                </g:else>
             </div>
         </div>
     </body>

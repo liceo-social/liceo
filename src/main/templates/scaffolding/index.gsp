@@ -35,11 +35,15 @@
                 <g:if test="\${flash.message}">
                     <div class="message" role="status">\${flash.message}</div>
                 </g:if>
+                <g:if test="\${${propertyName}List}">
                 <f:table collection="\${${propertyName}List}" />
-
-                <div class="pagination">
-                    <g:paginate total="\${${propertyName}Count ?: 0}" />
-                </div>
+                    <div class="pagination">
+                        <g:paginate total="\${${propertyName}Count ?: 0}" />
+                    </div>
+                </g:if>
+                <g:else>
+                    <g:render template="/templates/tables/no_results" />
+                </g:else>
             </div>
         </div>
     </body>
