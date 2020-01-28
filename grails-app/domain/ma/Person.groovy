@@ -73,7 +73,7 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
     }
 
     String getFullname() {
-        return "${this.name} ${this.firstSurname} ${this.secondSurname}"
+        return "${this.name} ${this.firstSurname} ${this.secondSurname ?: ''}"
     }
 
     Integer getAge() {

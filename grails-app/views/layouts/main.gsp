@@ -77,9 +77,9 @@
              </g:if>
              <g:else>
              <asset:image
-                         class="img-circle elevation-2"
-                         src="default_user.jpg"
-                         alt="default image" />
+                class="img-circle elevation-2"
+                src="default_user.jpg"
+                alt="Default user image" />
              </g:else>
             </div>
             <div class="info">
