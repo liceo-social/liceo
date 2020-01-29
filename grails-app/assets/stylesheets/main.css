@@ -199,3 +199,8 @@ input[type='file'] {
 td > form {
     display: inline;    
 }
+
+img.dashboard {
+    width: 7em;
+    margin-bottom: .5em;
+}
