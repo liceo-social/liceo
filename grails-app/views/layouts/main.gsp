@@ -104,6 +104,12 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
+                        <g:link controller="home" class="nav-link" action="index">
+                          <i class="fas fa-tachometer-alt nav-icon"></i>
+                          <p>Dashboard</p>
+                        </g:link>
+                    </li>
+                    <li class="nav-item">
                         <g:link controller="person" class="nav-link" action="index">
                           <i class="far fa-user nav-icon"></i>
                           <p>Personas</p>

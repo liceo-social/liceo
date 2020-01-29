@@ -1,20 +1,18 @@
-<!doctype html>
-<html>
-
-<head>
-    <meta name="layout" content="main" />
-    <title>Dashboard</title>
-</head>
-
-<body>
-    <section class="content">
-        <div class="container-fluid">
-            <!-- ROW -->
-            <div class="row">
+<g:applyLayout name="general/empty">
+    <content tag="title">Dashboard</content>
+    <content tag="breadcrumb">
+        <li class="breadcrumb-item">
+            <g:link controller="home">home</g:link>
+        </li>
+    </content>
+    <content tag="content">
+        <div class="row">
+            <div class="col-md-5">
+                <g:render template="templates/assigned_people" />
+            </div>
+            <div class="col-md-6">
 
             </div>
         </div>
-    </section>
-</body>
-
-</html>
+    </content>
+</g:applyLayout>

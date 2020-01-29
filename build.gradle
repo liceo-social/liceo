@@ -62,6 +62,7 @@ dependencies {
     compile "org.grails.plugins:gsp"
     compile 'org.jsoup:jsoup:1.10.2'
     compile 'org.grails.plugins:spring-security-core:4.0.0.RC2'
+    compile "org.ocpsoft.prettytime:prettytime:4.0.3.Final"
 
     compileOnly "io.micronaut:micronaut-inject-groovy"
     console "org.grails:grails-console"
