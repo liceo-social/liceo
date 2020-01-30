@@ -5,7 +5,7 @@ import ma.security.User
 
 trait Identification {
 
-    boolean active
+    boolean active = true
     User professionalReference
     CameFrom cameFrom
     String cameFromAlternative
