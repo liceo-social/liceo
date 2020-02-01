@@ -1,5 +1,7 @@
 package ma
 
+import ma.person.CameFrom
+
 import static com.xlson.groovycsv.CsvParser.parseCsv
 
 import org.springframework.core.io.ClassPathResource
@@ -14,6 +16,7 @@ class ImportCsvService {
 
     private static final String GENRES_CSV_FILE = "/csv/genres.csv"
     private static final String COUNTRIES_CSV_FILE = "/csv/countries.csv"
+    private static final String CAME_FROM_CSV_FILE = "/csv/came_from.csv"
 
     /**
      * Process loading initial master data
@@ -27,6 +30,7 @@ class ImportCsvService {
         try {
             loadGenres()
             loadCountries()
+            loadCameFrom()
         } catch (Throwable th) {
             log.error("error while loading csv master data", th)
         }
@@ -65,6 +69,24 @@ class ImportCsvService {
 
         countries.each { country ->
             new Country(name: country.commonName, code: country.alpha2).save(failOnError: true)
+        }
+    }
+
+    void loadCameFrom() {
+        if (CameFrom.count() > 0) {
+            log.debug "skipping loading came from list"
+            return
+        }
+
+        log.debug "loading came from list"
+        def csv = new ClassPathResource(CAME_FROM_CSV_FILE)
+            .inputStream
+            .getText('UTF-8')
+
+        def cameFromList = parseCsv(csv)
+
+        cameFromList.each { cameFrom ->
+            new CameFrom(name: cameFrom.name).save(failOnError: true)
         }
     }
 }
