@@ -1,7 +1,6 @@
 package ma.storage
 
 import grails.gorm.annotation.Entity
-import grails.util.Holders
 
 /**
  * Represents a file attached to any other domain class
@@ -68,15 +67,11 @@ class Attachment {
      * @since 0.1.0
      */
     def beforeValidate() {
-        Map<String, String> options = Holders.getConfig()?.storage
-        Config config = new Config(options)
-
-        if (this.fileStream) {
-            filePath = Utils.save(this)
-            return true
+        if (!this.filePath && this.fileStream) {
+            File file = Utils.save(this)
+            this.filePath = file.absolutePath
+            this.filename = file.name
         }
-
-        return false
     }
 
     /**

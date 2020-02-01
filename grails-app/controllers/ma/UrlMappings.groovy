@@ -36,7 +36,8 @@ class UrlMappings {
         /**
          * FILES
          */
-        "/storage/$file"(controller: 'storage', action: 'serve')
+        "/storage/$id"(controller: 'storage', action: 'serve')
+        "/attachment/download/$id"(controller: 'storage', action: 'download')
 
         /**
          * HTTP ERRORS
