@@ -1,7 +1,7 @@
 <!-- USERS LIST -->
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Personas Asignadas</h3>
+        <h3 class="card-title">Ultimas personas Asignadas</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
@@ -9,10 +9,15 @@
         <ul class="users-list clearfix">
             <g:each var="person" in="${latestPeople}">
                 <li>
+                    <g:if test="${person.photo}">
                     <img
                         class="img-circle dashboard elevation-2"
                         src="${storage.resolve(attachment: person.photo)}"
                         alt="User Avatar">
+                    </g:if>
+                    <g:else>
+                    <asset:image src="default_user.jpg" alt="foto de la persona" class="img-circle dashboard elevation-2" />
+                    </g:else>
                     <g:link
                         class="users-list-name"
                         controller="person"

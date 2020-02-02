@@ -7,6 +7,8 @@ import groovy.util.logging.Slf4j
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
+import java.nio.file.StandardCopyOption
+import java.security.MessageDigest
 
 /**
  * Utility functions to handle {@link Attachment} persistence
@@ -24,37 +26,64 @@ class Utils {
      * @return the logical path where the attachment can be found
      * @since 0.1.0
      */
-    static String save(Attachment attachment) {
+    static File save(Attachment attachment) {
         Map storage = Holders.config?.storage as Map
-        String storagePath = storage.storagePath?.toString()
-        Path target = Paths.get(storagePath, attachment.filename)
+        String ext = extractExtension(attachment.filename)
+        Path tmp = createTemporalFileWithExtension(attachment, ext)
+
+        String md5 = toMD5(tmp.toFile().bytes)
+        Path target = Paths.get("${storage?.storagePath}", "${md5}${ext}")
+
+        log.debug "creating file at: $target"
 
         if (target.toFile().exists()) {
-            return target.toString()
+            return target.toFile()
         }
 
-        log.debug("creating file at: $target")
-
         Files.createDirectories(target.parent)
-        Files.copy(attachment.fileStream, target)
+        Files.move(tmp, target)
 
-        return target.toString()
+        return target.toFile()
+    }
+
+    static Path createTemporalFileWithExtension(Attachment attachment, String extension) {
+        Path temporalPath = Files.createTempFile("", extension)
+
+        Files.copy(
+            attachment.fileStream,
+            temporalPath,
+            StandardCopyOption.REPLACE_EXISTING
+        )
+
+        return temporalPath
+    }
+
+    static String extractExtension(String filename) {
+        String extension = Optional
+            .ofNullable(filename)
+            .filter { f -> f.contains(".") }
+            .map { f -> f.substring(filename.lastIndexOf(".") + 1) }
+            .orElse("")
+
+        return ".$extension"
+    }
+
+    static String toMD5(byte[] bytes) {
+        return MessageDigest
+            .getInstance("MD5")
+            .digest(bytes)
+            .encodeHex()
+            .toString()
     }
 
     /**
      * Looks for a given file in a given logical directory
      *
-     * @param file file to look for
+     * @param attachment which contains the file path
      * @return file found or null otherwise
      * @since 0.1.0
      */
-    static File lookup(String file) {
-        Map storage = Holders.config?.storage as Map
-        String storagePath = storage.storagePath?.toString()
-        File lookupFile = Paths.get(storagePath, file).toFile()
-
-        log.debug("serving file $lookupFile")
-
-        return lookupFile
+    static File lookup(Attachment attachment) {
+        return new File(attachment?.filePath)
     }
 }

@@ -112,7 +112,7 @@ dataSource:
 # where attachments are going to be
 # stored in the system
 storage:
-    storagePath: /tmp
+    storagePath: /tmp/kk
 
 # default admin values, please change it! 
 # once the application is up and running
@@ -144,4 +144,4 @@ environments:
             properties:
                 autocommit: false
         storage:
-            storagePath: '${STORAGE_PATH:/tmp}'
+            storagePath: '${STORAGE_PATH:/tmp/kk}'

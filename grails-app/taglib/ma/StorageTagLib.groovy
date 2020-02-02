@@ -23,7 +23,7 @@ class StorageTagLib {
     def resolve = { attrs, body ->
         Attachment attachment = attrs.attachment
 
-        out << "/storage/${attachment?.filename}"
+        out << "/storage/${attachment?.id}"
     }
 
 }
