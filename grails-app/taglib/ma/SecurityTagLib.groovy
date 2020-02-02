@@ -34,9 +34,7 @@ class SecurityTagLib {
         if (springSecurityService.currentUser) {
             User user = User.findById(springSecurityService.currentUser.id)
 
-            out << user?.photo
-                ? "/storage/${user.photo?.filename}"
-                : null
+            out << (user?.photo ? "/storage/${user?.photo?.id}" : null)
         }
     }
 

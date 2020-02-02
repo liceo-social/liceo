@@ -90,6 +90,7 @@ class SecurityDataService {
 
         log.debug "creating admin authority"
         Authority authority = new Authority(authority: 'ROLE_ADMIN').save()
+        Authority normalUser = new Authority(authority: 'ROLE_USER').save()
         UserAuthority.create(admin, authority)
     }
 

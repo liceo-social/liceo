@@ -30,13 +30,6 @@ class User implements Serializable {
     }
 
     /**
-     * Embedded relationship
-     *
-     * @since 0.1.0
-     */
-    static embedded = ['photo']
-
-    /**
      * User constraints
      *
      * @since 0.1.0
