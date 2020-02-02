@@ -6,7 +6,7 @@
 <label
     id="${attrs.labelName}"
     class="custom-file-label"
-    for="${attrs.name}">${value?.filename ?: attrs.placeholder}</label>
+    for="${attrs.name}">${value?.originalFilename ?: attrs.placeholder}</label>
 
 <g:if test="${attrs.imgId}">
     <g:javascript>

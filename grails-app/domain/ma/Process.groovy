@@ -2,8 +2,6 @@ package ma
 
 import grails.databinding.BindingFormat
 
-import ma.storage.Attachment
-
 /**
  * An entry describing a follow up with a given person
  *

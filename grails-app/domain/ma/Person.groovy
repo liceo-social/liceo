@@ -21,6 +21,8 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
     @BindingFormat('dd/MM/yyyy')
     Date birthDate
 
+    Boolean active = true
+
     Attachment photo
 
     static constraints = {

@@ -19,7 +19,7 @@
                 <td class="contained">
                     <f:display
                         bean="${bean}"
-                        property="attachment.filename"
+                        property="attachment.originalFilename"
                         displayStyle="${displayStyle?:'table'}"
                         theme="${theme}"/>
                 </td>
