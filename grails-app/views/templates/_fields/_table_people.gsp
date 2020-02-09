@@ -22,7 +22,7 @@
                         displayStyle="${displayStyle?:'table'}"
                         theme="${theme}"/>
                 </td>
-                <td class="text-left">
+                <td class="text-center">
                     <f:display
                         bean="${bean}"
                         property="fullname"
