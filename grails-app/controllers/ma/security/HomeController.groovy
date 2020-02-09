@@ -13,7 +13,7 @@ class HomeController {
 
     def index() {
         def currentUser = springSecurityService.currentUser
-        def latestPeople = Person.findByProfessionalReference(
+        def latestPeople = Person.findAllByProfessionalReference(
             currentUser,
             [
                 max: 8,
