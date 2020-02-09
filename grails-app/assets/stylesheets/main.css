@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
 a, a:hover,
 .nav-pills .nav-link:not(.active):hover  {
     color: #3d9970;
