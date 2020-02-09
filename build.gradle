@@ -118,7 +118,7 @@ assets {
 }
 
 ext {
-    dockerTag = "grails-sample/${project.name}:${project.version}".toLowerCase()
+    dockerTag = "${project.group}/manager:${project.version}".toLowerCase()
     dockerBuildDir = mkdir("${buildDir}/docker")
 }
 task prepareDocker(type: Copy, dependsOn: assemble) {
