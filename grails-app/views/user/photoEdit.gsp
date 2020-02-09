@@ -6,13 +6,12 @@
         </li>
     </content>
     <content tag="content">
-       <div class="row">
-           <div class="col-md-3">
-                <div class="card card-primary card-outline">
-                    <g:render template="templates/aside" />
-                </div>
-          </div>
-      </div>
+        <div class="row">
+            <div class="col-md-3">
+                <g:render template="templates/aside_photo_edit" />
+            </div>
+            <div class="col-md-9">
+            </div>
+        </div>
     </content>
 </g:applyLayout>
-

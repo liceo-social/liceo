@@ -35,7 +35,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+
+                        <div class="col-12">
+                        <!-- <div class="col-6">
                             <div class="remember">
                                  <input type="checkbox"
                                      name="${rememberMeParameter ?: 'remember-me'}"
@@ -45,8 +47,9 @@
                                 </label>
                             </div>
                         </div>
+                        -->
                         <!-- /.col -->
-                        <div class="col-6">
+                        <!-- <div class="col-6"> -->
                             <button type="submit" class="btn btn-primary btn-block">Logarme</button>
                         </div>
                         <!-- /.col -->
@@ -54,10 +57,11 @@
                 </form>
 
                 <!-- /.social-auth-links -->
-
+                <!--
                 <p class="mb-1">
                     <a href="forgot-password.html">Olvidé mi contraseña</a>
                 </p>
+                -->
             </div>
             <!-- /.login-card-body -->
         </div>

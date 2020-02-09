@@ -23,11 +23,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="card-body">
-                <g:if test="${flash.message}">
-                    <div class="message" role="status">${flash.message}</div>
-                </g:if>
-                <f:table properties="username, enabled, passwordExpired, accountLocked, accountExpired" collection="${userList}" />
+            <div class="card-body p-0">
+                <f:table
+                    collection="${userList}"
+                    template="table_users"
+                    properties="username, enabled, passwordExpired, accountLocked, accountExpired" />
 
                 <div class="pagination">
                     <g:paginate total="${userCount ?: 0}" />

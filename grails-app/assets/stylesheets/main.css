@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
 a, a:hover,
 .nav-pills .nav-link:not(.active):hover  {
     color: #3d9970;
@@ -144,6 +146,10 @@ input[type='file'] {
     margin-bottom: 2em;
 }
 
+.profile-username-compact {
+    margin-bottom: 0em;
+}
+
 .img-profile {
     height: 160px;
     width: 160px;
@@ -203,4 +209,12 @@ td > form {
 img.dashboard {
     width: 7em;
     margin-bottom: .5em;
+}
+
+img.section {
+    height: 100%;
+    width: 40%;
+    opacity: .2;
+    margin: auto;
+    vertical-align: middle;
 }

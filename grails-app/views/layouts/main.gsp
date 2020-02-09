@@ -13,6 +13,7 @@
       <asset:stylesheet src="select2/select2.css"/>
       <asset:stylesheet src="adminlte.css"/>
       <asset:stylesheet src="summernote/summernote-bs4.css"/>
+      <asset:stylesheet src="icheck-bootstrap/icheck-bootstrap.css"/>
       <asset:stylesheet src="all.css"/>
       <asset:stylesheet src="main.css"/>
       <asset:javascript src="jquery.js"/>
@@ -41,10 +42,22 @@
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link"
-            href="${request.forwardURI}?toggle=${!session.toggle ? 'close' : 'open'}">
-                <i class="fas fa-bars"></i>
-           </a>
+            <g:if test="${params.action == 'save'}">
+                <g:set var="oclose" value="${!session.toggle ? 'close' : 'open'}" />
+                <g:link
+                    controller="${params.controller}"
+                    action="index"
+                    class="nav-link"
+                    params="[toggle: oclose]">
+                    <i class="fas fa-bars"></i>
+                </g:link>
+            </g:if>
+            <g:else>
+                <a class="nav-link"
+                    href="${request.forwardURI}?toggle=${!session.toggle ? 'close' : 'open'}">
+                    <i class="fas fa-bars"></i>
+                </a>
+           </g:else>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
@@ -71,21 +84,29 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-              <g:set var="photo" value="${masec.userPhoto()}" />
-              <g:if test="${photo}">
-             <img class="img-circle elevation-2" src="${photo}" alt="User Image">'
+              <g:set var="photoUrl" value="${masec.userPhoto()}" />
+              <g:if test="${photoUrl}">
+                <img
+                    class="img-circle elevation-2"
+                    src="${photoUrl}"
+                    alt="User Avatar">
              </g:if>
              <g:else>
-             <asset:image
-                class="img-circle elevation-2"
-                src="default_user.jpg"
-                alt="Default user image" />
+                 <asset:image
+                    class="img-circle elevation-2"
+                    src="default_user.jpg"
+                    alt="Default user image" />
              </g:else>
             </div>
             <div class="info">
-              <a href="#" class="d-block">
-                  <masec:userName />
-              </a>
+                <sec:ifAllGranted roles='ROLE_ADMIN'>
+                    <g:link controller="user" action="show" id="${sec.loggedInUserInfo(field: 'id')}">
+                        <masec:userName />
+                    </g:link>
+                </sec:ifAllGranted>
+                <sec:ifNotGranted roles='ROLE_ADMIN'>
+                    <masec:userName />
+                </sec:ifNotGranted>
             </div>
           </div>
 

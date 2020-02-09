@@ -8,25 +8,28 @@
     </div>
     <div class="profile-data">
       <hr />
+      <strong><i class="fas fa-calendar mr-1"></i>ID</strong>
+      <p class="text-muted"><f:display bean="person" property="id"/></p>
+      <hr />
       <strong><i class="fas fa-calendar mr-1"></i>Fecha de nacimiento</strong>
       <p class="text-muted"><f:display bean="person" property="birthDate"/></p>
-      <hr>    
+      <hr>
       <strong><i class="fas fa-id-card mr-1"></i>Contacto</strong>
       <p class="text-muted"><f:display bean="person" property="contact1"/></p>
       <hr>
       <strong><i class="fas fa-user mr-1"></i> Profesional de referencia</strong>
       <p class="text-muted"><f:display bean="person" property="professionalReference"/></p>
-      <hr>            
+      <hr>
       <strong><i class="fas fa-road mr-1"></i> Via de acceso</strong>
       <p class="text-muted"><f:display bean="person" property="cameFrom"/></p>
-      <hr>                
+      <hr>
       <strong><i class="fas fa-calendar mr-1"></i> Fecha de alta</strong>
       <p class="text-muted"><f:display bean="person" property="registrationAt"/></p>
     </div>
   </div>
   <!-- /.card-body -->
   <div class="card-footer">
-    <g:link 
+    <g:link
       controller="person"
       action="edit"
       id="${person.id}"
