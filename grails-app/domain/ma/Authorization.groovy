@@ -31,4 +31,8 @@ class Authorization implements Auditable, Attachable {
         attachment nullable: false
         project nullable: true
     }
+
+    static mapping = {
+        table 'person_authorization'
+    }
 }
