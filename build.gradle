@@ -14,7 +14,7 @@ buildscript {
 import com.bmuschko.gradle.docker.tasks.image.Dockerfile
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 
-version "0.1"
+version "0.1.0"
 group "masiaventura"
 
 apply plugin:"eclipse"
@@ -118,7 +118,7 @@ assets {
 }
 
 ext {
-    dockerTag = "${project.group}/manager:${project.version}".toLowerCase()
+    dockerTag = "masiaventura-docker-public.bintray.io/manager:${project.version}".toLowerCase()
     dockerBuildDir = mkdir("${buildDir}/docker")
 }
 task prepareDocker(type: Copy, dependsOn: assemble) {
