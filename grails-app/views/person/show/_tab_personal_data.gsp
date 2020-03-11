@@ -44,7 +44,7 @@
       <p>Planta: <f:display bean="person" property="floor"/></p>
       <p>Puerta: <f:display bean="person" property="door"/></p>
       <p>Barrio: <f:display bean="person" property="neighborhood"/></p>
-      <p>Districto: <f:display bean="person" property="district"/></p>
+      <p>Distrito: <f:display bean="person" property="district"/></p>
       <p>Código postal: <f:display bean="person" property="postalCode"/></p>
       <p>Contacto 2: <f:display bean="person" property="contact2"/></p>
       <p>Contacto 3: <f:display bean="person" property="contact3"/></p>
@@ -53,7 +53,7 @@
     <strong>Servicios sociales</strong>
     <hr />
       <p>Centro de servicios sociales: <f:display bean="person" property="center"/></p>
-      <p>Trabajador social: <f:display bean="person" property="socialWorker"/></p>
+      <p>Trabajador/a social: <f:display bean="person" property="socialWorker"/></p>
       <p>Tiene expediente en atención primaria: <f:display bean="person" property="hasPrimaryAttentionFile"/></p>
       <p>Tiene intervención con otros recursos: <f:display bean="person" property="hasOtherResourcesCase"/></p>
       <p>Otros recursos: <f:display bean="person" property="otherResourcesCase"/></p>
@@ -66,7 +66,7 @@
     <hr />
       <p>Alergia o intolerancia: <f:display bean="person" property="allergies"/></p>
       <p>Enfermedad: <f:display bean="person" property="illnesses"/></p>
-      <p>Mediación: <f:display bean="person" property="medication"/></p>
+      <p>Medicación: <f:display bean="person" property="medication"/></p>
     </div>
     <div class="col-md-6 block-data">
     <strong>Identificacion</strong>

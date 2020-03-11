@@ -11,7 +11,7 @@
     <div class="card-body">
         <f:field label="Alergia o intolerancia" bean="person" property="allergies"/>
         <f:field label="Enfermedad" bean="person" property="illnesses"/>
-        <f:field label="Mediación" bean="person" property="medication"/>
+        <f:field label="Medicación" bean="person" property="medication"/>
     </div>
     <!-- /.card-body -->
 <!-- /.card -->

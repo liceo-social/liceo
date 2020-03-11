@@ -11,7 +11,7 @@
     <!-- /.card-header -->
     <div class="card-body">
         <f:field label="Centro de servicios sociales" bean="person" property="center"/>
-        <f:field label="Trabajador social" bean="person" property="socialWorker"/>
+        <f:field label="Trabajador/a social" bean="person" property="socialWorker"/>
         <f:field label="Tiene expediente en atención primaria" bean="person" property="hasPrimaryAttentionFile"/>
         <f:field label="Tiene intervención con otros recursos" bean="person" property="hasOtherResourcesCase"/>
         <f:field label="Otros recursos" bean="person" property="otherResourcesCase"/>
