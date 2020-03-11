@@ -16,7 +16,7 @@
         <f:field label="Planta" bean="person" property="floor"/>
         <f:field label="Puerta" bean="person" property="door"/>
         <f:field label="Barrio" bean="person" property="neighborhood"/>
-        <f:field label="Districto" bean="person" property="district"/>
+        <f:field label="Distrito" bean="person" property="district"/>
         <f:field label="Código postal" bean="person" property="postalCode"/>
         <f:field label="Contacto 2" bean="person" property="contact2"/>
         <f:field label="Contacto 3" bean="person" property="contact3"/>
