@@ -7,6 +7,8 @@ import ma.storage.Attachment
 
 class AuthorizationController implements FlashMessageAware {
 
+    def authorizationService
+
     /**
     * Shows processes of a given person and if provided
     * filtered by project
@@ -66,7 +68,7 @@ class AuthorizationController implements FlashMessageAware {
             return
         }
 
-        authorization.save()
+        authorizationService.save(authorization)
 
         redirect(
             controller: 'authorization',

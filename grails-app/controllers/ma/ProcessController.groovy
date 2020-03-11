@@ -8,6 +8,8 @@ class ProcessController implements FlashMessageAware {
 
     static scaffold = Process
 
+    def processService
+
     /**
     * Shows processes of a given person and if provided
     * filtered by project
@@ -54,7 +56,7 @@ class ProcessController implements FlashMessageAware {
             return
         }
 
-        process.save()
+        processService.save(process)
 
         redirect(
             controller: 'process',
