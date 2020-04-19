@@ -29,7 +29,7 @@
                         <g:render template="templates/body" />
                     </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer">                    
                     <g:submitButton name="create" class="btn btn-primary save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                     <g:link
                         controller="process"

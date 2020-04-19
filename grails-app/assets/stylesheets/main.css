@@ -37,7 +37,6 @@ fieldset.buttons a {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    margin-top: 1em;
 }
 
 span.currentStep {
@@ -48,6 +47,7 @@ span.currentStep {
 }
 
 .pagination a {
+  background: #ffffff;
   border: 1px solid #3d9970;
   color: #3d9970;
   padding: .5rem .75rem;
@@ -217,4 +217,34 @@ img.section {
     opacity: .2;
     margin: auto;
     vertical-align: middle;
+}
+
+ul.filters {
+    display: inline;
+    padding: 0;
+}
+
+.filters li {
+    background: var(--primary);
+    border: 1px solid #cccccc;
+    border-radius: .3em;
+    color: var(--white);
+    padding: .2em 1em;
+    display: inline;
+    margin-left: .5em;
+}
+
+.filters > li > i::before {
+    color: var(--white);
+    margin-left: 1em;
+}
+
+.tag-title {
+    font-weight: bold;
+}
+
+.motivation {
+    height: 6em;
+    padding: .5em;
+    width: 100%;
 }

@@ -14,7 +14,7 @@ buildscript {
 import com.bmuschko.gradle.docker.tasks.image.Dockerfile
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 
-version "0.1.2"
+version "0.2.0"
 group "masiaventura"
 
 apply plugin:"eclipse"

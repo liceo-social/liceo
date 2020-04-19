@@ -16,13 +16,15 @@
                         name="projectId"/>
                 </g:form>
            </div>
-            <div class="card-footer">
-                <g:link
-                    class="btn btn-primary edit"
-                    controller="authorization"
-                    action="create"
-                    params="[person: person.id, project: project?.id]">Crear nueva autorizacion</g:link>
-            </div>
+           <g:if test="${person.active}">
+                <div class="card-footer">
+                    <g:link
+                        class="btn btn-primary edit"
+                        controller="authorization"
+                        action="create"
+                        params="[person: person.id, project: project?.id]">Crear nueva autorizacion</g:link>
+                </div>
+            </g:if>
         </div>
         <div class="card card-primary">
            <div class="card-header">

@@ -16,7 +16,7 @@
                         name="projectId"/>
                 </g:form>
            </div>
-           <g:if test="${project}">
+           <g:if test="${project && person.active}">
                <div class="card-footer">
                      <g:link
                          class="btn btn-primary edit"

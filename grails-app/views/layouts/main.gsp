@@ -62,7 +62,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-          <g:link controller='logout'>
+          <g:link controller='logout' action="logout">
               Salir
               <i class="fas fa-sign-out-alt"></i>
           </g:link>
