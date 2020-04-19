@@ -15,6 +15,8 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
 
     static hasMany = [projects: Project]
 
+    String fullname
+
     @BindingFormat('dd/MM/yyyy')
     Date registrationAt
 
@@ -74,12 +76,13 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
         photo nullable: true
     }
 
-    String getFullname() {
-        return "${this.name} ${this.firstSurname} ${this.secondSurname ?: ''}"
-    }
-
     Integer getAge() {
         return Utils.calculateAge(this.birthDate)
+    }
+
+    static mapping = {
+        // This allows to query fullname in the database instead of getting only the value
+        fullname formula: "NAME||' '||FIRST_SURNAME||' '||COALESCE(SECOND_SURNAME, '')"
     }
 
     @Override

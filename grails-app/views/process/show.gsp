@@ -25,11 +25,13 @@
         <g:render template="templates/body_show" />
     </content>
     <content tag="actions">
-        <g:link
-            controller="process"
-            action="edit"
-            id="${process.id}"
-            class="btn btn-primary">Edit</g:link>
+        <g:if test="${process.person.active}">
+            <g:link
+                controller="process"
+                action="edit"
+                id="${process.id}"
+                class="btn btn-primary">Edit</g:link>
+        </g:if>            
         <g:link
             controller="process"
             action="index"

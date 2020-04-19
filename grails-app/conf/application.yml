@@ -121,6 +121,11 @@ admin:
     username: admin
     password: admin
 
+# general application CUSTOM configurations
+app:
+    pagination:
+        max: 7
+
 environments:
     development:
         dataSource:

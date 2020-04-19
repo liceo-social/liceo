@@ -25,11 +25,13 @@
         <g:render template="attachments/templates/list" model="[attachments: process.attachments]" />
     </content>
      <content tag="actions">
-        <g:link
-            controller="process"
-            action="addAttachment"
-            id="${process.id}"
-            class="btn btn-primary">Agregar nuevo adjunto</g:link>
+        <g:if test="${process.person.active}">
+            <g:link
+                controller="process"
+                action="addAttachment"
+                id="${process.id}"
+                class="btn btn-primary">Agregar nuevo adjunto</g:link>
+        </g:if>
         <g:link
             controller="process"
             action="index"

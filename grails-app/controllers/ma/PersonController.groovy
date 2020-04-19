@@ -1,11 +1,29 @@
 package ma
 
+import grails.core.GrailsApplication
+import grails.gorm.PagedResultList
 import ma.controller.FlashMessageAware
-import ma.storage.Attachment
+import ma.person.DisableCommand
+import ma.person.SearchCommand
 
 class PersonController implements FlashMessageAware {
 
   static scaffold = Person
+
+  PersonService personService
+  GrailsApplication grailsApplication
+
+  def export(SearchCommand command) {
+    File csvFile = personService.createSearchResultFile(command)
+    render(file: csvFile, fileName: csvFile.name)
+  }
+
+  def index(SearchCommand command) {
+    command.max = command.max ?: grailsApplication.config.app.pagination.max
+    PagedResultList<Person> result = personService.search(command)
+
+    respond result, model:[searchCommand: command]
+  }
 
   /**
    * Shows person's photo edit form
@@ -42,5 +60,20 @@ class PersonController implements FlashMessageAware {
 
         showSuccessMessage("person.delete.success.description", person.fullname)
         redirect(action: 'index')
+  }
+
+  def disable(DisableCommand command) {
+    Person person = command.person
+    personService.disable(person, command.motivation)
+
+    showSuccessMessage('person.disable.success.description', person.fullname)
+    redirect(action: 'show', id: person.id)
+  }
+
+  def enable(Person person) {
+    personService.enable(person)
+
+    showSuccessMessage('person.enable.success.description', person.fullname)
+    redirect(action: 'show', id: person.id)
   }
 }

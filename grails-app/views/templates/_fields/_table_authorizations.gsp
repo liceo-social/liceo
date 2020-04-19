@@ -45,14 +45,14 @@
                         <i class="fas fa-download"></i>
                         descargar
                     </g:link>
-                    <g:link class="btn btn-primary btn-sm"
-                        controller="authorization" action="edit" id="${bean.id}">
-                        <i class="fas fa-pen"></i>
-                        editar
-                    </g:link>
-                    <sec:ifAllGranted roles='ROLE_ADMIN'>
+                    <g:if test="${bean.person.active}">
+                        <g:link class="btn btn-primary btn-sm"
+                            controller="authorization" action="edit" id="${bean.id}">
+                            <i class="fas fa-pen"></i>
+                            editar
+                        </g:link>
                         <g:render template="/templates/modals/delete" model="[bean: bean]" />
-                    </sec:ifAllGranted>
+                    </g:if>
                 </td>
             </tr>
         </g:each>

@@ -32,6 +32,7 @@ class UrlMappings {
          */
         '/login/auth'(controller: 'login', action: 'auth')
         '/login/authfail'(view: '/login/auth')
+        '/logout'(controller: 'logout', action: 'logout')
 
         /**
          * FILES

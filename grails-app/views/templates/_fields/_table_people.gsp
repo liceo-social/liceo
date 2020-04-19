@@ -3,12 +3,12 @@
          <tr>
             <th class="text-center">Foto</th>
             <th class="text-center">Nombre</th>
-            <g:sortableColumn class="text-center" property="birthDate" title="Edad" />
-            <g:sortableColumn class="text-center" property="cameFrom" title="Via de acceso" />
-            <g:sortableColumn class="text-center" property="registrationAt" title="Registration Date" />
+            <g:sortableColumn class="text-center" property="birthDate" title="Edad" params="${params}" />
+            <g:sortableColumn class="text-center" property="cameFrom" title="Via de acceso" params="${params}" />
+            <g:sortableColumn class="text-center" property="registrationAt" title="Registration Date" params="${params}" />
             <th class="text-center">Projects</th>
             <th class="text-center">Activo</th>
-            <g:sortableColumn class="text-center" property="professionalReference" title="Responsable" />
+            <g:sortableColumn class="text-center" property="professionalReference" title="Responsable" params="${params}" />
             <th class="text-center"></th>
         </tr>
     </thead>
@@ -77,14 +77,16 @@
                         <i class="fas fa-eye"></i>
                         detalle
                     </g:link>
-                    <g:link class="btn btn-primary btn-sm"
-                        controller="person" action="edit" id="${bean.id}">
-                        <i class="fas fa-pen"></i>
-                        editar
-                    </g:link>
-                    <sec:ifAllGranted roles='ROLE_ADMIN'>
-                        <g:render template="/templates/modals/delete" model="[bean: bean]" />
-                    </sec:ifAllGranted>
+                    <g:if test="${bean.active}">
+                        <g:link class="btn btn-primary btn-sm"
+                            controller="person" action="edit" id="${bean.id}">
+                            <i class="fas fa-pen"></i>
+                            editar
+                        </g:link>
+                        <sec:ifAllGranted roles='ROLE_ADMIN'>
+                            <g:render template="/templates/modals/delete" model="[bean: bean]" />
+                        </sec:ifAllGranted>
+                    </g:if>
                 </td>
             </tr>
         </g:each>
