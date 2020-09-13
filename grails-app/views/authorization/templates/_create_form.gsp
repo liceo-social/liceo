@@ -1,5 +1,5 @@
 <f:field
-    widget-placeholder="Introduce una descripcion para la autorizacion"
+    widget-placeholder="Introduce una descripcion para el documento"
     bean="authorization"
     property="description" />
 <label>Archivo</label>

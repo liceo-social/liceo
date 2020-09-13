@@ -11,7 +11,7 @@
             <g:link controller="person" action="show" id="${authorization.person.id}">detalle</g:link>
         </li>
         <li class="breadcrumb-item">
-            <g:link controller="person" action="authorizations" id="${authorization.person.id}">autorizaciones</g:link>
+            <g:link controller="person" action="authorizations" id="${authorization.person.id}">documentación</g:link>
         </li>
         <li class="breadcrumb-item active">nueva</li>
     </content>
@@ -24,7 +24,7 @@
                 <div class="card-header p-0 pt-1">
                     <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
                         <li class="nav-item">
-                            <span class="nav-link">Detalle de autorizacion</span>
+                            <span class="nav-link">Detalle de documento</span>
                         </li>
                     </ul>
                 </div>
@@ -43,7 +43,7 @@
                         action="index"
                         id="${authorization.person.id}"
                         type="submit"
-                        class="btn btn-default float-right">Volver a autorizaciones</g:link  >
+                        class="btn btn-default float-right">Volver a documentación</g:link  >
                 </div>
             </div>
         </g:uploadForm>

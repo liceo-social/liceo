@@ -22,13 +22,13 @@
                         class="btn btn-primary edit"
                         controller="authorization"
                         action="create"
-                        params="[person: person.id, project: project?.id]">Crear nueva autorizacion</g:link>
+                        params="[person: person.id, project: project?.id]">Subir un nuevo documento</g:link>
                 </div>
             </g:if>
         </div>
         <div class="card card-primary">
            <div class="card-header">
-               <h3 class="card-title">Autorizaciones:</h3>
+               <h3 class="card-title">Documentación:</h3>
            </div>
            <div class="card-body p-0">
                 <g:if test="${authorizations}">

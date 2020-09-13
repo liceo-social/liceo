@@ -23,6 +23,6 @@
             id="${person.id}"
             class="nav-link ${tabName == 'authorizations' ? 'active' : ''}"
             aria-controls="custom-tabs-two-projects"
-            aria-selected="false">Autorizaciones</g:link>
+            aria-selected="false">Documentación</g:link>
     </li>
 </ul>
