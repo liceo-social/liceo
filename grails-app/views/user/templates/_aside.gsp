@@ -20,17 +20,19 @@
             <f:field bean="${user}" property="enabled" widget="active" wrapper="empty"/>
         </div>
     </div>
-    <div class="card-footer">
-        <g:link
-            id="${user.id}"
-            name="editPhoto"
-            action="editPhoto"
-            class="btn btn-primary btn-block">Cambiar Imagen</g:link>
-        <g:link
-            id="${user.id}"
-            name="changePassword"
-            controller="user"
-            action="changePasswordEdit"
-            class="btn btn-danger btn-block">Cambiar password</g:link>
-    </div>
+    <sec:ifAllGranted roles='ROLE_ADMIN'>
+        <div class="card-footer">
+            <g:link
+                id="${user.id}"
+                name="editPhoto"
+                action="editPhoto"
+                class="btn btn-primary btn-block">Cambiar Imagen</g:link>
+            <g:link
+                id="${user.id}"
+                name="changePassword"
+                controller="user"
+                action="changePasswordEdit"
+                class="btn btn-danger btn-block">Cambiar password</g:link>
+        </div>
+    </sec:ifAllGranted>
 </div>

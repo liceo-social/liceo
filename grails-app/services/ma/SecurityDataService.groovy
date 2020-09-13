@@ -58,6 +58,7 @@ class SecurityDataService {
         new Requestmap(url: '/h2-console/**',     configAttribute: 'ROLE_ADMIN').save()
         new Requestmap(url: '/profile/**',        configAttribute: 'ROLE_USER,ROLE_ADMIN').save()
         new Requestmap(url: '/role/**',           configAttribute: 'ROLE_SUPERVISOR').save()
+        new Requestmap(url: '/user/show/**',      configAttribute: 'ROLE_USER,ROLE_ADMIN').save()
         new Requestmap(url: '/user/**',           configAttribute: 'ROLE_ADMIN,ROLE_SUPERVISOR').save()
         new Requestmap(url: '/login/impersonate', configAttribute: 'ROLE_SWITCH_USER,isFullyAuthenticated()').save()
         new Requestmap(url: '/',                  configAttribute: 'ROLE_USER,ROLE_ADMIN').save()
