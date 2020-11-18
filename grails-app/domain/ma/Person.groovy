@@ -34,6 +34,8 @@ class Person implements Auditable, Identification, PersonalInformation, Administ
         nationality nullable: true
         regionOfBirth nullable: true
         culturalUpbringing nullable: true
+        genre nullable: false
+        sex nullable: false
 
         projects nullable: true
         identification nullable: false

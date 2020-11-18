@@ -7,13 +7,21 @@
     <f:field
         label="Sexo"
         bean="person"
+        property="sex"
+        value="${person?.sex}"
+        widget-optionKey="id"
+        widget-optionValue="name"
+        widget-value="${person?.sex?.id}"
+        widget-from="${Sex.list()}" />
+    <f:field
+        label="Genero"
+        bean="person"
         property="genre"
         value="${person?.genre}"
         widget-optionKey="id"
         widget-optionValue="name"
         widget-value="${person?.genre?.id}"
         widget-from="${Genre.list()}" />
-
     <f:field
         label="Fecha de nacimiento"
         bean="person"

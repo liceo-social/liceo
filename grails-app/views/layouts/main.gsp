@@ -179,6 +179,12 @@
                             </g:link>
                         </li>
                           <li class="nav-item">
+                                <g:link controller="sex" class="nav-link" action="index">
+                                <i class="fas fa-venus-mars nav-icon"></i>
+                                <p>Sexo</p>
+                              </g:link>
+                          </li>
+                          <li class="nav-item">
                                 <g:link controller="genre" class="nav-link" action="index">
                                 <i class="fas fa-venus-mars nav-icon"></i>
                                 <p>Generos</p>

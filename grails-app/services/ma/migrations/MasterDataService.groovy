@@ -1,4 +1,4 @@
-package ma
+package ma.migrations
 
 import ma.person.CameFrom
 
@@ -12,8 +12,9 @@ import ma.person.Genre
 
 @Slf4j
 @Transactional
-class ImportCsvService {
+class MasterDataService {
 
+    private static final String SEXES_CSV_FILE = "/csv/sexes.csv"
     private static final String GENRES_CSV_FILE = "/csv/genres.csv"
     private static final String COUNTRIES_CSV_FILE = "/csv/countries.csv"
     private static final String CAME_FROM_CSV_FILE = "/csv/came_from.csv"
@@ -24,7 +25,7 @@ class ImportCsvService {
      * @since 0.1.0
      */
     @Transactional
-    def loadInitialData() {
+    def load() {
         log.debug 'loading master data ...'
 
         try {

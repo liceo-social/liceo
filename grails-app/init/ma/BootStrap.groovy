@@ -1,44 +1,14 @@
 package ma
 
-import ma.security.User
-
 /**
- * This class is responsible do some initialization stuff
+ * IMPORTANT
+ * ---------
+ * MIGRATIONS AND EXECUTION OF THIS CLASS MAY BE IN CONFLICT. DON'T EXECUTE
+ * ANYTHING THAT MAY CONFLICT WITH THE DATABASE MIGRATION HERE.
  *
  * @since 0.1.0
  */
 class BootStrap {
-
-    /**
-     * Reference to the Grails' application
-     *
-     * @since 0.1.0
-     */
-    def application
-
-    /**
-     * Service to load csv files
-     *
-     * @since 0.1.0
-     */
-    def importCsvService
-
-    /**
-     * Service to load initial security data
-     *
-     * @since 0.1.0
-     */
-    def securityDataService
-
-    /**
-     * Executes initial tasks at startup
-     *
-     * @since 0.1.0
-     */
-    def init = { servletContext ->
-        securityDataService.loadInitialData()
-        importCsvService.loadInitialData()
-    }
 
     /**
      * Executes clean up tasks at shutdown

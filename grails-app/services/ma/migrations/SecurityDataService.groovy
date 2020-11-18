@@ -1,4 +1,4 @@
-package ma
+package ma.migrations
 
 import grails.gorm.transactions.Transactional
 import groovy.util.logging.Slf4j
@@ -19,6 +19,8 @@ class SecurityDataService {
      */
     static MAPPINGS = [
         '/error',
+        '/index',
+        '/index.gsp',
         '/**/favicon.ico',
         '/shutdown',
         '/assets/**',
@@ -36,7 +38,7 @@ class SecurityDataService {
     def application
     def springSecurityService
 
-    void loadInitialData() {
+    void load() {
         this.loadRequestmaps()
         this.completeAdminUser(this.createAdminUser())
         this.clearRequestMapCache()
