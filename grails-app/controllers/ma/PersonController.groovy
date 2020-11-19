@@ -15,7 +15,7 @@ class PersonController implements FlashMessageAware {
 
   def export(SearchCommand command) {
     File csvFile = personService.createSearchResultFile(command)
-    render(file: csvFile, fileName: csvFile.name)
+    render(file: csvFile, fileName: csvFile.name, encoding: 'UTF-8')
   }
 
   def index(SearchCommand command) {

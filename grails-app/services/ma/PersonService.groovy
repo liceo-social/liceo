@@ -132,10 +132,10 @@ abstract class PersonService implements IPersonService {
     }
     String dateFormat = new SimpleDateFormat("yyyy-MM-dd").format(new Date())
     File temporalFile = Files
-      .createTempFile("masiaventura-${dateFormat}-", ".csv")
+      .createTempFile("liceo-${dateFormat}-", ".csv")
       .toFile()
 
-    writer.writeTo(temporalFile.newWriter())
+    writer.writeTo(temporalFile.newWriter('UTF-8'))
 
     return temporalFile
   }
