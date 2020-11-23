@@ -75,8 +75,8 @@
       <aside class="main-sidebar sidebar-light-olive elevation-4">
         <!-- Brand Logo -->
         <g:link controller="person" class="brand-link">
-          <asset:image src="Logo.png" alt="AdminLTE Logo" class="brand-image img-circle" style="opacity: .8" />
-          <span class="brand-text font-weight-light">Masiaventura</span>
+          <asset:image src="logo.svg" alt="Liceo" class="brand-image img-circle" style="opacity: .8" />
+          <span class="brand-text font-weight-light">Liceo</span>
         </g:link>
 
         <!-- Sidebar -->

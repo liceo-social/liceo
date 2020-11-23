@@ -54,7 +54,7 @@ span.currentStep {
 }
 
 body.login-page {
-    background-color: gray;
+    background-color: #f4f6f9;
 }
 
 .remember {
@@ -76,13 +76,12 @@ body.login-page {
 }
 
 .login-page {
-    background-image: url('/assets/login-bg.jpg');
-    background-size: cover;
-    background-position: center bottom;
+    height: 80vh;
 }
 
 .login-logo {
     color: black;
+    margin-bottom: 1em;
 }
 
 input[type='file'] {

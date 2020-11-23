@@ -9,7 +9,7 @@
 <body class="login-page" style="min-height: 512.391px;">
     <div class="login-box">
         <div class="login-logo">
-            <!-- MASIAVENTURA -->
+            <g:img file="logo.svg" />
         </div>
         <!-- /.login-logo -->
         <div class="card">
