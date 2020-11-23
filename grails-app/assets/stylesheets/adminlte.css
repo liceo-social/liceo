@@ -19243,8 +19243,8 @@ html.maximized-card {
 
 .users-list > li img {
   border-radius: 50%;
-  height: auto;
-  max-width: 100%;
+  height: 5em;
+  max-width: 5em;
 }
 
 .users-list > li > a:hover,
