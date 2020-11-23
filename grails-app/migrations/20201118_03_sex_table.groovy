@@ -34,7 +34,7 @@ databaseChangeLog = {
   changeSet(author: 'Mario Garcia', id: '20201118_03_C') {
     comment "adds sex field constrains in person table"
 
-    addNotNullConstraint(tableName: 'person', columnName: 'sex_id')
+    addNotNullConstraint(tableName: 'person', columnName: 'sex_id', columnDataType:"BIGINT")
     addForeignKeyConstraint(
       baseColumnNames: "sex_id",
       baseTableName: "person",
