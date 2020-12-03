@@ -3,11 +3,13 @@ package ma
 import ma.controller.FlashMessageAware
 import ma.authorization.CreateCommand
 import ma.authorization.UpdateAuthorizationAttachmentCommand
-import ma.storage.Attachment
+import ma.controller.SecurityAware
+import ma.security.SecurityRulesService
 
-class AuthorizationController implements FlashMessageAware {
+class AuthorizationController implements FlashMessageAware, SecurityAware {
 
-    def authorizationService
+    AuthorizationService authorizationService
+    SecurityRulesService securityRulesService
 
     /**
     * Shows processes of a given person and if provided
@@ -83,6 +85,10 @@ class AuthorizationController implements FlashMessageAware {
      * @since 0.1.0
      */
     def updateAuthorization(UpdateAuthorizationAttachmentCommand update) {
+        if (!securityRulesService.isCreatedByOrAdmin(update.authorization.createdBy)) {
+          notAuthorized()
+          return
+        }
         if (update.hasErrors()) {
             showValidationErrorMessage()
             respond(
@@ -113,6 +119,11 @@ class AuthorizationController implements FlashMessageAware {
     }
 
     def delete(Authorization authorization) {
+        if (!securityRulesService.isCreatedByOrAdmin(authorization.createdBy)) {
+          notAuthorized()
+          return
+        }
+
         Authorization.withNewTransaction {
             authorization.delete()
         }
@@ -126,6 +137,11 @@ class AuthorizationController implements FlashMessageAware {
     }
 
     def edit(Authorization authorization) {
+        if (!securityRulesService.isCreatedByOrAdmin(authorization.createdBy)) {
+          notAuthorized()
+          return
+        }
+
         render(view: 'edit', model: [authorization: authorization, person: authorization.person])
     }
 }

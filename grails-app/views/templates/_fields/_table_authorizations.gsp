@@ -5,6 +5,7 @@
             <g:sortableColumn class="text-center" property="project" title="Proyecto" />
             <th class="text-center">Creado</th>
             <th class="text-center">Actualizado</th>
+            <th class="text-center">Creado por</th>
             <th class="text-center"></th>
         </tr>
     </thead>
@@ -39,20 +40,29 @@
                         displayStyle="${displayStyle?:'table'}"
                         theme="${theme}" />
                 </td>
+                <td class="text-center">
+                    <f:display
+                        bean="${bean}"
+                        property="createdBy"
+                        displayStyle="html"
+                        theme="${theme}" />
+                </td>
                 <td class="text-right actions">
                     <g:link class="btn btn-warning btn-sm"
                         controller="attachment" action="download" id="${bean.attachment?.id}">
                         <i class="fas fa-download"></i>
                         descargar
                     </g:link>
-                    <g:if test="${bean.person.active}">
-                        <g:link class="btn btn-primary btn-sm"
-                            controller="authorization" action="edit" id="${bean.id}">
-                            <i class="fas fa-pen"></i>
-                            editar
-                        </g:link>
-                        <g:render template="/templates/modals/delete" model="[bean: bean]" />
-                    </g:if>
+                    <masec:isCreatorOrAdmin createdBy="${bean.createdBy}">
+                        <g:if test="${bean.person.active}">
+                            <g:link class="btn btn-primary btn-sm"
+                                controller="authorization" action="edit" id="${bean.id}">
+                                <i class="fas fa-pen"></i>
+                                editar
+                            </g:link>
+                            <g:render template="/templates/modals/delete" model="[bean: bean]" />
+                        </g:if>
+                    </masec:isCreatorOrAdmin>
                 </td>
             </tr>
         </g:each>

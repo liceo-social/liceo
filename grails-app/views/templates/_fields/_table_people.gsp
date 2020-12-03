@@ -68,7 +68,7 @@
                     <f:display
                         bean="${bean}"
                         property="professionalReference"
-                        displayStyle="${displayStyle?:'table'}"
+                        displayStyle="html"
                         theme="${theme}"/>
                 </td>
                 <td class="text-right actions">
