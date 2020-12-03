@@ -11,7 +11,7 @@ import ma.person.SocialServices
 import ma.storage.Attachment
 import ma.domain.Utils
 
-class Person implements Auditable, Identification, PersonalInformation, Administration, Address, OccupationalTraining, Health, SocialServices {
+class Person extends Auditable implements Dateable, Identification, PersonalInformation, Administration, Address, OccupationalTraining, Health, SocialServices {
 
     static hasMany = [projects: Project]
 

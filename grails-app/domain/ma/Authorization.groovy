@@ -8,7 +8,7 @@ import ma.storage.Attachable
  *
  * @since 0.1.0
  */
-class Authorization implements Auditable, Attachable {
+class Authorization extends Auditable implements Dateable, Attachable {
 
     /**
      * An authorization belongs to a given person

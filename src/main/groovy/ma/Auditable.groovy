@@ -1,25 +1,25 @@
 package ma
 
-/**
- * Classes implementing Auditable will contain when
- * they have been created and last time they've benn
- * updated
- *
- * @since 0.1.0
- */
-trait Auditable {
+import ma.security.User
 
-    /**
-     * When the record has been created
-     *
-     * @since 0.1.0
-     */
-    Date dateCreated
+class Auditable {
 
-    /**
-     * The last time the record has been updated
-     *
-     * @since 0.1.0
-     */
-    Date lastUpdated
+  /**
+   * The user who created the record
+   *
+   * @since 0.2.0
+   */
+  User createdBy
+
+  /**
+   * The user who created the record
+   *
+   * @since 0.2.0
+   */
+  User updatedBy
+
+  static constraints = {
+    createdBy nullable: true
+    updatedBy nullable: true
+  }
 }

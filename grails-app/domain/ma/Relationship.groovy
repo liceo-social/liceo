@@ -6,7 +6,7 @@ package ma
  *
  * @since 0.1.0
  */
-class Relationship implements Auditable {
+class Relationship extends Auditable implements Dateable {
 
     /**
      * A relationship is created around a specific person

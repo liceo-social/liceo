@@ -1,8 +1,12 @@
 package ma.migrations
 
+import grails.gorm.transactions.Transactional
+import groovy.util.logging.Slf4j
 import ma.Person
 import ma.person.Sex
 
+@Slf4j
+@Transactional
 class SexMigrationService {
 
   void load() {
@@ -30,6 +34,8 @@ class SexMigrationService {
       ]
 
       sexList.each {sex -> new Sex(sex).save(flush: true) }
+
+      log.debug("sex migration done")
     }
   }
 }

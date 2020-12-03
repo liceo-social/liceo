@@ -2,7 +2,7 @@ package ma
 
 import ma.domain.Utils
 
-class ProcessType implements Auditable {
+class ProcessType extends Auditable implements Dateable {
 
     String name
     String description

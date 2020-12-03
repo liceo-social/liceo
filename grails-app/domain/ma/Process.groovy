@@ -7,7 +7,7 @@ import grails.databinding.BindingFormat
  *
  * @since 0.1.0
  */
-class Process implements Auditable {
+class Process extends Auditable implements Dateable {
 
     /**
      * A process belongs to a given person, and can be

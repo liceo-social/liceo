@@ -2,7 +2,7 @@ package ma
 
 import ma.domain.Utils
 
-class Project implements Auditable {
+class Project extends Auditable implements Dateable {
 
     static belongsTo = Person
     static hasMany = [
