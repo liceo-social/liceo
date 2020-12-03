@@ -49,4 +49,19 @@ class SecurityTagLib {
             out << user.name
         }
     }
+
+    def isCreatorOrAdmin = { attrs, body ->
+      if (springSecurityService.currentUser) {
+        User user = User.findById(springSecurityService.currentUser.id)
+        List<String> authorities = springSecurityService?.authentication?.authorities?.authority
+
+        def isAdmin = 'ROLE_ADMIN' in authorities
+        def isOwner = user.id == attrs.createdBy.id
+        def isAdminOrOwner = isOwner || isAdmin
+
+        if (isAdminOrOwner) {
+          out << body()
+        }
+      }
+    }
 }

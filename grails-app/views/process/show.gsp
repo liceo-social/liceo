@@ -25,13 +25,15 @@
         <g:render template="templates/body_show" />
     </content>
     <content tag="actions">
-        <g:if test="${process.person.active}">
-            <g:link
-                controller="process"
-                action="edit"
-                id="${process.id}"
-                class="btn btn-primary">Edit</g:link>
-        </g:if>            
+        <masec:isCreatorOrAdmin createdBy="${process.createdBy}">
+            <g:if test="${process.person.active}">
+                <g:link
+                    controller="process"
+                    action="edit"
+                    id="${process.id}"
+                    class="btn btn-primary">Edit</g:link>
+            </g:if>
+        </masec:isCreatorOrAdmin>
         <g:link
             controller="process"
             action="index"

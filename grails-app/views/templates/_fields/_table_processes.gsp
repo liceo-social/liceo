@@ -5,6 +5,7 @@
             <g:sortableColumn class="text-center" property="meetingDate" title="Date" />
             <g:sortableColumn class="text-center" property="project" title="Project" />
             <g:sortableColumn class="text-center" property="type" title="Type" />
+            <g:sortableColumn class="text-center" property="createdBy" title="Created By" />
             <td class="text-center"></td>
         </tr>
     </thead>
@@ -41,20 +42,30 @@
                         theme="${theme}"
                         description="${bean.type.name}" />
                 </td>
+                <td class="text-center">
+                    <f:display
+                        bean="${bean}"
+                        property="createdBy"
+                        displayStyle="html"
+                        theme="${theme}"
+                        description="${bean.createdBy.name}" />
+                </td>
                 <td class="text-right actions">
                     <g:link class="btn btn-default btn-sm"
                         controller="process" action="show" id="${bean.id}">
                         <i class="fas fa-eye"></i>
                         detalle
                     </g:link>
-                    <g:if test="${bean.person.active}">
-                        <g:link class="btn btn-primary btn-sm"
-                            controller="process" action="edit" id="${bean.id}">
-                            <i class="fas fa-pen"></i>
-                            editar
-                        </g:link>
-                        <g:render template="/templates/modals/delete" model="[bean: bean]" />
-                    </g:if>
+                    <masec:isCreatorOrAdmin createdBy="${bean.createdBy}">
+                        <g:if test="${bean.person.active}">
+                            <g:link class="btn btn-primary btn-sm"
+                                controller="process" action="edit" id="${bean.id}">
+                                <i class="fas fa-pen"></i>
+                                editar
+                            </g:link>
+                            <g:render template="/templates/modals/delete" model="[bean: bean]" />
+                        </g:if>
+                    </masec:isCreatorOrAdmin>
                 </td>
             </tr>
         </g:each>

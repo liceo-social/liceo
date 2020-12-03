@@ -1,14 +1,17 @@
 package ma
 
 import ma.controller.FlashMessageAware
+import ma.controller.SecurityAware
 import ma.process.ProcessCreation
 import ma.process.UpdateProcessAttachmentCommand
+import ma.security.SecurityRulesService
 
-class ProcessController implements FlashMessageAware {
+class ProcessController implements FlashMessageAware, SecurityAware {
 
     static scaffold = Process
 
-    def processService
+    ProcessService processService
+    SecurityRulesService securityRulesService
 
     /**
     * Shows processes of a given person and if provided
@@ -66,6 +69,11 @@ class ProcessController implements FlashMessageAware {
     }
 
     def edit(Process process) {
+        // SECURITY CHECK
+        if (!securityRulesService.isCreatedByOrAdmin(process.createdBy)) {
+          notAuthorized()
+          return
+        }
         render(view: 'edit', model: [process: process, person: process.person])
     }
 
@@ -80,6 +88,12 @@ class ProcessController implements FlashMessageAware {
     }
 
     def delete(Process process) {
+        // SECURITY CHECK
+        if (!securityRulesService.isCreatedByOrAdmin(process.createdBy)) {
+          notAuthorized()
+          return
+        }
+
         Process.withTransaction {
             process.delete()
         }
@@ -103,6 +117,12 @@ class ProcessController implements FlashMessageAware {
     }
 
     def addAttachment(Process process) {
+        // SECURITY CHECK
+        if (!securityRulesService.isCreatedByOrAdmin(process.createdBy)) {
+          notAuthorized()
+          return
+        }
+
         render(
             view: 'attachments/create',
             model: [
@@ -114,6 +134,14 @@ class ProcessController implements FlashMessageAware {
     }
 
     def saveAttachment(ProcessAttachment command) {
+        Process process = command.process as Process
+
+        // SECURITY CHECK
+        if (!securityRulesService.isCreatedByOrAdmin(process.createdBy)) {
+          notAuthorized()
+          return
+        }
+
         if (command.hasErrors()) {
             showValidationErrorMessage()
             respond(
@@ -142,6 +170,14 @@ class ProcessController implements FlashMessageAware {
     }
 
     def editAttachment(ProcessAttachment command) {
+        Process process = command.process as Process
+
+        // SECURITY CHECK
+        if (!securityRulesService.isCreatedByOrAdmin(process.createdBy)) {
+          notAuthorized()
+          return
+        }
+
         render(
             view: 'attachments/edit',
             model: [
@@ -153,6 +189,13 @@ class ProcessController implements FlashMessageAware {
     }
 
     def deleteAttachment(ProcessAttachment command) {
+        Process process = command.process as Process
+
+        // SECURITY CHECK
+        if (!securityRulesService.isCreatedByOrAdmin(process.createdBy)) {
+          notAuthorized()
+          return
+        }
 
         ProcessAttachment.withTransaction {
             command.delete()
@@ -169,6 +212,12 @@ class ProcessController implements FlashMessageAware {
     def updateAttachment(UpdateProcessAttachmentCommand command) {
         def processAttachment = ProcessAttachment.get(command.id)
         def process = processAttachment.process
+
+        // SECURITY CHECK
+        if (!securityRulesService.isCreatedByOrAdmin(process.createdBy)) {
+          notAuthorized()
+          return
+        }
 
         if (command.hasErrors()) {
             showValidationErrorMessage()

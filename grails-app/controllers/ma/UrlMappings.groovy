@@ -46,5 +46,6 @@ class UrlMappings {
         "/error"(view: '/error')
         "500"(view:'/error')
         "404"(view:'/notFound')
+        "403"(view:'/notAuthorized')
     }
 }

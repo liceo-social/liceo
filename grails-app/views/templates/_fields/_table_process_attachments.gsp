@@ -29,21 +29,23 @@
                         <i class="fas fa-download"></i>
                         descargar
                     </g:link>
-                    <g:if test="${bean.process.person.active}">
-                        <g:link
-                            class="btn btn-primary btn-sm"
-                            controller="process"
-                            action="editAttachment"
-                            id="${bean.id}">
-                            <i class="fas fa-pen"></i>
-                            editar
-                        </g:link>
-                        <g:set var="action" value="deleteAttachment" />
-                        <g:set var="controller" value="process" />
-                        <g:render
-                            template="/templates/modals/delete"
-                            model="[bean: bean, action: action, controller: controller, id: bean.id]" />
-                    </g:if>
+                    <masec:isCreatorOrAdmin createdBy="${bean.process.createdBy}">
+                        <g:if test="${bean.process.person.active}">
+                            <g:link
+                                class="btn btn-primary btn-sm"
+                                controller="process"
+                                action="editAttachment"
+                                id="${bean.id}">
+                                <i class="fas fa-pen"></i>
+                                editar
+                            </g:link>
+                            <g:set var="action" value="deleteAttachment" />
+                            <g:set var="controller" value="process" />
+                            <g:render
+                                template="/templates/modals/delete"
+                                model="[bean: bean, action: action, controller: controller, id: bean.id]" />
+                        </g:if>
+                    </masec:isCreatorOrAdmin>
                 </td>
             </tr>
         </g:each>

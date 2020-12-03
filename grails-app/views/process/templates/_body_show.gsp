@@ -23,4 +23,9 @@
         property="content"
         widget="display/html"
         wrapper="display/html" />
+    <f:display
+        label="Creado por"
+        bean="process"
+        property="createdBy"
+        wrapper="display/block" />
 </fieldset>
