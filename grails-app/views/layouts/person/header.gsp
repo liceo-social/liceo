@@ -37,10 +37,15 @@
             action="edit"
             id="${person.id}"
             class="btn btn-primary btn-block"><b>Editar</b></g:link>
-          <a class="btn btn-danger btn-block" href="#" data-toggle="modal" data-target="#disable_modal">
-            Dar de baja
-          </a>
-          <g:render template="/person/disable/modal" />
+            <sec:ifAllGranted roles='ROLE_ADMIN'>
+              <a class="btn btn-danger btn-block"
+                  href="#"
+                  data-toggle="modal"
+                  data-target="#disable_modal">
+                    Dar de baja
+              </a>
+              <g:render template="/person/disable/modal" />
+          </sec:ifAllGranted>
       </div>
    </g:if>
    <g:else>     
