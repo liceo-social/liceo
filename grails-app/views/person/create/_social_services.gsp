@@ -13,11 +13,11 @@
         <f:field label="Centro de servicios sociales" bean="person" property="center"/>
         <f:field label="Trabajador/a social" bean="person" property="socialWorker"/>
         <f:field label="Tiene expediente en atención primaria" bean="person" property="hasPrimaryAttentionFile"/>
+        <f:field label="Tiene caso en ETMF" bean="person" property="hasEtmfCase"/>
+        <f:field label="Tiene caso en CAF" bean="person" property="hasCafCase"/>
+        <f:field label="Caso en CAI" bean="person" property="caiCase"/>
         <f:field label="Tiene intervención con otros recursos" bean="person" property="hasOtherResourcesCase"/>
         <f:field label="Otros recursos" bean="person" property="otherResourcesCase"/>
-        <f:field label="Caso en ETMF" bean="person" property="etmfCase"/>
-        <f:field label="Tiene expediente en CAI" bean="person" property="hasCaiFile"/>
-        <f:field label="Caso en CAF" bean="person" property="cafCase"/>
     </div>
     <!-- /.card-body -->
 <!-- /.card -->

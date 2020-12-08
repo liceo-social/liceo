@@ -6,7 +6,7 @@ trait SocialServices {
     boolean hasOtherResourcesCase
     String otherResourcesCase
     boolean hasPrimaryAttentionFile
-    String etmfCase
-    boolean hasCaiFile
-    String cafCase
+    boolean hasEtmfCase
+    boolean hasCafCase
+    String caiCase
 }

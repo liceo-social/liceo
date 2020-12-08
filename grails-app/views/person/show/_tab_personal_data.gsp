@@ -57,9 +57,10 @@
       <p>Tiene expediente en atención primaria: <f:display bean="person" property="hasPrimaryAttentionFile"/></p>
       <p>Tiene intervención con otros recursos: <f:display bean="person" property="hasOtherResourcesCase"/></p>
       <p>Otros recursos: <f:display bean="person" property="otherResourcesCase"/></p>
-      <p>Caso en ETMF: <f:display bean="person" property="etmfCase"/></p>
-      <p>Tiene expediente en CAI: <f:display bean="person" property="hasCaiFile"/></p>
-      <p>Caso en CAF: <f:display bean="person" property="cafCase"/></p>
+
+      <p>Tiene en ETMF: <f:display bean="person" property="hasEtmfCase"/></p>
+      <p>Expendiente en CAI: <f:display bean="person" property="caiCase"/></p>
+      <p>Tiene caso en CAF: <f:display bean="person" property="hasCafCase"/></p>
     </div>
     <div class="col-md-6 block-data">
     <strong>Alergias / enfermedades</strong>

@@ -93,6 +93,8 @@ databaseChangeLog = {
     }
 
     changeSet(author: "mario (generated)", id: "1606923172462-11") {
+      comment "adds foreign keys for created by fields"
+
       addForeignKeyConstraint(baseColumnNames: "created_by_id", baseTableName: "process", constraintName: "FK3p48fyx3ks8h62r3v0b271ftr", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "app_user", validate: "true")
       addForeignKeyConstraint(baseColumnNames: "updated_by_id", baseTableName: "process", constraintName: "FK3p48fyx3ks8h62r3v0b271ftu", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "app_user", validate: "true")
 

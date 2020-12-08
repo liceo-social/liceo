@@ -1,6 +1,4 @@
 databaseChangeLog = {
-  include file: '20201118_01_initial_schema.groovy'
-  include file: '20201118_02_master_data.groovy'
-  include file: '20201118_03_sex_table.groovy'
-  include file: '20201202_01_owner.groovy'
+  include file: '0_0_0.groovy'
+  include file: '0_2_0.groovy'
 }
