@@ -13,6 +13,7 @@
                     <g:message code="default.show.label" args="[entityName]" />
                 </h3>
                 <div class="card-tools">
+                     <sec:ifAllGranted roles="ROLE_ADMIN">
                       <ul class="nav nav-grails">
                            <li class="nav-item">
                               <g:link class="list" action="index">
@@ -27,6 +28,7 @@
                               </g:link>
                           </li>
                       </ul>
+                     </sec:ifAllGranted>
                 </div>
             </div>
             <div class="card-body">
@@ -37,9 +39,11 @@
             </div>
             <div class="card-footer">
             <fieldset class="buttons">
-                                    <g:link class="btn btn-primary edit" action="edit" resource="\${this.${propertyName}}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                                    <input class="btn btn-danger delete" type="submit" value="\${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('\${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                                </fieldset>
+                <sec:ifAllGranted roles="ROLE_ADMIN">
+                    <g:link class="btn btn-primary edit" action="edit" resource="\${this.${propertyName}}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                    <input class="btn btn-danger delete" type="submit" value="\${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('\${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                </sec:ifAllGranted>
+            </fieldset>
             </div>
             </g:form>
         </div>

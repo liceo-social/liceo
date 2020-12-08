@@ -1,4 +1,4 @@
-package ma.migrations
+package ma.migrations.m_0_2_0
 
 import grails.gorm.transactions.Transactional
 import groovy.util.logging.Slf4j
@@ -7,7 +7,7 @@ import ma.person.Sex
 
 @Slf4j
 @Transactional
-class SexMigrationService {
+class Issue20Service {
 
   void load() {
     boolean isThereAnySex = Sex.count() > 0

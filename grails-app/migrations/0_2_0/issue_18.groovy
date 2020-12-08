@@ -65,7 +65,7 @@ databaseChangeLog = {
 
       grailsChange {
         change {
-          Holders.applicationContext.getBean("createdByMigrationService").load()
+          Holders.applicationContext.getBean("issue18Service").load()
         }
       }
     }

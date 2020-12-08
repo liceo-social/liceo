@@ -1,4 +1,4 @@
-package ma.migrations
+package ma.migrations.m_0_0_0
 
 import ma.person.CameFrom
 

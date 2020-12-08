@@ -26,7 +26,7 @@ databaseChangeLog = {
 
     grailsChange {
       change {
-        Holders.applicationContext.getBean("sexMigrationService").load()
+        Holders.applicationContext.getBean("issue20Service").load()
       }
     }
   }

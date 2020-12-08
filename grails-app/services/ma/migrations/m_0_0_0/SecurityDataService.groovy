@@ -1,4 +1,4 @@
-package ma.migrations
+package ma.migrations.m_0_0_0
 
 import grails.gorm.transactions.Transactional
 import groovy.util.logging.Slf4j

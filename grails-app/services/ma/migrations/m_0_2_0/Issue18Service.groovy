@@ -1,4 +1,4 @@
-package ma.migrations
+package ma.migrations.m_0_2_0
 
 import grails.gorm.transactions.Transactional
 import groovy.sql.Sql
@@ -12,7 +12,7 @@ import java.sql.Connection
 
 @Slf4j
 @Transactional
-class CreatedByMigrationService {
+class Issue18Service {
 
   static final List<String> TABLES = [
     "person",
