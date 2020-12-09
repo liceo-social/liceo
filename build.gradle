@@ -131,12 +131,12 @@ assets {
 }
 
 ext {
-    dockerTag = "masiaventura-docker-public.bintray.io/manager:${project.version}".toLowerCase()
+    jvmArgs = ['-Dspring.profiles.active=production', '-Xmx2048m']
     dockerBuildDir = mkdir("${buildDir}/docker")
 }
 task prepareDocker(type: Copy, dependsOn: assemble) {
     description = 'Copy files from src/main/docker and application jar to Docker temporal build directory'
-    group = 'Docker'
+    group       = 'Docker'
 
     from 'src/main/docker'
     from project.jar
@@ -145,26 +145,23 @@ task prepareDocker(type: Copy, dependsOn: assemble) {
 }
 task createDockerfile(type: Dockerfile, dependsOn: prepareDocker) {
     description = 'Create a Dockerfile file'
-    group = 'Docker'
+    group       = 'Docker'
+    destFile    = project.file("${dockerBuildDir}/Dockerfile")
 
-    destFile = project.file("${dockerBuildDir}/Dockerfile")
-
-    from 'openjdk:11-oraclelinux7'
-
+    from 'openjdk:11-slim'
     exposePort 8080
-
     workingDir '/app'
-
-    copyFile jar.archiveName, 'application.jar'
+    copyFile jar.archiveFileName.get(), 'application.jar'
     copyFile 'app-entrypoint.sh', 'app-entrypoint.sh'
     runCommand 'chmod +x app-entrypoint.sh'
-
     entryPoint '/app/app-entrypoint.sh'
 }
 task buildImage(type: DockerBuildImage, dependsOn: createDockerfile) {
     description = 'Create Docker image to run the Grails application'
-    group = 'Docker'
-
-    inputDir = file(dockerBuildDir)
-    images.add(dockerTag)
+    group       = 'Docker'
+    inputDir    = file(dockerBuildDir)
+    images      = [
+      "liceo-docker-public.bintray.io/manager:${project.version}".toLowerCase(),
+      "liceo-docker-public.bintray.io/manager:latest",
+    ] as Set<String>
 }

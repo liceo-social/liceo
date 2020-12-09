@@ -1,0 +1,25 @@
+name: continuous integration
+
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    container: "openjdk:11-slim"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v1
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-liceo-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: |
+            ${{ runner.os }}-liceo-gradle-
+      - uses: actions/cache@v1
+        with:
+          path: ~/.gradle/wrapper
+          key: ${{ runner.os }}-liceo-wrapper-${{ hashFiles('**/*.gradle') }}
+          restore-keys: |
+            ${{ runner.os }}-liceo-wrapper-
+      - name: build
+        run: ./gradlew clean build
+
