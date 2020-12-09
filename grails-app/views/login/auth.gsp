@@ -62,6 +62,7 @@
                     <a href="forgot-password.html">Olvidé mi contraseña</a>
                 </p>
                 -->
+                <p class="mt-3 text-center">v${grailsApplication.config.info.app.version}</p>
             </div>
             <!-- /.login-card-body -->
         </div>
