@@ -15,7 +15,7 @@
                 <div class="card-tools">
                     <ul class="nav nav-grails">
                         <li class="nav-item">
-                            <g:link class="create" action="create">
+                            <g:link class="create btn btn-default" action="create">
                                 <i class="nav-icon fas fa-plus"></i>
                                 <g:message code="default.new.label" args="[entityName]" />
                             </g:link>

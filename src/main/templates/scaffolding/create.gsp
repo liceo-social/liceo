@@ -15,7 +15,7 @@
                     <div class="card-tools">
                         <ul class="nav nav-grails">
                             <li class="nav-item">
-                                <g:link class="list" action="index">
+                                <g:link class="list btn btn-default" action="index">
                                    <i class="nav-icon fas fa-list"></i>
                                    <g:message code="default.list.label" args="[entityName]" />
                                 </g:link>

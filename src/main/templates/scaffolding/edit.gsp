@@ -15,13 +15,13 @@
                 <div class="card-tools">
                     <ul class="nav nav-grails">
                          <li class="nav-item">
-                            <g:link class="list" action="index">
+                            <g:link class="list btn btn-default mr-2" action="index">
                                <i class="nav-icon fas fa-list"></i>
                                <g:message code="default.list.label" args="[entityName]" />
                             </g:link>
                         </li>
                          <li class="nav-item">
-                            <g:link class="create" action="create">
+                            <g:link class="create btn btn-default" action="create">
                                 <i class="nav-icon fas fa-plus"></i>
                                 <g:message code="default.new.label" args="[entityName]" />
                             </g:link>

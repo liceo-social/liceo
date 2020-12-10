@@ -30,6 +30,12 @@
                             property="name" />
 
                         <f:field
+                            widget-placeholder="Código del proyecto"
+                            label="Código"
+                            bean="project"
+                            property="code" />
+
+                        <f:field
                             widget-placeholder="Descripcion del proyecto"
                             label="Descripcion"
                             bean="project"

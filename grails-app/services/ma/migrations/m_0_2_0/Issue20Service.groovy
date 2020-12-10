@@ -35,7 +35,7 @@ class Issue20Service {
 
       sexList.each {sex -> new Sex(sex).save(flush: true) }
 
-      log.debug("sex migration done")
+      log.debug("0.2.0 (#20): sex migration done")
     }
   }
 }

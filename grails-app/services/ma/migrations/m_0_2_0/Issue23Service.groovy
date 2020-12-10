@@ -3,6 +3,7 @@ package ma.migrations.m_0_2_0
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.SpringSecurityService
 import groovy.sql.Sql
+import groovy.util.logging.Slf4j
 import ma.security.Requestmap
 import org.springframework.beans.factory.annotation.Autowired
 
@@ -14,6 +15,7 @@ import javax.sql.DataSource
  *
  * @since 0.2.0
  */
+@Slf4j
 @Transactional
 class Issue23Service {
 
@@ -55,5 +57,7 @@ class Issue23Service {
 
     // invalidate previous URL mappings
     springSecurityService.clearCachedRequestmaps()
+
+    log.debug("0.2.0 (#23): add admin only security url mappings done")
   }
 }

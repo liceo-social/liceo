@@ -11,6 +11,7 @@ class Project extends Auditable implements Dateable {
     ]
 
     String name
+    String code
     String description
 
     String getAcronym() {
@@ -22,11 +23,24 @@ class Project extends Auditable implements Dateable {
     }
 
     String toString() {
-        return acronym
+        return code
+    }
+
+    def beforeInsert() {
+      if (!code) {
+        code = this.acronym
+      }
+    }
+
+    def beforeUpdate() {
+      if (!code) {
+        code = this.acronym
+      }
     }
 
     static constraints = {
         name nullable: false
+        code nullable: true
         description nullable: true
     }
 }

@@ -45,7 +45,7 @@ class Issue18Service {
       }
     }
 
-    log.debug("missing owner migration done")
+    log.debug("0.2.0 (#18): missing owner migration done")
   }
 
   private static void saveOwnerFor(Sql sql, String table, User admin) {
