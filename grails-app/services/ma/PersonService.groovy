@@ -50,13 +50,17 @@ abstract class PersonService implements IPersonService {
         "in"("genre", command.genres)
       }
 
+      if (command.sexes) {
+        "in"("sex", command.sexes)
+      }
+
       if (command.countries) {
         "in"("nationality", command.countries)
       }
 
       if (command.projects) {
         projects {
-          "in"("id", command.projects.id)
+          "in"("id", command.projects*.id)
         }
       }
 
@@ -94,6 +98,8 @@ abstract class PersonService implements IPersonService {
         registeredAt: person.registrationAt,
         birthDate: person.birthDate,
         name: person.name,
+        sex: person.sex.name,
+        genre: person.genre.name,
         firstSurname: person.firstSurname,
         secondSurname: person.secondSurname,
         nationality: person.nationality?.name,
@@ -125,9 +131,10 @@ abstract class PersonService implements IPersonService {
         professionalBackground: person.professionalBackground,
         otherResourcesCase: person.otherResourcesCase,
         socialWorker: person.socialWorker,
-        cafCase: person.cafCase,
+        hasCafCase: person.hasCafCase,
+        caiCase: person.caiCase,
         center: person.center,
-        etmfCase: person.etmfCase
+        hasEtmfCase: person.hasEtmfCase
       ]
     }
     String dateFormat = new SimpleDateFormat("yyyy-MM-dd").format(new Date())

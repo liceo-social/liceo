@@ -29,6 +29,7 @@ class SearchCommand implements Validateable {
   Boolean showOnlyActive
 
   List<Genre> genres
+  List<Sex> sexes
   List<Country> countries
 
   List<CameFrom> cameFrom

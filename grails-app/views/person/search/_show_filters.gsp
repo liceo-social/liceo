@@ -9,8 +9,11 @@
         <li><span class="tag-title">edad max:</span> ${searchCommand.maxAge}</li>
     </g:if>
     <g:if test="${searchCommand.minAge}">
-            <li><span class="tag-title">edad min:</span> ${searchCommand.minAge}</li>
-        </g:if>
+        <li><span class="tag-title">edad min:</span> ${searchCommand.minAge}</li>
+    </g:if>
+    <g:if test="${searchCommand.sexes}">
+        <li><span class="tag-title">sexo:</span> ${g.join(in: searchCommand.sexes.name, delimiter: ',')}</li>
+    </g:if>
     <g:if test="${searchCommand.genres}">
         <li><span class="tag-title">genero:</span> ${g.join(in: searchCommand.genres.name, delimiter: ',')}</li>
     </g:if>

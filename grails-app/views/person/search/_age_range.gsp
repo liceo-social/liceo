@@ -1,7 +1,7 @@
 <div class="form-group control-group">
 <label for="age">Edad</label>
 <div class="row controls">
-    <div class="col-3">
+    <div class="col-6">
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Desde</span>
@@ -16,7 +16,7 @@
                 value="${searchCommand.minAge}" />
         </div>
     </div>
-    <div class="col-3">
+    <div class="col-6">
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Hasta</span>
