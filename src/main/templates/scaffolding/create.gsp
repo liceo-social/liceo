@@ -36,7 +36,7 @@
                     </g:hasErrors>
 
                         <fieldset class="form">
-                            <f:all bean="${propertyName}"/>
+                            <f:all bean="${propertyName}" except="createdBy, updatedBy"/>
                         </fieldset>
                 </div>
                 <div class="card-footer">

@@ -39,7 +39,7 @@
                 </g:hasErrors>
                     <g:hiddenField name="version" value="\${this.${propertyName}?.version}" />
                     <fieldset class="form">
-                        <f:all bean="${propertyName}"/>
+                        <f:all bean="${propertyName}" except="createdBy, updatedBy"/>
                     </fieldset>
             </div>
             <div class="card-footer">
