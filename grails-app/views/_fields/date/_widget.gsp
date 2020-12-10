@@ -14,7 +14,31 @@
     $(function() {
         $("input[name='${property}']").daterangepicker({
             locale: {
-            "format": "${dateFormat}"
+                "format": "${dateFormat}",
+                "daysOfWeek": [
+                    "Dom",
+                    "Lun",
+                    "Mar",
+                    "Mie",
+                    "Jue",
+                    "Vie",
+                    "Sab"
+                ],
+                "firstDay": 1,
+                "monthNames": [
+                     "Enero",
+                     "Febrero",
+                     "Marzo",
+                     "Abril",
+                     "Mayo",
+                     "Junio",
+                     "Julio",
+                     "Agosto",
+                     "Septiembre",
+                     "Octubre",
+                     "Noviembre",
+                     "Diciembre"
+                ]
             },
             singleDatePicker: true,
             showDropdowns: true,
