@@ -2,9 +2,43 @@
   <div class="card-header">
     <h3 class="card-title">Ficha</h3>
   </div>
+
   <div class="card-body box-profile">
     <div class="profile-photo">
       <g:layoutBody />
+    </div>
+    <div class="row">
+    <div class="col-12 mt-2">
+      <g:if test="${person.active}">
+          <!-- /.card-body -->
+
+              <g:link
+                controller="person"
+                action="edit"
+                id="${person.id}"
+                class="btn btn-primary btn-block"><b>Editar</b></g:link>
+                <sec:ifAllGranted roles='ROLE_ADMIN'>
+                  <a class="btn btn-danger btn-block"
+                      href="#"
+                      data-toggle="modal"
+                      data-target="#disable_modal">
+                        Dar de baja
+                  </a>
+                  <g:render template="/person/disable/modal" />
+              </sec:ifAllGranted>
+
+       </g:if>
+       <g:else>
+        <sec:ifAllGranted roles='ROLE_ADMIN'>
+
+              <a class="btn btn-warning btn-block" href="#" data-toggle="modal" data-target="#enable_modal">
+              Reactivar
+              </a>
+              <g:render template="/person/enable/modal" />
+
+        </sec:ifAllGranted>
+       </g:else>
+       </div>
     </div>
     <div class="profile-data">
       <hr />
@@ -29,35 +63,7 @@
       <p class="text-muted"><f:display bean="person" property="registrationAt"/></p>
     </div>
   </div>
-  <g:if test="${person.active}">
-      <!-- /.card-body -->
-      <div class="card-footer">
-          <g:link
-            controller="person"
-            action="edit"
-            id="${person.id}"
-            class="btn btn-primary btn-block"><b>Editar</b></g:link>
-            <sec:ifAllGranted roles='ROLE_ADMIN'>
-              <a class="btn btn-danger btn-block"
-                  href="#"
-                  data-toggle="modal"
-                  data-target="#disable_modal">
-                    Dar de baja
-              </a>
-              <g:render template="/person/disable/modal" />
-          </sec:ifAllGranted>
-      </div>
-   </g:if>
-   <g:else>     
-    <sec:ifAllGranted roles='ROLE_ADMIN'>
-        <div class="card-footer">
-          <a class="btn btn-warning btn-block" href="#" data-toggle="modal" data-target="#enable_modal">
-          Reactivar
-          </a>
-          <g:render template="/person/enable/modal" />
-        </div>        
-    </sec:ifAllGranted>
-   </g:else>
+
 
 </div>
 <!-- /.card -->

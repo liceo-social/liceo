@@ -8,6 +8,8 @@
       <f:display bean="person" property="secondSurname" label="Segundo apellido" wrapper="display/inline" />
       <f:display bean="person" property="birthDate" label="Fecha de nacimiento" wrapper="display/inline" />
       <f:display bean="person" property="contact1" label="Contacto" wrapper="display/inline" />
+      <f:display bean="person" property="sex" label="Sexo" wrapper="display/inline" />
+      <f:display bean="person" property="genre" label="Genero" wrapper="display/inline" />
     </div>
     <div class="col-md-6 block-data">
       <strong>Datos internos</strong>
@@ -51,7 +53,6 @@
     </div>
     <div class="col-md-6 block-data">
     <strong>Servicios sociales</strong>
-    <hr />
       <p>Centro de servicios sociales: <f:display bean="person" property="center"/></p>
       <p>Trabajador/a social: <f:display bean="person" property="socialWorker"/></p>
       <p>Tiene expediente en atención primaria: <f:display bean="person" property="hasPrimaryAttentionFile"/></p>

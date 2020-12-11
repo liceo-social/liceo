@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta name="layout" content="main" />
-        <title>TITULO</title>
+        <title>L I C E O</title>
     </head>
     <body>
         <g:pageProperty name="page.content" />
