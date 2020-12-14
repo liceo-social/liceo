@@ -7,13 +7,15 @@ buildscript {
         classpath "org.grails.plugins:hibernate5:7.0.0"
         classpath "gradle.plugin.com.github.erdi.webdriver-binaries:webdriver-binaries-gradle-plugin:2.0"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:3.0.10"
-        classpath "com.bmuschko:gradle-docker-plugin:6.0.0"
+        classpath "com.bmuschko:gradle-docker-plugin:6.1.0"
         classpath 'org.grails.plugins:database-migration:3.1.0'
     }
 }
 
 import com.bmuschko.gradle.docker.tasks.image.Dockerfile
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+
 
 version "0.2.0"
 group "masiaventura"
@@ -67,7 +69,6 @@ dependencies {
 
     // migration
     compile 'org.grails.plugins:database-migration:3.1.0'
-    // compile 'org.liquibase:liquibase-core:3.5.5'
 
     compileOnly "io.micronaut:micronaut-inject-groovy"
     console "org.grails:grails-console"
@@ -131,21 +132,33 @@ assets {
 }
 
 ext {
-    jvmArgs = ['-Dspring.profiles.active=production', '-Xmx2048m']
+    jvmArgs        = ['-Dspring.profiles.active=production', '-Xmx2048m']
     dockerBuildDir = mkdir("${buildDir}/docker")
+    dockerImages   = [
+      "liceo-docker-public.bintray.io/web:${project.version}".toLowerCase(),
+      "liceo-docker-public.bintray.io/web:latest",
+    ] as Set<String>
 }
-task prepareDocker(type: Copy, dependsOn: assemble) {
+
+docker {
+  registryCredentials {
+    username = project.properties.registryUser
+    password = project.properties.registryKey
+  }
+}
+
+task dockerPrepare(type: Copy, dependsOn: assemble) {
     description = 'Copy files from src/main/docker and application jar to Docker temporal build directory'
-    group       = 'Docker'
+    group       = 'docker'
 
     from 'src/main/docker'
     from project.jar
 
     into dockerBuildDir
 }
-task createDockerfile(type: Dockerfile, dependsOn: prepareDocker) {
-    description = 'Create a Dockerfile file'
-    group       = 'Docker'
+task dockerCreateDockerfile(type: Dockerfile, dependsOn: dockerPrepare) {
+    description = 'creates a Dockerfile file'
+    group       = 'docker'
     destFile    = project.file("${dockerBuildDir}/Dockerfile")
 
     from 'openjdk:11-slim'
@@ -156,12 +169,15 @@ task createDockerfile(type: Dockerfile, dependsOn: prepareDocker) {
     runCommand 'chmod +x app-entrypoint.sh'
     entryPoint '/app/app-entrypoint.sh'
 }
-task buildImage(type: DockerBuildImage, dependsOn: createDockerfile) {
+task dockerBuildImage(type: DockerBuildImage, dependsOn: dockerCreateDockerfile) {
     description = 'Create Docker image to run the Grails application'
-    group       = 'Docker'
+    group       = 'docker'
     inputDir    = file(dockerBuildDir)
-    images      = [
-      "liceo-docker-public.bintray.io/manager:${project.version}".toLowerCase(),
-      "liceo-docker-public.bintray.io/manager:latest",
-    ] as Set<String>
+    images      = dockerImages
+}
+
+task dockerPush(type: DockerPushImage, dependsOn: dockerBuildImage) {
+  description         = 'Pushes Liceo docker image to public registry'
+  group               = 'docker'
+  images              = dockerImages
 }

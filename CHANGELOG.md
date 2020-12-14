@@ -19,6 +19,12 @@ Todos los cambios importantes en el proyecto se intentara que tengan reflejo en 
 - Cambio en los datos de servicios sociales [#9](https://github.com/liceo-social/liceo/issues/9)
 - Mostrar edad de persona en el detalle [#7](https://github.com/liceo-social/liceo/issues/7)
 - Mostrar el autor de un proceso [#16](https://github.com/liceo-social/liceo/issues/16)
+- Mostrar lunes como primer dia de la semana [#27](https://github.com/liceo-social/liceo/issues/27)
+
+### Changed
+
+- Actualizar Grails 4.0.1 -> 4.0.5 [#26](https://github.com/liceo-social/liceo/issues/26)
+- Cambios en UX [#28](https://github.com/liceo-social/liceo/issues/28)
 
 ## [0.1.2] - 11/03/2020
 ### Fixed
