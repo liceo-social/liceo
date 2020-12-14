@@ -1,9 +1,9 @@
-name: continuous deployment to demo
+name: continuous deployment to dev
 
 on:
   push:
     branches:
-      - development
+      - master
 
 jobs:
   check:
