@@ -1,5 +1,7 @@
 buildscript {
     repositories {
+        maven { url "https://plugins.gradle.org/m2/" }
+        mavenCentral()
         maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
@@ -30,6 +32,7 @@ apply plugin:"com.bmuschko.docker-remote-api"
 
 repositories {
     maven { url "https://repo.grails.org/grails/core" }
+    mavenCentral()
 }
 
 configurations {
