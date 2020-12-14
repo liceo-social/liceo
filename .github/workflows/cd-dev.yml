@@ -42,25 +42,18 @@ jobs:
     needs: docker
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to K8s (dev)
+      - name: rollout db
         uses: steebchen/kubectl@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: rollout restart deployment/liceo
-      - name: verify API deployment
-        uses: steebchen/kubectl@master
-        env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-          KUBECTL_VERSION: "1.15"
-        with:
-          args: rollout restart deployment/liceo
+          args: rollout restart deployment/liceo-db
       - name: Wait a little bit before restarting front
         run: sleep 15
-      - name: Make front be aware of API changes (Hack)
+      - name: rollout web
         uses: steebchen/kubectl@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
           KUBECTL_VERSION: "1.15"
         with:
-          args: rollout restart deployment/patio-front
+          args: rollout restart deployment/liceo-web
