@@ -13,7 +13,7 @@ class UrlMappings {
          * WEB SCAFFOLDING
          */
 
-        "/process/$person/$project/create"(controller: 'process', action: 'create')
+        "/process/create/$person/$project?"(controller: 'process', action: 'create')
 
         "/$controller/$action?/$id?"{
             constraints {
@@ -33,6 +33,8 @@ class UrlMappings {
         '/login/auth'(controller: 'login', action: 'auth')
         '/login/authfail'(view: '/login/auth')
         '/logout'(controller: 'logout', action: 'logout')
+
+        '/agenda/'(controller: 'agenda')
 
         /**
          * FILES

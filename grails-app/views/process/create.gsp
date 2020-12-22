@@ -19,7 +19,7 @@
         <g:render template="/person/photo/show" />
     </content>
     <content tag="form">
-        <g:form resource="/process" method="POST">
+        <g:form controller="process" action="save" method="POST">
             <div class="card card-default card-tabs">
                 <div class="card-header p-0 pt-1">
                     <g:render template="templates/tabs" model="[tabName: 'detail', disableRemainingTabs: true]" />

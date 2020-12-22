@@ -252,3 +252,25 @@ ul.filters li:first-child {
     padding: .5em;
     width: 100%;
 }
+
+.fc .fc-button-primary {
+    background: var(--primary);
+    border: var(--primary);
+}
+
+.fc .fc-button-primary:not(:disabled):active, .fc .fc-button-primary:not(:disabled).fc-button-active {
+    background: var(--primary-selected);
+    border: var(--primary-selected);
+}
+
+.fc .fc-button-primary:not(:disabled):active:focus, .fc .fc-button-primary:not(:disabled).fc-button-active:focus {
+    box-shadow: none;
+}
+
+.fc-event{
+    cursor: pointer;
+}
+
+.card-info .card-header a.btn-default {
+    color: #000;
+}

@@ -1,4 +1,4 @@
-<div class="custom-control custom-switch">
+<div class="custom-control custom-switch ${attrs.class}">
   <%= widget %>
   <label
     class="custom-control-label"

@@ -1,13 +1,17 @@
 package ma
 
+import ma.authorization.AuthorizationFilterService
+import ma.common.adapters.web.command.Pagination
 import ma.controller.FlashMessageAware
 import ma.authorization.CreateCommand
 import ma.authorization.UpdateAuthorizationAttachmentCommand
+import ma.controller.PaginationAware
 import ma.controller.SecurityAware
 import ma.security.SecurityRulesService
 
-class AuthorizationController implements FlashMessageAware, SecurityAware {
+class AuthorizationController implements FlashMessageAware, SecurityAware, PaginationAware {
 
+    AuthorizationFilterService authorizationFilterService
     AuthorizationService authorizationService
     SecurityRulesService securityRulesService
 
@@ -17,12 +21,15 @@ class AuthorizationController implements FlashMessageAware, SecurityAware {
     *
     * @param person person to get the processes from
     * @param project project to filter those processes
+    * @param pagination pagination info
     * @since 0.1.0
     */
-    def index(Person person, Long projectId) {
-        def authorizations = projectId
-            ? Authorization.findAllByProjectAndPerson(Project.get(projectId), person)
-            : Authorization.findAllByPerson(person)
+    def index(Person person, Long projectId, Pagination pagination) {
+        pagination = checkPagination(pagination)
+
+        Project project = Project.get(projectId)
+        List<Authorization> authorizations = authorizationFilterService
+          .filterByProjectAndPerson(project, person, pagination.asMap())
 
         render(
             view: 'index',

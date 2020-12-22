@@ -19,7 +19,7 @@ class Project extends Auditable implements Dateable {
     }
 
     String getCompleteName() {
-        return "$name ($acronym)"
+        return "$name ($code)"
     }
 
     String toString() {

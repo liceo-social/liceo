@@ -2,6 +2,7 @@ package ma
 
 import grails.databinding.BindingFormat
 
+import java.time.LocalTime
 /**
  * An entry describing a follow up with a given person
  *
@@ -39,6 +40,36 @@ class Process extends Auditable implements Dateable {
     Date meetingDate
 
     /**
+     * At what time the meeting started
+     *
+     * @since 0.3.0
+     */
+    @BindingFormat("HH:mm")
+    LocalTime meetingStartTime
+
+    /**
+     * meetingEndTime needs to be registered
+     *
+     * @since 0.3.0
+     */
+    Boolean isTimeAuditable = false
+
+    /**
+     * Whether the process took all day or not
+     *
+     * @since 0.3.0
+     */
+    Boolean allDay = true
+
+    /**
+     * At what time the meeting ended
+     *
+     * @since 0.3.0
+     */
+    @BindingFormat("HH:mm")
+    LocalTime meetingEndTime
+
+    /**
      * A brief description about the process
 
      * @since 0.1.0
@@ -58,6 +89,13 @@ class Process extends Auditable implements Dateable {
         return description
     }
 
+    def beforeUpdate() {
+      if (allDay) {
+        this.meetingStartTime = null
+        this.meetingEndTime = null
+      }
+    }
+
     /**
      * Validation constraints
      *
@@ -68,6 +106,8 @@ class Process extends Auditable implements Dateable {
         content nullable: false
         type nullable: false
         meetingDate nullable: false
+        meetingStartTime nullable: true
+        meetingEndTime nullable: true
     }
 
     /**

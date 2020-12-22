@@ -3,7 +3,12 @@ import ma.storage.AttachmentValueConverter
 import ma.security.PersonPasswordEncoderListener
 
 beans = {
-    attachmentConverter(AttachmentValueConverter)
+  xmlns context:"http://www.springframework.org/schema/context"
+
+  context.'component-scan'('base-package': "ma.agenda.application.service")
+
+
+  attachmentConverter(AttachmentValueConverter)
     personPasswordEncoderListener(PersonPasswordEncoderListener)
     auditableListener(AuditableListener)
 }

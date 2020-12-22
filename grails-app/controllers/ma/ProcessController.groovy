@@ -1,16 +1,21 @@
 package ma
 
+import grails.gorm.PagedResultList
+import ma.common.adapters.web.command.Pagination
 import ma.controller.FlashMessageAware
+import ma.controller.PaginationAware
 import ma.controller.SecurityAware
 import ma.process.ProcessCreation
+import ma.process.ProcessFilterService
 import ma.process.UpdateProcessAttachmentCommand
 import ma.security.SecurityRulesService
 
-class ProcessController implements FlashMessageAware, SecurityAware {
+class ProcessController implements FlashMessageAware, SecurityAware, PaginationAware {
 
     static scaffold = Process
 
     ProcessService processService
+    ProcessFilterService processFilterService
     SecurityRulesService securityRulesService
 
     /**
@@ -21,10 +26,12 @@ class ProcessController implements FlashMessageAware, SecurityAware {
     * @param project project to filter those processes
     * @since 0.1.0
     */
-    def index(Person person, Long projectId) {
-        def processes = projectId
-            ? Process.findAllByProjectAndPerson(Project.get(projectId), person)
-            : Process.findAllByPerson(person)
+    def index(Person person, Long projectId, Pagination pagination) {
+        pagination = checkPagination(pagination)
+
+        Project project = Project.get(projectId)
+        PagedResultList<Process> processes = processFilterService
+          .filterByProjectAndPerson(project, person, pagination.asMap())
 
         render(
             view: 'index',
@@ -55,7 +62,14 @@ class ProcessController implements FlashMessageAware, SecurityAware {
     def save(Process process) {
         if (process.hasErrors()) {
             showValidationErrorMessage()
-            respond(process.errors, view: 'create', model: [process: process, person: process.person])
+            respond(
+              process.errors,
+              view: 'create',
+              model: [
+                process: process,
+                person: process.person
+              ]
+            )
             return
         }
 
@@ -67,6 +81,29 @@ class ProcessController implements FlashMessageAware, SecurityAware {
             id: process.id
         )
     }
+
+  def update(Process process) {
+    if (process.hasErrors()) {
+      showValidationErrorMessage()
+      respond(
+        process.errors,
+        view: 'edit',
+        model: [
+          process: process,
+          person: process.person
+        ]
+      )
+      return
+    }
+
+    processService.save(process)
+
+    redirect(
+      controller: 'process',
+      action: 'show',
+      id: process.id
+    )
+  }
 
     def edit(Process process) {
         // SECURITY CHECK

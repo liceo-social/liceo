@@ -10,6 +10,7 @@
       <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
 
       <asset:stylesheet src="daterangepicker/daterangepicker.css"/>
+      <asset:stylesheet src="fullcalendar/main.css"/>
       <asset:stylesheet src="select2/select2.css"/>
       <asset:stylesheet src="adminlte.css"/>
       <asset:stylesheet src="summernote/summernote-bs4.css"/>
@@ -18,6 +19,7 @@
       <asset:stylesheet src="main.css"/>
       <asset:javascript src="jquery.js"/>
       <asset:javascript src="bootstrap/bootstrap.bundle.js" />
+      <asset:javascript src="fullcalendar/main.js" />
       <asset:javascript src="daterangepicker/moment.min.js" />
       <asset:javascript src="daterangepicker/daterangepicker.js" />
       <asset:javascript src="select2/select2.full.js" />
@@ -64,7 +66,7 @@
           <li class="nav-item">
           <g:link controller='logout' action="logout">
               Salir
-              <i class="fas fa-sign-out-alt"></i>
+              <i class="fas fa-sign-out-alt ml-2"></i>
           </g:link>
           </li>
       </ul>
@@ -134,6 +136,13 @@
                         <g:link controller="person" class="nav-link" action="index">
                           <i class="far fa-user nav-icon"></i>
                           <p>Personas</p>
+                        </g:link>
+                    </li>
+
+                    <li class="nav-item">
+                        <g:link controller="agenda" class="nav-link" action="index">
+                          <i class="far fa-calendar-alt nav-icon"></i>
+                          <p>Agenda</p>
                         </g:link>
                     </li>
                 </ul>
@@ -221,7 +230,7 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0 text-dark">
+                <h1 class="m-0 ml-1 text-dark">
                     <g:pageProperty name="page.title" />
                 </h1>
               </div><!-- /.col -->
@@ -257,6 +266,7 @@
     <asset:javascript src="bootstrap/bootstrap.bundle.js" />
 
     <asset:javascript src="daterangepicker/moment.min.js" />
+    <asset:javascript src="fullcalendar/main.js" />
     <asset:javascript src="daterangepicker/daterangepicker.js" />
     <asset:javascript src="select2/select2.full.js" />
     <asset:javascript src="summernote/summernote-bs4.js" />
