@@ -3,6 +3,11 @@ package ma.process
 import ma.Person
 import ma.Process
 import ma.Project
+import ma.csv.CSV
+import ma.csv.CSVWriter
+
+import java.nio.file.Files
+import java.text.SimpleDateFormat
 
 /**
  * Services used to filter processes
@@ -28,5 +33,32 @@ class ProcessFilterService {
 
       eq("person", person)
     }
+  }
+
+  File export(Project project, Person person) {
+    List<Process> result = filterByProjectAndPerson(project, person, [:])
+    CSVWriter writer = CSV.from(result) { Process process ->
+      return [
+        processID: process.id,
+        personID: process.person.id,
+        personName: process.person.fullname,
+        description: process.description,
+        type: process.type.name,
+        project: process.project.code,
+        allDay: process.allDay,
+        date: process.meetingDate,
+        startTime: process.meetingStartTime,
+        endTime: process.meetingEndTime
+      ]
+    }
+
+    String dateFormat = new SimpleDateFormat("yyyy-MM-dd").format(new Date())
+    File temporalFile = Files
+      .createTempFile("liceo-${dateFormat}-", ".csv")
+      .toFile()
+
+    writer.writeTo(temporalFile.newWriter('UTF-8'))
+
+    return temporalFile
   }
 }

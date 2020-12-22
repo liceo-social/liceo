@@ -9,12 +9,14 @@ class UrlMappings {
 
     static mappings = {
 
+        group "/process", {
+          "/create/$person/$project?"(controller: 'process', action: 'create')
+          "/export/$person/$project?"(controller: 'process', action: 'export')
+        }
+
         /**
          * WEB SCAFFOLDING
          */
-
-        "/process/create/$person/$project?"(controller: 'process', action: 'create')
-
         "/$controller/$action?/$id?"{
             constraints {
                 // apply constraints here

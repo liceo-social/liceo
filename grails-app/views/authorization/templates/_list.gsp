@@ -21,7 +21,9 @@
                     controller="authorization"
                     action="create"
                     disabled="${!person?.active}"
-                    params="[person: person.id, project: project?.id]">Nuevo Documento</g:link>
+                    params="[person: person.id, project: project?.id]">
+                    <i class="fa fa-plus mr-1"></i>Nuevo Documento
+                </g:link>
            </div>
        </div>
    </div>

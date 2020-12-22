@@ -286,4 +286,25 @@ class ProcessController implements FlashMessageAware, SecurityAware, PaginationA
             id: process.id
         )
     }
+
+    /**
+     * Exports person's processes to CSV file
+     *
+     * @param person person processes are related to
+     * @param project project the process belongs to
+     * @since 0.3.0
+     */
+    def export(ExportCommand command) {
+      File csvFile = processFilterService.export(command.project, command.person)
+      render(file: csvFile, fileName: csvFile.name, encoding: 'UTF-8')
+    }
+}
+
+class ExportCommand {
+  Project project
+  Person person
+
+  static constraints = {
+    project nullable: true
+  }
 }

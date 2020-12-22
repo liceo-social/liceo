@@ -30,6 +30,14 @@
                             name="update"
                             class="btn btn-primary save"
                             value="${message(code: 'default.button.update.label', default: 'Update')}" />
+                        <g:link
+                            name="update"
+                            controller="person"
+                            action="show"
+                            params="[id: person.id]"
+                            class="btn btn-default float-right">
+                            Cancelar
+                        </g:link>
                     </div>                
                 </div>
             </div>

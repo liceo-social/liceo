@@ -90,6 +90,7 @@ grails:
                 scriptlet: html
                 taglib: none
                 staticparts: none
+
 management:
     endpoints:
         jmx:
@@ -132,6 +133,7 @@ environments:
             dbCreate: none
             # MODE=PostgreSQL para poder utilizar los scripts de migración
             url: '${DATABASE_URL:jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE}'
+            # postgres -> org.postgresql.Driver
             driverClassName: '${DATABASE_DRIVER_CLASSNAME:org.h2.Driver}'
             username: '${DATABASE_USERNAME:liceo}'
             password: '${DATABASE_PASSWORD:liceo}'

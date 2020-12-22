@@ -2,13 +2,13 @@
     <div class="card card-info mb-0">
        <div class="card-header">
          <div class="row">
-               <div class="col-8">
+               <div class="col-6">
                    <g:form controller="process" action="index" id="${person.id}">
                         <g:select
                             from="${person.projects}"
                             optionKey="id"
                             optionValue="completeName"
-                            noSelection="${['':'Filtrar listado por proyecto']}"
+                            noSelection="${['':'Sin proyecto']}"
                             onchange="submit()"
                             value="${project?.id}"
                             name="projectId"/>
@@ -19,21 +19,34 @@
                      class="btn btn-primary btn-block edit"
                          controller="process"
                          action="create"
-                         disable="${!person.active}"
+                         disabled="${!person.active}"
                          params="[person: person.id, project: project?.id]">
                          <i class="fa fa-plus mr-1"></i>
                          Nuevo
                   </g:link>
                 </div>
+                <g:set var="disableExtraActions" value="${!person.active || !processes}" />
+                <g:set var="disableCSS" value="${disableExtraActions ? 'disabled' : ''}" />
                 <div class="col-2">
                     <g:link
-                     class="btn btn-default btn-block"
+                     class="btn btn-default btn-block ${disableCSS}"
                          controller="agenda"
                          action="index"
-                         disable="${!person.active}"
+                         disabled="${disableExtraActions}"
                          params="[selectedPeople: [person.id], selectedProjects: [project?.id]]">
                          <i class="fa fa-calendar-alt mr-1"></i>
                          Ver agenda
+                    </g:link>
+                </div>
+                <div class="col-2">
+                    <g:link
+                         class="btn btn-default btn-block ${disableCSS}"
+                         controller="process"
+                         action="export"
+                         disabled="${disableExtraActions}"
+                         params="[person: person.id, project: project?.id]">
+                         <i class="fa fa-download mr-1"></i>
+                         Exportar CSV
                     </g:link>
                 </div>
             </div>
