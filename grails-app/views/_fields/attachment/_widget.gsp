@@ -1,8 +1,11 @@
+<g:set var="error">
+    <g:hasErrors bean="${bean}" field="${property}">is-invalid</g:hasErrors>
+</g:set>
 <input
     id="${attrs.name}"
     type="file"
     name="${property}"
-    class="custom-file-input">
+    class="custom-file-input ${error}">
 <label
     id="${attrs.labelName}"
     class="custom-file-label"

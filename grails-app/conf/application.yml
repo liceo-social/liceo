@@ -125,7 +125,7 @@ admin:
 # general application CUSTOM configurations
 app:
     pagination:
-        max: 7
+        max: 8
 
 environments:
     development:

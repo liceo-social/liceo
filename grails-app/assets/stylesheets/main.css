@@ -192,7 +192,7 @@ input[type='file'] {
 }
 
 .custom-file > label {
-    line-height: 2em;
+    line-height: 1.5em;
     overflow: hidden;
     padding-right: 4em;
 }
@@ -273,4 +273,20 @@ ul.filters li:first-child {
 
 .card-info .card-header a.btn-default {
     color: #000;
+}
+
+.boolean-badge {
+    width: 2.5em;
+}
+
+.display-inline {
+    margin-bottom: 1rem;
+}
+
+.display-inline > .label {
+    font-weight: bold;
+}
+
+.controls.show-html {
+    min-height: 250px;
 }

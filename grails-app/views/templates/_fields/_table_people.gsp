@@ -83,9 +83,6 @@
                             <i class="fas fa-pen"></i>
                             editar
                         </g:link>
-                        <sec:ifAllGranted roles='ROLE_ADMIN'>
-                            <g:render template="/templates/modals/delete" model="[bean: bean]" />
-                        </sec:ifAllGranted>
                     </g:if>
                 </td>
             </tr>

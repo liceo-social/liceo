@@ -1,5 +1,5 @@
 <g:set var="error">
-    <g:hasErrors bean="${parent}" field="${property}">is-invalid</g:hasErrors>
+    <g:hasErrors bean="${bean}" field="${property}">is-invalid</g:hasErrors>
 </g:set>
 
 <g:field
