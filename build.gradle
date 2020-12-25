@@ -18,9 +18,8 @@ import com.bmuschko.gradle.docker.tasks.image.Dockerfile
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
 
-
-version "0.2.0"
-group "masiaventura"
+version "0.3.0-SNAPSHOT"
+group "liceo"
 
 apply plugin:"eclipse"
 apply plugin:"idea"
