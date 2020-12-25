@@ -3,26 +3,26 @@
     aria-labelledby="custom-tabs-one-projects-tab">
    <div class="card-header">
        <div class="row">
-           <div class="col-8">
-               <g:form controller="authorization" action="index" id="${person.id}">
+           <div class="col-10">
+               <g:form controller="authorization" action="index" id="${person?.id}">
                     <g:select
-                        from="${person.projects}"
+                        from="${availableProjects}"
                         optionKey="id"
                         optionValue="completeName"
-                        noSelection="${['':'Sin proyecto']}"
+                        noSelection="${['':'Todos']}"
                         onchange="submit()"
                         value="${project?.id}"
                         name="projectId"/>
                </g:form>
            </div>
-           <div class="col-4">
+           <div class="col-2">
                 <g:link
                     class="btn btn-block btn-primary edit"
                     controller="authorization"
                     action="create"
                     disabled="${!person?.active}"
-                    params="[person: person.id, project: project?.id]">
-                    <i class="fa fa-plus mr-1"></i>Nuevo Documento
+                    params="[person: person?.id]">
+                    <i class="fa fa-plus mr-1"></i>Nuevo
                 </g:link>
            </div>
        </div>

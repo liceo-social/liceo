@@ -30,7 +30,7 @@
                 </div>
                 <div class="card-body">
                     <div class="tab-content" id="custom-tabs-one-tabContent">
-                        <g:render template="templates/create_form" />
+                        <g:render template="templates/form" />
                     </div>
                 </div>
                 <div class="card-footer">

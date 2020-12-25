@@ -1,5 +1,6 @@
 package ma.process
 
+import grails.gorm.DetachedCriteria
 import ma.Person
 import ma.Process
 import ma.Project
@@ -60,5 +61,25 @@ class ProcessFilterService {
     writer.writeTo(temporalFile.newWriter('UTF-8'))
 
     return temporalFile
+  }
+
+  /**
+   * The projects used to filter the list of processes should be the projects
+   * used by the person's processes. It can't be the projects the person currently
+   * belongs because the person may no longer belong to a given project, however
+   * the user should be allowed to filter by the projects the processes belonged
+   * at some point.
+   *
+   * @param person person to filter the process projects
+   * @return a list of distinct projects of the processes of a given person
+   * @since 0.3.0
+   */
+  List<Project> findAllProcessProjectsByPerson(Person person) {
+    return Process.createCriteria().list {
+      projections {
+        distinct("project")
+      }
+      eq("person", person)
+    }
   }
 }

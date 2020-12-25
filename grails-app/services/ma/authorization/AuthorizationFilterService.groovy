@@ -29,4 +29,14 @@ class AuthorizationFilterService {
       eq("person", person)
     }
   }
+
+  List<Project> findAllDocumentationProjectByPerson(Person person) {
+    return Authorization.createCriteria().list {
+      projections {
+        distinct("project")
+      }
+      eq("person", person)
+      isNotNull("project")
+    }
+  }
 }

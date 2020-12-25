@@ -32,11 +32,14 @@ class ProcessController implements FlashMessageAware, SecurityAware, PaginationA
         Project project = Project.get(projectId)
         PagedResultList<Process> processes = processFilterService
           .filterByProjectAndPerson(project, person, pagination.asMap())
+        List<Project> availableProjects = processFilterService
+          .findAllProcessProjectsByPerson(person)
 
         render(
             view: 'index',
             model: [
                 processes: processes,
+                availableProjects: availableProjects,
                 person: person,
                 project: projectId ? Project.get(projectId) : null
             ]
@@ -51,11 +54,11 @@ class ProcessController implements FlashMessageAware, SecurityAware, PaginationA
         }
 
         Person person = Person.get(creation.person)
-        Project project = Project.get(creation.project)
 
         return [
             person: person,
-            process: new Process(person: person, project: project)
+            projects: person.projects,
+            process: new Process(person: person)
         ]
     }
 

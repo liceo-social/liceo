@@ -9,10 +9,11 @@
                 bean="process"
                 property="project"
                 value="${process?.project}"
+                widget-noSelection="${['':'Sin proyecto']}"
                 widget-optionKey="id"
                 widget-optionValue="name"
                 widget-value="${process?.project?.id}"
-                widget-from="${Project.list()}" />
+                widget-from="${projects}" />
       </div>
       <div class="col-4">
             <f:field

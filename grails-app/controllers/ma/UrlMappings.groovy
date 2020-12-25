@@ -10,7 +10,7 @@ class UrlMappings {
     static mappings = {
 
         group "/process", {
-          "/create/$person/$project?"(controller: 'process', action: 'create')
+          "/create/$person"(controller: 'process', action: 'create')
           "/export/$person/$project?"(controller: 'process', action: 'export')
         }
 

@@ -19,7 +19,7 @@
         <g:render template="/person/photo/show" />
     </content>
     <content tag="form">
-        <g:uploadForm name="authorization-update" action="updateAuthorization" method="POST">
+        <g:uploadForm action="updateAuthorization" method="POST">
             <div class="card card-primary card-tabs">
                 <div class="card-header p-0 pt-1">
                     <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="card-body">
                     <div class="tab-content" id="custom-tabs-one-tabContent">
-                        <g:render template="templates/edit_form" />
+                        <g:render template="templates/form" />
                     </div>
                 </div>
                 <div class="card-footer">

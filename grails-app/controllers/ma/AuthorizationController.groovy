@@ -1,6 +1,7 @@
 package ma
 
 import ma.authorization.AuthorizationFilterService
+import ma.authorization.AuthorizationService
 import ma.common.adapters.web.command.Pagination
 import ma.controller.FlashMessageAware
 import ma.authorization.CreateCommand
@@ -30,13 +31,16 @@ class AuthorizationController implements FlashMessageAware, SecurityAware, Pagin
         Project project = Project.get(projectId)
         List<Authorization> authorizations = authorizationFilterService
           .filterByProjectAndPerson(project, person, pagination.asMap())
+        List<Project> availableProjects = authorizationFilterService
+          .findAllDocumentationProjectByPerson(person)
 
         render(
             view: 'index',
             model: [
                 authorizations: authorizations,
+                availableProjects: availableProjects,
                 person: person,
-                project: projectId ? Project.get(projectId) : null
+                project: project
             ]
         )
     }
@@ -57,11 +61,40 @@ class AuthorizationController implements FlashMessageAware, SecurityAware, Pagin
 
         Person person = Person.get(creation.person)
         Project project = Project.get(creation.project)
+        List<Project> availableProjects = Project.createCriteria().listDistinct {
+          persons {
+            eq("id", creation.person)
+          }
+        }
 
         return [
             person: person,
+            availableProjects: availableProjects,
             authorization: new Authorization(person: person, project: project)
         ]
+    }
+
+
+    def edit(Authorization authorization) {
+      if (!securityRulesService.isCreatedByOrAdmin(authorization.createdBy)) {
+        notAuthorized()
+        return
+      }
+
+      List<Project> availableProjects = Project.createCriteria().listDistinct {
+        persons {
+          eq("id", authorization?.person?.id)
+        }
+      }
+
+      render(
+        view: 'edit',
+        model: [
+          person: authorization.person,
+          availableProjects: availableProjects,
+          authorization: authorization,
+        ]
+      )
     }
 
     /**
@@ -73,7 +106,14 @@ class AuthorizationController implements FlashMessageAware, SecurityAware, Pagin
     def save(Authorization authorization) {
         if (authorization.hasErrors()) {
             showValidationErrorMessage()
-            respond(authorization.errors, view: 'create', model: [authorization: authorization, person: authorization.person])
+            respond(
+              authorization.errors,
+              view: 'create',
+              model: [
+                authorization: authorization,
+                person: authorization.person,
+              ]
+            )
             return
         }
 
@@ -114,6 +154,10 @@ class AuthorizationController implements FlashMessageAware, SecurityAware, Pagin
                 update.authorization.attachment = update.attachment
             }
 
+            if (update.project) {
+                update.authorization.project = update.project
+            }
+
             update.authorization.description = update.description
             update.authorization.save(failOnError: true, flush: true)
         }
@@ -141,15 +185,6 @@ class AuthorizationController implements FlashMessageAware, SecurityAware, Pagin
             view: 'index',
             id: authorization.person.id
         )
-    }
-
-    def edit(Authorization authorization) {
-        if (!securityRulesService.isCreatedByOrAdmin(authorization.createdBy)) {
-          notAuthorized()
-          return
-        }
-
-        render(view: 'edit', model: [authorization: authorization, person: authorization.person])
     }
 }
 

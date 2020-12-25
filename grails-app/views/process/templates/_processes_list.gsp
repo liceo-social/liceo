@@ -5,10 +5,10 @@
                <div class="col-6">
                    <g:form controller="process" action="index" id="${person.id}">
                         <g:select
-                            from="${person.projects}"
+                            from="${availableProjects}"
                             optionKey="id"
                             optionValue="completeName"
-                            noSelection="${['':'Sin proyecto']}"
+                            noSelection="${['':'Todos']}"
                             onchange="submit()"
                             value="${project?.id}"
                             name="projectId"/>
@@ -20,7 +20,7 @@
                          controller="process"
                          action="create"
                          disabled="${!person.active}"
-                         params="[person: person.id, project: project?.id]">
+                         params="[person: person.id]">
                          <i class="fa fa-plus mr-1"></i>
                          Nuevo
                   </g:link>
