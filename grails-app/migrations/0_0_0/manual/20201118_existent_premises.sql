@@ -41,6 +41,6 @@ CREATE TABLE public.databasechangeloglock (
 
 -- Estimamos que las instalaciones de Masi y Aventura estan en este punto de las migraciones
 INSERT INTO public.databasechangelog (id,author,filename,dateexecuted,orderexecuted,exectype,md5sum,description,"comments",tag,liquibase,contexts,labels,deployment_id) VALUES
-('20201118_01','mario (generated)','20201118_01_initial_schema.groovy','2020-11-19 10:58:13.660',1,'EXECUTED','8:df5f14e4156fb0922bd97750f517fc15','createSequence sequenceName=hibernate_sequence; createTable tableName=app_user; createTable tableName=attachment; createTable tableName=authority; createTable tableName=came_from; createTable tableName=country; createTable tableName=document_type;...','adds initial schema',NULL,'3.6.3',NULL,NULL,'5779893456')
-,('20201118_02_A','Mario Garcia','20201118_02_master_data.groovy','2020-11-19 10:58:14.801',2,'EXECUTED','8:01bb264dd31114111d21e071cbfc57e9','grailsChange dataSourceName=dataSource','loads master data',NULL,'3.6.3',NULL,NULL,'5779893456')
+('20201118_01','mario (generated)','0_0_0/20201118_01_initial_schema.groovy','2020-11-19 10:58:13.660',1,'EXECUTED','8:df5f14e4156fb0922bd97750f517fc15','createSequence sequenceName=hibernate_sequence; createTable tableName=app_user; createTable tableName=attachment; createTable tableName=authority; createTable tableName=came_from; createTable tableName=country; createTable tableName=document_type;...','adds initial schema',NULL,'3.6.3',NULL,NULL,'5779893456')
+,('20201118_02_A','Mario Garcia','0_0_0/20201118_02_master_data.groovy','2020-11-19 10:58:14.801',2,'EXECUTED','8:01bb264dd31114111d21e071cbfc57e9','grailsChange dataSourceName=dataSource','loads master data',NULL,'3.6.3',NULL,NULL,'5779893456')
 ;

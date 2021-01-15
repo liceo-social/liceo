@@ -10,13 +10,13 @@ databaseChangeLog = {
         }
 
         addColumn(tableName: "person") {
-            column(name: "has_caf_case", type: "boolean") {
+            column(name: "has_caf_case", type: "boolean", defaultValue: "false") {
                 constraints(nullable: "false")
             }
         }
 
         addColumn(tableName: "person") {
-            column(name: "has_etmf_case", type: "boolean") {
+            column(name: "has_etmf_case", type: "boolean", defaultValue: "false") {
                 constraints(nullable: "false")
             }
         }

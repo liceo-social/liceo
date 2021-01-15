@@ -49,7 +49,7 @@ class Issue18Service {
   }
 
   private static void saveOwnerFor(Sql sql, String table, User admin) {
-    String query = "UPDATE $table SET created_by_id = :userID WHERE ${table}.created_by_id is NULL"
+    String query = "UPDATE $table SET created_by_id = :userID, updated_by_id = :userID WHERE ${table}.created_by_id is NULL"
     sql.executeUpdate(query, userID: admin.id)
   }
 }
