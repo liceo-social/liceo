@@ -1,7 +1,20 @@
 # Changelog
 Todos los cambios importantes en el proyecto se intentara que tengan reflejo en este fichero. Este fichero esta basado en el formato [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
-## [0.3.0] - ?
+## [0.3.0] - 18/01/2021
+
+### Added
+
+- Calendario de citas [#21](https://github.com/liceo-social/liceo/issues/21)
+
+### Fixed
+
+- Posibles procesos huerfanos [#32](https://github.com/liceo-social/liceo/issues/32)
+- Paginacion en lista procesos/documentacion [#31](https://github.com/liceo-social/liceo/issues/31)
+
+### Changed
+
+- Mejoras en UI
 
 ## [0.2.0] - 11/12/2020
 ### Added
