@@ -11,6 +11,7 @@ Todos los cambios importantes en el proyecto se intentara que tengan reflejo en 
 
 - Posibles procesos huerfanos [#32](https://github.com/liceo-social/liceo/issues/32)
 - Paginacion en lista procesos/documentacion [#31](https://github.com/liceo-social/liceo/issues/31)
+- Cambio en campos de servicios sociales [#9](https://github.com/liceo-social/liceo/issues/9)
 
 ### Changed
 
