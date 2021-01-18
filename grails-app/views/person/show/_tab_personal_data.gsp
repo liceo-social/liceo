@@ -87,11 +87,11 @@
                 <f:display bean="person" property="center" label="Centro de servicios sociales" wrapper="display/inline" />
                 <f:display bean="person" property="socialWorker" label="Trabajador/a social" wrapper="display/inline" />
                 <f:display bean="person" property="hasPrimaryAttentionFile" label="Tiene expediente en atención primaria" widget="boolean" wrapper="display/inline" />
+                <f:display bean="person" property="hasEtmfCase" label="Revisión del caso en ETMF" widget="boolean" wrapper="display/inline" />
+                <f:display bean="person" property="hasCaiCase" label="Revisión del caso en CAI" wrapper="display/inline" />
+                <f:display bean="person" property="hasCafCase" label="Revisión del caso en CAF" widget="boolean" wrapper="display/inline" />
                 <f:display bean="person" property="hasOtherResourcesCase" label="Tiene intervención con otros recursos" widget="boolean" wrapper="display/inline" />
                 <f:display bean="person" property="otherResourcesCase" label="Otros recursos" wrapper="display/inline" />
-                <f:display bean="person" property="hasEtmfCase" label="Tiene en ETMF" widget="boolean" wrapper="display/inline" />
-                <f:display bean="person" property="caiCase" label="Expendiente en CAI" wrapper="display/inline" />
-                <f:display bean="person" property="hasCafCase" label="Tiene caso en CAF" widget="boolean" wrapper="display/inline" />
             </div>
         </div>
     </div>

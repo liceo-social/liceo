@@ -13,9 +13,9 @@
         <f:field label="Centro de servicios sociales" bean="person" property="center"/>
         <f:field label="Trabajador/a social" bean="person" property="socialWorker"/>
         <f:field label="Tiene expediente en atención primaria" bean="person" property="hasPrimaryAttentionFile"/>
-        <f:field label="Tiene caso en ETMF" bean="person" property="hasEtmfCase"/>
-        <f:field label="Tiene caso en CAF" bean="person" property="hasCafCase"/>
-        <f:field label="Caso en CAI" bean="person" property="caiCase"/>
+        <f:field label="Revisión del caso en ETMF (Equipo de Trabajo de Menores y Familia)" bean="person" property="hasEtmfCase"/>
+        <f:field label="Revisión del caso en CAI (Centro de Atención a la Infancia)" bean="person" property="hasCaiCase"/>
+        <f:field label="Revisión del caso en CAF (Comisión de Apoyo Familiar)" bean="person" property="hasCafCase"/>
         <f:field label="Tiene intervención con otros recursos" bean="person" property="hasOtherResourcesCase"/>
         <f:field label="Otros recursos" bean="person" property="otherResourcesCase"/>
     </div>

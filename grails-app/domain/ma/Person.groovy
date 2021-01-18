@@ -72,7 +72,6 @@ class Person extends Auditable implements Dateable, Identification, PersonalInfo
         otherResourcesCase nullable: true
         socialWorker nullable: true
 
-        caiCase nullable: true
         center nullable: true
 
         photo nullable: true
