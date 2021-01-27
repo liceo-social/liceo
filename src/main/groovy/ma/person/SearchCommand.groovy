@@ -9,9 +9,6 @@ import java.sql.Date
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
-import static java.time.temporal.TemporalAdjusters.firstDayOfYear
-import static java.time.temporal.TemporalAdjusters.lastDayOfYear
-
 /**
  * Command responsible for searching people following
  * a series of constraints
@@ -40,11 +37,15 @@ class SearchCommand implements Validateable {
   String order
 
   Date getMinDate() {
-    return minAge ? Date.valueOf(LocalDate.now().minus(minAge, ChronoUnit.YEARS).with(lastDayOfYear())) : null
+    return minAge
+      ? Date.valueOf(LocalDate.now().minus(minAge, ChronoUnit.YEARS))
+      : null
   }
 
   Date getMaxDate() {
-    return maxAge ? Date.valueOf(LocalDate.now().minus(maxAge, ChronoUnit.YEARS).with(firstDayOfYear())) : null
+    return maxAge
+      ? Date.valueOf(LocalDate.now().minus(maxAge + 1, ChronoUnit.YEARS))
+      : null
   }
 
   static constraints = {
