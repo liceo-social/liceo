@@ -132,7 +132,7 @@ abstract class PersonService implements IPersonService {
         otherResourcesCase: person.otherResourcesCase,
         socialWorker: person.socialWorker,
         hasCafCase: person.hasCafCase,
-        caiCase: person.caiCase,
+        hasCaiCase: person.hasCaiCase,
         center: person.center,
         hasEtmfCase: person.hasEtmfCase
       ]
