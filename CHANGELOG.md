@@ -5,6 +5,7 @@ Todos los cambios importantes en el proyecto se intentara que tengan reflejo en 
 
 ### Fixes
 
+- Falla filtro edad [#34](https://github.com/liceo-social/liceo/issues/34)
 - Error al exportar [#35](https://github.com/liceo-social/liceo/issues/35)
 
 ## [0.3.0] - 18/01/2021
