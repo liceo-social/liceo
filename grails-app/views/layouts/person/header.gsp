@@ -1,7 +1,9 @@
 <div class="card card-primary">
+  <!--
   <div class="card-header">
     <h3 class="card-title">Ficha</h3>
   </div>
+  -->
 
   <div class="card-body box-profile">
     <div class="profile-photo">
