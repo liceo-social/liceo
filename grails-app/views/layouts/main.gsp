@@ -63,7 +63,7 @@
         </li>
       </ul>
       <g:link controller="person" action="create" class="btn btn-default btn-sm">
-      Nuevo usuario
+      Nueva persona
       </g:link>
       <g:form controller="person" action="show" class="form-inline ml-3">
         <div class="input-group input-group-sm">
