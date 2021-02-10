@@ -1,6 +1,13 @@
 # Changelog
 Todos los cambios importantes en el proyecto se intentara que tengan reflejo en este fichero. Este fichero esta basado en el formato [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+## [0.4.0] - ???
+
+### Added
+
+- Propuestas de dashboard [#38](https://github.com/liceo-social/liceo/issues/38)
+- Funcionalidad Informe/Estadisticas [#39](https://github.com/liceo-social/liceo/issues/39)
+
 ## [0.3.1] - 28/01/2021
 
 ### Fixes
