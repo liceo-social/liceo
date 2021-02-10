@@ -13,7 +13,7 @@ import ma.domain.Utils
 
 class Person extends Auditable implements Dateable, Identification, PersonalInformation, Administration, Address, OccupationalTraining, Health, SocialServices {
 
-    static hasMany = [projects: Project]
+    static hasMany = [projects: Project, notes: Note]
 
     String fullname
 
@@ -79,6 +79,14 @@ class Person extends Auditable implements Dateable, Identification, PersonalInfo
 
     Integer getAge() {
         return Utils.calculateAge(this.birthDate)
+    }
+
+    Map<String, Integer> getNoteStatistics() {
+      return [
+        notes: notes.count { it.severity == 'NOTE' },
+        warnings: notes.count { it.severity == 'WARNING' },
+        dangers: notes.count { it.severity == 'DANGER' }
+      ]
     }
 
     static mapping = {

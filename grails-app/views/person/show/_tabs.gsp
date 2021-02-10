@@ -25,4 +25,12 @@
             aria-controls="custom-tabs-two-projects"
             aria-selected="false">Documentación</g:link>
     </li>
+     <li class="nav-item">
+        <g:link controller="note"
+            action="index"
+            id="${person.id}"
+            class="nav-link ${tabName == 'notes' ? 'active' : ''}"
+            aria-controls="custom-tabs-two-projects"
+            aria-selected="false">Alertas</g:link>
+    </li>
 </ul>
