@@ -1,9 +1,9 @@
 <!-- USERS LIST -->
 <div class="card">
     <div class="card-body p-0">
-        <g:if test="${statistics.assignedPeople}">
+        <g:if test="${statistics.addedPeople}">
             <ul class="products-list product-list-in-card pl-2 pr-2">
-                <g:each var="person" in="${statistics.assignedPeople}">
+                <g:each var="person" in="${statistics.addedPeople}">
                   <li class="item">
                     <div class="product-img">
                         <g:if test="${person.photo}">
@@ -44,11 +44,8 @@
     </div>
     <!-- /.card-body -->
     <div class="card-footer text-center">
-        <g:link
-            controller="person"
-            action="index"
-            params="[handlers: statistics.currentUser.id]"
-         >Ver todas</g:link>
+        <g:link controller="person" action="index">Ver todas</g:link>
     </div>
     <!-- /.card-footer -->
 </div>
+

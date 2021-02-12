@@ -62,6 +62,24 @@
            </g:else>
         </li>
       </ul>
+      <g:link controller="person" action="create" class="btn btn-default btn-sm">
+      Nueva persona
+      </g:link>
+      <g:form controller="person" action="show" class="form-inline ml-3">
+        <div class="input-group input-group-sm">
+          <g:textField
+              class="form-control form-control-navbar"
+              name="id"
+              type="search"
+              placeholder="Busqueda por ID"
+              aria-label="Search" />
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-navbar" name="search">
+                <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </g:form>
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
           <g:link controller='logout' action="logout">
@@ -229,13 +247,16 @@
         <section class="content-header">
           <div class="container-fluid">
             <div class="row mb-2">
+              <!--
               <div class="col-sm-6">
                 <h1 class="m-0 ml-1 text-dark">
                     <g:pageProperty name="page.title" />
                 </h1>
-              </div><!-- /.col -->
+              </div>
+              -->
+
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
+                <ol class="breadcrumb ml-1 mb-0">
                     <g:pageProperty name="page.breadcrumb" />
                 </ol>
               </div><!-- /.col -->
