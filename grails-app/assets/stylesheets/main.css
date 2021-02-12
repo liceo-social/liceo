@@ -290,3 +290,7 @@ ul.filters li:first-child {
 .controls.show-html {
     min-height: 250px;
 }
+
+.importance-badge {
+  width: 7em;
+}

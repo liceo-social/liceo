@@ -12,11 +12,16 @@ class Note extends Auditable implements Dateable {
   String comment
   String severity
 
+  String resolution
+  Date resolutionDate
+
   static constraints = {
     severity inList: ['NOTE', 'WARNING', 'DANGER']
+    resolution nullable: true
+    resolutionDate nullable: true
   }
 
   static mapping = {
-    sort dateCreated: 'desc'q
+    sort dateCreated: 'desc'
   }
 }

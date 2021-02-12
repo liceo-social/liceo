@@ -1,10 +1,10 @@
 <g:if test="${value == 'NOTE'}">
-    <i class="fas fa-info" title="Nota"></i>
+    <span title="comentario" class="badge bg-success importance-badge">NOTA</span>
 </g:if>
 <g:if test="${value == 'WARNING'}">
-    <i class="fas fa-exclamation-triangle" title="Precaucion"></i>
+    <span title="precaucion" class="badge badge-warning importance-badge">PRECAUCION</span>
 </g:if>
 <g:if test="${value == 'DANGER'}">
-    <i class="fas fa-exclamation-circle" title="Peligro"></i>
+    <span title="accion inmediata" class="badge badge-danger importance-badge">ACCION IN</span>
 </g:if>
 

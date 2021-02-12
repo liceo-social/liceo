@@ -9,9 +9,9 @@
                        class="form-control"
                        name="severity"
                        valueMessagePrefix="note.severity"
-                       from="${['NOTE', 'WARNING', 'DANGER']}"
+                       from="${['RESOLVED_TOO', 'NOTE', 'WARNING', 'DANGER']}"
                        onchange="submit()"
-                       noSelection="${['':'Todos']}"
+                       noSelection="${['':'Todas']}"
                        value="${params?.severity}" />
                </g:form>
            </div>

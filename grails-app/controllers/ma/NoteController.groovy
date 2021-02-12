@@ -27,8 +27,11 @@ class NoteController implements FlashMessageAware, SecurityAware, PaginationAwar
    * @since 0.4.0
    */
   def index(Person person, String severity, Pagination pagination) {
+    Boolean showResolved = severity == 'RESOLVED_TOO'
+    String resolvedSeverity = severity == 'RESOLVED_TOO' ? null : severity
+
     List<Note> notes = noteService
-      .filterByPersonAndSeverity(person, severity, checkPagination(pagination).asMap())
+      .filterByPersonAndSeverity(person, resolvedSeverity, showResolved, checkPagination(pagination).asMap())
 
     render(
       view: 'index',
@@ -107,6 +110,16 @@ class NoteController implements FlashMessageAware, SecurityAware, PaginationAwar
 
     noteService.delete(note)
     showSuccessMessage("note.delete.success.description")
+    redirect(constroller: 'note', action: 'index', id: note.person.id)
+  }
+
+  def resolve(Note note) {
+    if (note.resolution) {
+      noteService.resolve(note)
+      showSuccessMessage("note.resolution.success.description")
+    } else {
+      showErrorMessage("note.resolution.missing.resolution")
+    }
     redirect(constroller: 'note', action: 'index', id: note.person.id)
   }
 }

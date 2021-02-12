@@ -43,4 +43,16 @@ databaseChangeLog = {
   changeSet(author: "mario (generated)", id: "1612950019636-24") {
     addForeignKeyConstraint(baseColumnNames: "person_id", baseTableName: "note", constraintName: "FKsphu43pr2cl4v925ijgi6fxfv", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "person", validate: "true")
   }
+
+  changeSet(author: "mario (generated)", id: "1613122068481-20") {
+    addColumn(tableName: "note") {
+      column(name: "resolution", type: "varchar(255)")
+    }
+  }
+
+  changeSet(author: "mario (generated)", id: "1613122068481-21") {
+    addColumn(tableName: "note") {
+      column(name: "resolution_date", type: "timestamp")
+    }
+  }
 }

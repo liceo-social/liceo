@@ -83,9 +83,9 @@ class Person extends Auditable implements Dateable, Identification, PersonalInfo
 
     Map<String, Integer> getNoteStatistics() {
       return [
-        notes: notes.count { it.severity == 'NOTE' },
-        warnings: notes.count { it.severity == 'WARNING' },
-        dangers: notes.count { it.severity == 'DANGER' }
+        notes: notes.count { it.severity == 'NOTE' && !it.resolutionDate },
+        warnings: notes.count { it.severity == 'WARNING' && !it.resolutionDate },
+        dangers: notes.count { it.severity == 'DANGER' && !it.resolutionDate }
       ]
     }
 
