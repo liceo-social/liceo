@@ -28,6 +28,7 @@
                                 </span>
                             </g:if>
                         </g:link>
+                        <g:render template="templates/note_count" model="[person: person]"/>
                         <span class="product-description">
                             ${time.ago(time: person.lastUpdated)}
                         </span>
@@ -47,3 +48,4 @@
     </div>
     <!-- /.card-footer -->
 </div>
+
