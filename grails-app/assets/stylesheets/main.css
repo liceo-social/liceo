@@ -294,3 +294,7 @@ ul.filters li:first-child {
 .importance-badge {
   width: 7em;
 }
+
+.alert-primary a:hover {
+    color: white;
+}

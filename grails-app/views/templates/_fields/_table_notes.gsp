@@ -23,6 +23,7 @@
                 <td>
                     <f:display
                         bean="${bean}"
+                        description="${bean.comment}"
                         property="comment"
                         displayStyle="${displayStyle?:'table'}"
                         theme="${theme}"/>
@@ -59,6 +60,14 @@
                         theme="${theme}" />
                 </td>
                 <td class="text-right actions">
+                    <g:render template="/note/templates/show_modal" model="[nodeParam: bean]" />
+                    <a class="btn btn-primary btn-sm"
+                        href="#"
+                        data-toggle="modal"
+                        data-target="#show_note_modal_${bean.id}">
+                        <i class="fas fa-eye"></i>
+                        Mostrar
+                    </a>
                     <masec:isCreatorOrAdmin createdBy="${bean.createdBy}">
                         <g:if test="${bean.person.active && !bean.resolutionDate}">
                             <g:link class="btn btn-primary btn-sm"
