@@ -10,6 +10,7 @@ Todos los cambios importantes en el proyecto se intentara que tengan reflejo en 
 ### Fixed
 
 - Descripción de alertas no se ve completa [#44](https://github.com/liceo-social/liceo/issues/44)
+- Proyectos en Ficha persona [#42](https://github.com/liceo-social/liceo/issues/42)
 
 ## [0.4.0] - 12/02/2021
 
