@@ -113,7 +113,7 @@ dataSource:
 # where attachments are going to be
 # stored in the system
 storage:
-    storagePath: /tmp/kk
+    storagePath: '${LICEO_FILES:/tmp/liceo}'
 
 # default admin values, please change it! 
 # once the application is up and running

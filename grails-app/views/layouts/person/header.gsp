@@ -58,6 +58,21 @@
       <strong><i class="fas fa-user mr-1"></i> Profesional de referencia</strong>
       <p class="text-muted"><f:display bean="person" property="professionalReference"/></p>
       <hr>
+      <strong><i class="fas fa-project-diagram mr-1"></i>Projects</strong>
+      <p class="text-muted">
+          <g:set var="projects" value="${person.projects}" />
+          <g:if test="${projects}">
+              <g:set var="projectSize" value="${projects.size()}" />
+              <g:each var="project" in="${projects}" status="status">
+                <g:link controller="project" action="show" id="${project.id}">${project.name}</g:link>
+                <g:if test="${projectSize - 1 > status}">,</g:if>
+              </g:each>
+          </g:if>
+          <g:else>
+          ---
+          </g:else>
+      </p>
+      <hr>
       <strong><i class="fas fa-road mr-1"></i> Via de acceso</strong>
       <p class="text-muted"><f:display bean="person" property="cameFrom"/></p>
       <hr>

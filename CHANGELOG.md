@@ -1,6 +1,18 @@
 # Changelog
 Todos los cambios importantes en el proyecto se intentara que tengan reflejo en este fichero. Este fichero esta basado en el formato [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+## [0.4.1] - 16/02/2021
+
+### Added
+
+- Se puede configurar el directorio de ficheros con la variable de entorno `LICEO_FILES`
+
+### Fixed
+
+- Descripción de alertas no se ve completa [#44](https://github.com/liceo-social/liceo/issues/44)
+- Proyectos en Ficha persona [#42](https://github.com/liceo-social/liceo/issues/42)
+- Dashboard: ultimas alertas [#43](https://github.com/liceo-social/liceo/issues/43)
+
 ## [0.4.0] - 12/02/2021
 
 ### Added
