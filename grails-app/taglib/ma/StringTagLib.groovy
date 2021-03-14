@@ -15,7 +15,7 @@ class StringTagLib {
     String fullString = attrs.value?.toString()
     Integer maxLength = Integer.parseInt(attrs?.maxLength?.toString() ?: "50")
     String stringToShow = StringUtils.substring(fullString, 0, maxLength)
-    String ellipes = fullString.size() > maxLength ? "..." : ""
+    String ellipes = fullString?.size() > maxLength ? "..." : ""
 
     out << "${stringToShow}${ellipes}"
   }
