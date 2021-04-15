@@ -16,7 +16,7 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <g:form resource="/person" method="POST" class="form row">
+        <g:form resource="/person" method="POST" class="form row" useToken="true">
             <div class="col-md-6">
                 <div class="card card-main">
                     <div class="card-header">
