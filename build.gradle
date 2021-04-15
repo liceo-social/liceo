@@ -18,7 +18,7 @@ import com.bmuschko.gradle.docker.tasks.image.Dockerfile
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
 
-version "0.4.2"
+version "0.4.3-SNAPSHOT"
 group "liceo"
 
 apply plugin:"eclipse"

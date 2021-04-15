@@ -1,6 +1,20 @@
 # Changelog
 Todos los cambios importantes en el proyecto se intentara que tengan reflejo en este fichero. Este fichero esta basado en el formato [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+## [0.4.3] - ???
+
+### Fixed
+
+- Error al pulsar sobre el listado de procesos [#51](https://github.com/liceo-social/liceo/issues/51)
+
+### Added
+
+- Agregados mensajes de error en el login
+
+### Changed
+
+- Cambiados textos que daban lugar a error "Volver al listado" ahora es "Ir al listado"
+
 ## [0.4.2] - 14/03/2021
 
 ### Fixed
