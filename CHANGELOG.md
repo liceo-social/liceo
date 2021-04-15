@@ -9,7 +9,7 @@ Todos los cambios importantes en el proyecto se intentara que tengan reflejo en 
 
 ### Added
 
-- Agregados mensajes de error en el login
+- Agregados mensajes de error en el login [#54](https://github.com/liceo-social/liceo/issues/54)
 
 ### Changed
 
