@@ -139,8 +139,8 @@ ext {
     jvmArgs        = ['-Dspring.profiles.active=production', '-Xmx2048m']
     dockerBuildDir = mkdir("${buildDir}/docker")
     dockerImages   = [
-      "liceo-docker-public.bintray.io/web:${project.version}".toLowerCase(),
-      "liceo-docker-public.bintray.io/web:latest",
+      "liceosocial/web:${project.version}".toLowerCase(),
+      "liceosocial/web:latest",
     ] as Set<String>
 }
 
