@@ -18,7 +18,7 @@ import com.bmuschko.gradle.docker.tasks.image.Dockerfile
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
 
-version "0.4.2"
+version "0.4.3"
 group "liceo"
 
 apply plugin:"eclipse"
@@ -139,8 +139,8 @@ ext {
     jvmArgs        = ['-Dspring.profiles.active=production', '-Xmx2048m']
     dockerBuildDir = mkdir("${buildDir}/docker")
     dockerImages   = [
-      "liceo-docker-public.bintray.io/web:${project.version}".toLowerCase(),
-      "liceo-docker-public.bintray.io/web:latest",
+      "liceosocial/web:${project.version}".toLowerCase(),
+      "liceosocial/web:latest",
     ] as Set<String>
 }
 

@@ -50,7 +50,7 @@
                             controller="project"
                             action="index"
                             type="submit"
-                            class="btn btn-default float-right">Volver a listado</g:link  >
+                            class="btn btn-default float-right">Ir a listado</g:link  >
                     </div>
                 </div>
             </div>

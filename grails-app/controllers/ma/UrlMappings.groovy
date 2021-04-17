@@ -33,7 +33,6 @@ class UrlMappings {
          * LOGIN
          */
         '/login/auth'(controller: 'login', action: 'auth')
-        '/login/authfail'(view: '/login/auth')
         '/logout'(controller: 'logout', action: 'logout')
 
         '/agenda/'(controller: 'agenda')
