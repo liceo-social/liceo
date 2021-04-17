@@ -11,7 +11,7 @@
             <g:link controller="person" action="show" id="${process.person.id}">detalle</g:link>
         </li>
         <li class="breadcrumb-item">
-            <g:link controller="person" action="processes" id="${process.person.id}">procesos</g:link>
+            <g:link controller="process" id="${process.person.id}">procesos</g:link>
         </li>
         <li class="breadcrumb-item active">nuevo</li>
     </content>
@@ -36,7 +36,7 @@
                         action="index"
                         id="${process.person.id}"
                         type="submit"
-                        class="btn btn-default float-right">Volver a listado</g:link  >
+                        class="btn btn-default float-right">Ir al listado</g:link  >
                 </div>
             </div>
         </g:form>

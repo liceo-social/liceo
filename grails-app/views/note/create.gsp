@@ -43,7 +43,7 @@
                         action="index"
                         id="${person.id}"
                         type="submit"
-                        class="btn btn-default float-right">Volver a alertas</g:link  >
+                        class="btn btn-default float-right">Ir a alertas</g:link  >
                 </div>
             </div>
         </g:form>

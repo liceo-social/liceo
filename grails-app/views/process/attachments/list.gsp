@@ -38,6 +38,6 @@
             controller="process"
             action="index"
             id="${process.person.id}"
-            class="btn btn-default float-right">Volver a procesos</g:link>
+            class="btn btn-default float-right">Ir a procesos</g:link>
     </content>
 </g:applyLayout>

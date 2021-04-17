@@ -66,9 +66,15 @@
             </div>
             <!-- /.login-card-body -->
         </div>
+        <g:if test="${flash.message}">
+            <div class="card">
+                <div class="card-body login-card-body bg-warning text-center">
+                    ${flash.message}
+                </div>
+            </div>
+        </g:if>
     </div>
     <!-- /.login-box -->
-
     <asset:javascript src="jquery.js"/>
         <asset:javascript src="bootstrap.js"/>
         <asset:javascript src="adminlte.js"/>
