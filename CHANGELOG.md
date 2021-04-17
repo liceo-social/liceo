@@ -1,7 +1,7 @@
 # Changelog
 Todos los cambios importantes en el proyecto se intentara que tengan reflejo en este fichero. Este fichero esta basado en el formato [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
-## [0.4.3] - ???
+## [0.4.3] - 17/04/2021
 
 ### Fixed
 
@@ -14,6 +14,7 @@ Todos los cambios importantes en el proyecto se intentara que tengan reflejo en 
 ### Changed
 
 - Cambiados textos que daban lugar a error "Volver al listado" ahora es "Ir al listado"
+- Despliegue de la imagen de docker en https://hub.docker.com [#53](https://github.com/liceo-social/liceo/issues/53)
 
 ## [0.4.2] - 14/03/2021
 
