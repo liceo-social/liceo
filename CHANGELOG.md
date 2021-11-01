@@ -1,6 +1,12 @@
 # Changelog
 Todos los cambios importantes en el proyecto se intentara que tengan reflejo en este fichero. Este fichero esta basado en el formato [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+## [0.4.4] - 02/11/2021
+
+### Fixed 
+
+- Mejora en la exportacion CSV: Se puede elegir que campos se van a exportar y si no hay valor, aparece vacio (ya no aparece null)
+
 ## [0.4.3] - 17/04/2021
 
 ### Fixed
