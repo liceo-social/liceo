@@ -8,8 +8,10 @@ import ma.person.Identification
 import ma.person.OccupationalTraining
 import ma.person.PersonalInformation
 import ma.person.SocialServices
+import ma.security.User
 import ma.storage.Attachment
 import ma.domain.Utils
+import social.liceo.model.DeactivationRequestEntity
 
 class Person extends Auditable implements Dateable, Identification, PersonalInformation, Administration, Address, OccupationalTraining, Health, SocialServices {
 
@@ -61,6 +63,9 @@ class Person extends Auditable implements Dateable, Identification, PersonalInfo
 
         professionalReference nullable: false
         cameFromAlternative nullable: true
+
+        deletionRequestedBy nullable: true
+        deletionApprovedBy nullable: true
         deletionMotivation nullable: true
         deletedAt nullable: true
 
@@ -79,6 +84,26 @@ class Person extends Auditable implements Dateable, Identification, PersonalInfo
 
     Integer getAge() {
         return Utils.calculateAge(this.birthDate)
+    }
+
+    Boolean isDeactivationRequested() {
+      return deactivation
+    }
+
+    User getDeactivationRequestedBy() {
+      return this.deletionRequestedBy ?: deactivation?.requestedBy
+    }
+
+    User getDeactivationApprovedBy() {
+      return this.deletionApprovedBy
+    }
+
+    String getDeactivationMotivation() {
+      return this.deletionMotivation ?: deactivation?.motivation
+    }
+
+    private DeactivationRequestEntity getDeactivation() {
+      return DeactivationRequestEntity?.findByPerson(this)?.find()
     }
 
     Map<String, Integer> getNoteStatistics() {

@@ -1,6 +1,5 @@
 package ma.person
 
-import grails.databinding.BindingFormat
 import ma.security.User
 
 trait Identification {
@@ -9,5 +8,7 @@ trait Identification {
     CameFrom cameFrom
     String cameFromAlternative
     Date deletedAt
+    User deletionApprovedBy
+    User deletionRequestedBy
     String deletionMotivation
 }

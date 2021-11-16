@@ -2,7 +2,8 @@ buildscript {
     repositories {
         maven { url "https://plugins.gradle.org/m2/" }
         mavenCentral()
-        maven { url "https://repo.grails.org/grails/core" }
+        //maven { url "https://repo.grails.org/grails/core" }
+        maven { url "https://repo.grails.org/artifactory/core" }
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
@@ -18,7 +19,7 @@ import com.bmuschko.gradle.docker.tasks.image.Dockerfile
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
 
-version "0.4.3"
+version "0.5.0"
 group "liceo"
 
 apply plugin:"eclipse"
@@ -73,6 +74,7 @@ dependencies {
 
     // liceo modules
     implementation(project(":data-export"))
+    implementation(project(":model-common"))
 
     // migration
     compile 'org.grails.plugins:database-migration:3.1.0'

@@ -34,16 +34,6 @@ interface IPersonService {
   File createSearchResultFile(SearchCommand command)
 
   /**
-   * Marks the user as inactive
-   *
-   * @param person person to mark as inactive
-   * @param motivation reason why the records is marked as inactive
-   * @since 0.2.0
-   */
-  void disable(Person person, String motivation)
-
-
-  /**
    * Activates a disabled person's record
    *
    * @param person the instance to activate

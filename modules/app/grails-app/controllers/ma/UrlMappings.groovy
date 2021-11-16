@@ -8,7 +8,6 @@ package ma
 class UrlMappings {
 
     static mappings = {
-
         group "/process", {
           "/create/$person"(controller: 'process', action: 'create')
           "/export/$person/$project?"(controller: 'process', action: 'export')

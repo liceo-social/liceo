@@ -93,6 +93,6 @@ class CsvWriterSpec extends Specification {
 
   private static String[] getFirstLineAfterHeaderValues(File file) {
     assert file.readLines().size() > 1
-    return file.readLines().get(1).split(",", -1)
+    return file.readLines().get(1).split("\\|", -1)
   }
 }

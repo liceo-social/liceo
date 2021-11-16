@@ -25,7 +25,7 @@ class CSVWriter<T> {
           .findAll { headers.contains(it.key) }
           .values()
           .collect { nv(it) }
-          .join(",")
+          .join("|")
 
         to.println(line)
       }
@@ -50,6 +50,6 @@ class CSVWriter<T> {
     Map<String,?> headersMap = transformer.transform(lines.first())
     List<String> allHeaders = headersMap.keySet().toList()
 
-    return allHeaders.intersect(this.headerNames ?: allHeaders).join(",")
+    return allHeaders.intersect(this.headerNames ?: allHeaders).join("|")
   }
 }

@@ -13,32 +13,40 @@
     <div class="col-12 mt-2">
       <g:if test="${person.active}">
           <!-- /.card-body -->
+            <g:link controller="person" action="edit" id="${person.id}" class="btn btn-primary btn-block"><b>Editar</b></g:link>
 
-              <g:link
-                controller="person"
-                action="edit"
-                id="${person.id}"
-                class="btn btn-primary btn-block"><b>Editar</b></g:link>
-                <sec:ifAllGranted roles='ROLE_ADMIN'>
-                  <a class="btn btn-danger btn-block"
-                      href="#"
-                      data-toggle="modal"
-                      data-target="#disable_modal">
-                        Dar de baja
-                  </a>
-                  <g:render template="/person/disable/modal" />
-              </sec:ifAllGranted>
+            <sec:ifAllGranted roles='ROLE_ADMIN'>
+              <!-- ADMIN -->
+              <!-- DAR DE BAJA -->
+              <g:if test="${!person.isDeactivationRequested()}">
+                  <a class="btn btn-danger btn-block" href="#" data-toggle="modal" data-target="#disable_modal">Dar de baja</a>
+                  <g:render template="/person/deactivation/modal" />
+              </g:if>
+              <g:else>
+                  <a class="btn btn-danger btn-block" href="#" data-toggle="modal" data-target="#modal_approval">Approbar baja</a>
+                  <g:render template="/person/deactivation/modal_approval" />
+              </g:else>
+            </sec:ifAllGranted>
 
+            <sec:ifAllGranted roles='ROLE_USER'>
+             <!-- USER -->
+             <!-- SOLICITUD DE BAJA -->
+             <g:if test="${!person.isDeactivationRequested()}">
+                 <a class="btn btn-warning btn-block" href="#" data-toggle="modal" data-target="#modal_request">Solicitar baja</a>
+                 <g:render template="/person/deactivation/modal_request" />
+             </g:if>
+             <g:else>
+                 <a class="btn btn-block wip disable">Baja solicitada</a>
+             </g:else>
+            </sec:ifAllGranted>
        </g:if>
        <g:else>
-        <sec:ifAllGranted roles='ROLE_ADMIN'>
-
-              <a class="btn btn-warning btn-block" href="#" data-toggle="modal" data-target="#enable_modal">
-              Reactivar
-              </a>
-              <g:render template="/person/enable/modal" />
-
-        </sec:ifAllGranted>
+            <sec:ifAllGranted roles='ROLE_ADMIN'>
+                  <a class="btn btn-warning btn-block" href="#" data-toggle="modal" data-target="#enable_modal">
+                  Reactivar
+                  </a>
+                  <g:render template="/person/enable/modal" />
+            </sec:ifAllGranted>
        </g:else>
        </div>
     </div>

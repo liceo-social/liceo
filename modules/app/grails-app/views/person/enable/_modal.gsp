@@ -4,7 +4,7 @@
 <div id="enable_modal" class="modal fade">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <g:form controller="person" action="enable">
+            <g:form controller="person" action="activate">
                 <div class="modal-header">
                     <h4 class="modal-title">Habilitar de nuevo este registro</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

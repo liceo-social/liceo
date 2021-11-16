@@ -163,6 +163,14 @@
                           <p>Agenda</p>
                         </g:link>
                     </li>
+                    <sec:ifAllGranted roles='ROLE_ADMIN'>
+                         <li class="nav-item">
+                            <g:link controller="deactivationRequestEntity" class="nav-link" action="index">
+                              <i class="fas fa-user-slash nav-icon"></i>
+                              <p>Solicitudes de baja</p>
+                            </g:link>
+                        </li>
+                    </sec:ifAllGranted>
                 </ul>
               </li>
               <sec:ifAllGranted roles='ROLE_ADMIN'>

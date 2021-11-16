@@ -20,6 +20,7 @@ import java.text.SimpleDateFormat
 abstract class PersonService implements IPersonService {
 
   private static final Map<String,?> EMPTY_FIELD_GROUP = [:]
+
   /**
    * Search people matching certain criterion
    *
@@ -197,6 +198,7 @@ abstract class PersonService implements IPersonService {
         hasEtmfCase: person.hasEtmfCase,
         professionalReference: person.professionalReference.name,
         cameFromAlternative: person.cameFromAlternative,
+        hasPrimaryAttentionFile: person.hasPrimaryAttentionFile
       ]
     }
     return EMPTY_FIELD_GROUP
@@ -204,16 +206,10 @@ abstract class PersonService implements IPersonService {
 
   @Override
   @Transactional
-  void disable(Person person, String motivation) {
-    person.deletionMotivation = motivation
-    person.deletedAt = new Date()
-    person.active = false
-  }
-
-  @Override
-  @Transactional
   void enable(Person person) {
     person.deletionMotivation = null
+    person.deletionApprovedBy = null
+    person.deletionRequestedBy = null
     person.deletedAt = null
     person.active = true
   }

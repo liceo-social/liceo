@@ -1,11 +1,21 @@
 # Changelog
 Todos los cambios importantes en el proyecto se intentara que tengan reflejo en este fichero. Este fichero esta basado en el formato [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
-## [0.4.4] - 02/11/2021
+## [0.5.0] - 16/11/2021
+
+### Added
+
+- Solicitud de bajas por parte de un usuario no administrador [#58](https://github.com/liceo-social/liceo/issues/58)
+- Exportacion CSV: Se puede elegir que campos se van a exportar [#59](https://github.com/liceo-social/liceo/issues/59)
+
+### Changed
+
+- Cambio en la estructura del proyecto en modulos Gradle. [#60](https://github.com/liceo-social/liceo/issues/60)
 
 ### Fixed 
 
-- Mejora en la exportacion CSV: Se puede elegir que campos se van a exportar y si no hay valor, aparece vacio (ya no aparece null)
+- Exportacion CSV: El excel a veces sale descuadrado. Se cambia "," por "|" como caracter de campo [#56](https://github.com/liceo-social/liceo/issues/56)
+- Falta la columna "tiene expediente en atencion primaria" (hasPrimaryAttentionFile) [#57](https://github.com/liceo-social/liceo/issues/57)
 
 ## [0.4.3] - 17/04/2021
 

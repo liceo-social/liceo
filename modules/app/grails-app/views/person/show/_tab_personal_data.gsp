@@ -26,6 +26,21 @@
                 <f:display bean="person" property="cameFrom" label="Via de acceso" wrapper="display/inline" />
                 <f:display bean="person" property="registrationAt" label="Fecha de alta" wrapper="display/inline" />
                 <f:display bean="person" property="deletedAt" label="Fecha de baja" wrapper="display/inline" />
+                <f:display bean="person" property="deactivationRequestedBy" label="Baja solicitada por" wrapper="display/inline" />
+                <f:display bean="person" property="deactivationApprovedBy" label="Baja aprobada por" wrapper="display/inline" />
+                <div class="row display-inline">
+                    <div class="col-6 label">Motivo de la baja</div>
+                    <div class="col-6">
+                        <g:if test="${person.deactivationMotivation}">
+                            <a class="btn btn-primary"
+                                href="#"
+                                data-toggle="modal"
+                                data-target="#motivation_modal">Mostrar</a>
+                            <g:render template="/person/show/motivation_modal" model="[motivation: person.deactivationMotivation]"/>
+                        </g:if>
+                        <g:else>---</g:else>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

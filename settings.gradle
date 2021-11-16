@@ -1,4 +1,4 @@
-rootProject.name = 'connect4'
+rootProject.name = 'liceo'
 
 buildscript {
   repositories {

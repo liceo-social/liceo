@@ -5,13 +5,18 @@ import grails.gorm.PagedResultList
 import ma.controller.FlashMessageAware
 import ma.person.DisableCommand
 import ma.person.SearchCommand
+import social.liceo.controller.DeactivationService
+import social.liceo.model.Deactivation
+import social.liceo.common.model.Result
 
 class PersonController implements FlashMessageAware {
 
   static scaffold = Person
 
-  PersonService personService
   GrailsApplication grailsApplication
+
+  PersonService personService
+  DeactivationService deactivationService
 
   def export(SearchCommand command) {
     File csvFile = personService.createSearchResultFile(command)
@@ -62,15 +67,70 @@ class PersonController implements FlashMessageAware {
         redirect(action: 'index')
   }
 
-  def disable(DisableCommand command) {
+  def requestDeactivation(DisableCommand command) {
     Person person = command.person
-    personService.disable(person, command.motivation)
+    DeactivationService.RequestParams params = DeactivationService.RequestParams.builder()
+      .personId(person.id as Long)
+      .motivation(command.motivation)
+      .build()
+
+    Result<Deactivation> result = deactivationService.request(params)
+
+    if (result.hasError()) {
+      showErrorMessage(result.error.code)
+      redirect(action: 'show', id: person.id)
+      return
+    }
+
+    showSuccessMessage('person.deactivate.requested.description', person.fullname)
+    redirect(action: 'show', id: person.id)
+  }
+
+  def approveDeactivation(DisableCommand command) {
+    Person person = command.person
+    DeactivationService.ApprovalParams params = DeactivationService.ApprovalParams.builder()
+      .personId(person.id as Long)
+      .motivation(command.motivation)
+      .build()
+
+    Result<Deactivation> result = deactivationService.approve(params)
+
+    if (result.hasError()) {
+      showErrorMessage(result.error.code)
+      redirect(action: 'show', id: person.id)
+      return
+    }
+
+    showSuccessMessage('person.deactivate.approved.description', person.fullname)
+    redirect(action: 'show', id: person.id)
+  }
+
+  def deactivate(DisableCommand command) {
+    if (!command.validate()) {
+      showErrorMessage("person.deactivate.error.general")
+      redirect(action: 'show', id: command.person.id)
+      return
+    }
+
+    Person person = command.person
+    DeactivationService.DirectDeactivationParams params = DeactivationService.DirectDeactivationParams.builder()
+      .personId(person.id as Long)
+      .motivation(command.motivation)
+      .build()
+
+    Result<Deactivation> result = deactivationService.deactivate(params)
+
+    if (result.hasError()) {
+      showErrorMessage(result.error.message)
+      redirect(action: 'show', id: person.id)
+      return
+    }
 
     showSuccessMessage('person.disable.success.description', person.fullname)
     redirect(action: 'show', id: person.id)
   }
 
-  def enable(Person person) {
+  def activate(Person person) {
     personService.enable(person)
 
     showSuccessMessage('person.enable.success.description', person.fullname)
