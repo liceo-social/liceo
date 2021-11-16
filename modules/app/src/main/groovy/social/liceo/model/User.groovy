@@ -1,8 +1,8 @@
 package social.liceo.model
 
 class User {
-  private static final ROLE_ADMIN = "ROLE_ADMIN"
-  private static final ROLE_WORKER = "ROLE_USER"
+  static final ROLE_ADMIN = "ROLE_ADMIN"
+  static final ROLE_WORKER = "ROLE_USER"
 
   Serializable id
   String[] roles = []
