@@ -1,0 +1,21 @@
+plugins {
+  id 'groovy'
+}
+
+repositories {
+  mavenCentral()
+  jcenter()
+}
+
+dependencies {
+  implementation 'org.codehaus.groovy:groovy-all:2.5.6'
+  implementation 'com.github.grooviter:asteroid:0.4.2'
+
+  testImplementation 'org.spockframework:spock-core:2.0-groovy-2.5'
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+}
+
+tasks.named('test') {
+  useJUnitPlatform()
+}
