@@ -1,6 +1,12 @@
 # Changelog
 Todos los cambios importantes en el proyecto se intentara que tengan reflejo en este fichero. Este fichero esta basado en el formato [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+## [0.5.1] - 26/02/2022
+
+### Fixed
+
+- No se pueden aprobar bajas por restriccion en la base de datos [#61](https://github.com/liceo-social/liceo/issues/61)
+
 ## [0.5.0] - 16/11/2021
 
 ### Added
