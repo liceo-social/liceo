@@ -117,6 +117,7 @@ class Person extends Auditable implements Dateable, Identification, PersonalInfo
     static mapping = {
         // This allows to query fullname in the database instead of getting only the value
         fullname formula: "NAME||' '||FIRST_SURNAME||' '||COALESCE(SECOND_SURNAME, '')"
+        deletionMotivation type: 'text'
     }
 
     @Override
