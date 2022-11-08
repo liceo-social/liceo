@@ -36,7 +36,7 @@ class SearchCommand implements Validateable {
   String sort
   String order
 
-  boolean exportAdministration
+  boolean exportAdministration = true
   boolean exportContact
   boolean exportWork
   boolean exportHealth
