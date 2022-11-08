@@ -25,7 +25,8 @@ class CSVWriter<T> {
           .findAll { headers.contains(it.key) }
           .values()
           .collect { nv(it) }
-          .join("|")
+          .collect { removeCommonSeparatorsFromValue(it) }
+          .join(SEPARATOR)
 
         to.println(line)
       }
@@ -42,14 +43,20 @@ class CSVWriter<T> {
     } as CSVTransformer<T>
   }
 
+  private static final String SEPARATOR = "|"
+
   private static String nv(Object possibleValue) {
     return possibleValue?.toString() ?: ""
+  }
+
+  private static String removeCommonSeparatorsFromValue(String possibleValue) {
+    return possibleValue.replaceAll("\\${SEPARATOR}|,", "")
   }
 
   private String extractHeadersFromFirstEntry() {
     Map<String,?> headersMap = transformer.transform(lines.first())
     List<String> allHeaders = headersMap.keySet().toList()
 
-    return allHeaders.intersect(this.headerNames ?: allHeaders).join("|")
+    return allHeaders.intersect(this.headerNames ?: allHeaders).join(SEPARATOR)
   }
 }
