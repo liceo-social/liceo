@@ -1,6 +1,17 @@
 # Changelog
 Todos los cambios importantes en el proyecto se intentara que tengan reflejo en este fichero. Este fichero esta basado en el formato [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+## [0.5.2] - 08/11/2022
+
+### Fixed
+
+- Error 500 cuando seleccionas Exportar CSV desde el listado de personas sin ningún filtro
+- Cuando hay un campo de texto con una cadena que tiene una coma al mostrar el CSV se desplazan las columnas
+
+### Changed
+
+- Cuando exportas un listado de personas sin indicar ningún campo extra no aparece DNI, esto se puede solucionar marcando “Situación administrativa” aunque yo creo que el DNI debería salir siempre
+
 ## [0.5.1] - 26/02/2022
 
 ### Fixed

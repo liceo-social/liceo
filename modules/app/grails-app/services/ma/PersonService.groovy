@@ -116,7 +116,7 @@ abstract class PersonService implements IPersonService {
     return temporalFile
   }
 
-  private Map<String,?> getPersonalFieldMap(Person person) {
+  private static Map<String,?> getPersonalFieldMap(Person person) {
     return [
       fullname: person.fullname,
       active: person.active,
@@ -135,7 +135,7 @@ abstract class PersonService implements IPersonService {
     ]
   }
 
-  private Map<String,?> getAdministrationFieldMap(Person person, boolean export) {
+  private static Map<String,?> getAdministrationFieldMap(Person person, boolean export) {
     if (export) {
       return [
         documentType  : person.documentType?.name,
@@ -145,7 +145,7 @@ abstract class PersonService implements IPersonService {
     return EMPTY_FIELD_GROUP
   }
 
-  private  Map<String,?> getContactFieldMap(Person person, boolean export) {
+  private static Map<String,?> getContactFieldMap(Person person, boolean export) {
     if (export) {
       return [
         streetType: person.streetType,
@@ -164,7 +164,7 @@ abstract class PersonService implements IPersonService {
     return EMPTY_FIELD_GROUP
   }
 
-  private  Map<String,?> getWorkFieldMap(Person person, boolean export) {
+  private static Map<String,?> getWorkFieldMap(Person person, boolean export) {
     if (export) {
       return [
         studiesLevel: person.studiesLevel,
@@ -176,7 +176,7 @@ abstract class PersonService implements IPersonService {
     return EMPTY_FIELD_GROUP
   }
 
-  private Map<String,?> getHealthFieldMap(Person person, boolean export) {
+  private static Map<String,?> getHealthFieldMap(Person person, boolean export) {
     if (export) {
       return [
         allergies: person.allergies,
@@ -187,7 +187,7 @@ abstract class PersonService implements IPersonService {
     return EMPTY_FIELD_GROUP
   }
 
-  private Map<String,?> getSocialFieldMap(Person person, boolean export) {
+  private static Map<String,?> getSocialFieldMap(Person person, boolean export) {
     if (export) {
       return [
         otherResourcesCase: person.otherResourcesCase,

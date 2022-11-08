@@ -83,6 +83,32 @@ class CsvWriterSpec extends Specification {
     address == "12th Parra St"
   }
 
+  def "checks to special character in rows"() {
+    given:
+    File csvFile = createTempFile()
+    Person person = Person.builder()
+      .name("John${separator} Doe")
+      .age(22)
+      .address("12th ${separator}Parra St")
+      .build()
+
+    when:
+    CSVWriter.builder()
+      .lines(person.collect())
+      .transformer(TRANSFORMER)
+      .headerNames(["name", "address"])
+      .build()
+      .writeTo(new FileWriter(csvFile))
+
+    def (name, address) = getFirstLineAfterHeaderValues(csvFile)
+
+    then:
+    name == "John Doe"
+    address == "12th Parra St"
+    where:
+    separator << ["|", ","]
+  }
+
   private static final Closure<Map<String,?>> TRANSFORMER = { Person p ->
     return [name: p.name, age: p.age, address: p.address]
   }

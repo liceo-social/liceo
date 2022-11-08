@@ -36,12 +36,12 @@ class SearchCommand implements Validateable {
   String sort
   String order
 
-  Boolean exportAdministration
-  Boolean exportContact
-  Boolean exportWork
-  Boolean exportHealth
+  boolean exportAdministration = true
+  boolean exportContact
+  boolean exportWork
+  boolean exportHealth
 
-  Boolean exportSocial
+  boolean exportSocial
 
   Date getMinDate() {
     return minAge
