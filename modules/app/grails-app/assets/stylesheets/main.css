@@ -306,3 +306,7 @@ ul.filters li:first-child {
 .wip {
  background: var(--cyan);
 }
+
+div a.underlined {
+ text-decoration-line: underline;
+}

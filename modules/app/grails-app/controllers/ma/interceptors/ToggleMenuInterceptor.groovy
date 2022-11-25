@@ -1,12 +1,14 @@
 package ma.interceptors
 
+import grails.artefact.Interceptor
+
 /**
  * Handles the state of the application's sidebar
  *
  * @since 0.1.0
  */
-class ToggleMenuInterceptor {
-
+@SuppressWarnings("unused")
+class ToggleMenuInterceptor implements Interceptor {
     ToggleMenuInterceptor() {
         matchAll()
             .except(uri:'/error')

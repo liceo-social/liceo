@@ -80,6 +80,13 @@
           </div>
         </div>
       </g:form>
+      <g:if test="${session.pendingDeactivations}">
+          <div class="ml-2">
+              <g:link controller="deactivationRequestEntity" class="text-danger text-sm underlined">
+                  Tienes ${session.pendingDeactivations} solicitudes de baja pendientes
+              </g:link>
+          </div>
+      </g:if>
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
           <g:link controller='logout' action="logout">
