@@ -3,6 +3,7 @@
 </g:set>
 
 <g:textField
+    disabled="${attrs.disabled}"
     placeholder="${attrs.placeholder}"
     class="form-control ${error}"
     required="${required ? 'required' : '' }"

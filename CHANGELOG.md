@@ -1,6 +1,10 @@
 # Changelog
 Todos los cambios importantes en el proyecto se intentara que tengan reflejo en este fichero. Este fichero esta basado en el formato [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+## [0.5.3] - 26/11/2022
+### Added
+- Usuarios no admin puede solicitar la baja con una fecha concreta
+
 ## [0.5.2] - 08/11/2022
 
 ### Fixed

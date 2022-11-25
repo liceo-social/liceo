@@ -72,6 +72,7 @@ class PersonController implements FlashMessageAware {
     DeactivationService.RequestParams params = DeactivationService.RequestParams.builder()
       .personId(person.id as Long)
       .motivation(command.motivation)
+      .deactivationDate(command.deactivationDate)
       .build()
 
     Result<Deactivation> result = deactivationService.request(params)

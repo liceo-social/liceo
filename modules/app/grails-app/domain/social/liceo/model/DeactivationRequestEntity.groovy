@@ -7,8 +7,13 @@ class DeactivationRequestEntity {
   PersonEntity person
   UserEntity requestedBy
   String motivation
+  Date deactivationDate
 
-  static mappings = {
-    table 'deactivation_request'
+  static constraints = {
+    deactivationDate nullable: true
+  }
+
+  static mapping = {
+    table 'deactivation_request_entity'
   }
 }

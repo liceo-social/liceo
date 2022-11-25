@@ -17,13 +17,17 @@ class Deactivation {
   String motivation
   OffsetDateTime approvalDate
 
-  Result<Deactivation> createRequest(@NotNull User requestedBy, @NotBlank String motivation) {
+  Result<Deactivation> createRequest(
+    @NotNull User requestedBy,
+    @NotBlank String motivation,
+    OffsetDateTime approvalDate = null) {
     if (this.requestedBy) {
       return Result.error(ALREADY_REQUESTED)
     }
 
     this.requestedBy = requestedBy
     this.motivation = motivation
+    this.approvalDate = approvalDate
 
     return Result.success(this)
   }
@@ -51,7 +55,10 @@ class Deactivation {
 
     this.approvedBy = approvedBy
     this.motivation = motivation
-    this.approvalDate = OffsetDateTime.now()
+
+    if (!this.approvalDate) {
+      this.approvalDate = OffsetDateTime.now()
+    }
 
     return Result.success(this)
   }

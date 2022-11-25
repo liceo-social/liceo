@@ -22,12 +22,13 @@ abstract class DeactivationService {
   static class RequestParams {
     Long personId
     String motivation
+    Date deactivationDate
   }
 
   Result<Deactivation> request(RequestParams params) {
     Person person = findPersonByIdDAO.findPersonById(params.personId)
     User requestedBy = securityDAO.sessionUser
-    Result<Deactivation> result = person.requestDeactivation(requestedBy, params.motivation)
+    Result<Deactivation> result = person.requestDeactivation(requestedBy, params.motivation, params.deactivationDate)
 
     return result.ifSuccess {
       deactivationDAO.saveRequest(person)

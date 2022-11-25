@@ -2,6 +2,9 @@ package social.liceo.model
 
 import social.liceo.common.model.Result
 
+import java.time.OffsetDateTime
+import java.time.ZoneOffset
+
 class Person {
   private Serializable id
   private Deactivation deactivation = Deactivation.builder().build()
@@ -18,8 +21,13 @@ class Person {
     return this.deactivation.isRequested()
   }
 
-  Result<Deactivation> requestDeactivation(User requestedBy, String motivation) {
-    return this.deactivation.createRequest(requestedBy, motivation)
+  Result<Deactivation> requestDeactivation(User requestedBy, String motivation, Date deactivationDate) {
+    // #TODO delete this probably move OffsetDatetime to Date
+    OffsetDateTime selected = deactivationDate
+      ? OffsetDateTime.of(deactivationDate.toLocalDateTime(), ZoneOffset.ofHours(1))
+      : null
+
+    return this.deactivation.createRequest(requestedBy, motivation, selected)
   }
 
   Result<Deactivation> approveDeactivation(User approvedBy, String motivation) {
@@ -36,5 +44,9 @@ class Person {
 
   String getDeactivationMotivation() {
     return this.deactivation.motivation
+  }
+
+  Date getDeactivationApprovalDate() {
+    return this.deactivation.approvalDate?.toDate()
   }
 }

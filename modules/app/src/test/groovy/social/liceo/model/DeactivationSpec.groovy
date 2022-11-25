@@ -4,6 +4,8 @@ import social.liceo.common.model.Result
 import social.liceo.model.tags.DeactivationTest
 import spock.lang.Specification
 
+import java.time.OffsetDateTime
+
 @DeactivationTest
 class DeactivationSpec extends Specification {
   private static final MOTIVATION = "motivation"
@@ -48,7 +50,35 @@ class DeactivationSpec extends Specification {
     result.error == DeactivationErrors.APPROVED_BY_NOT_AN_ADMIN
   }
 
+  def 'check approval respects requested deactivation date'() {
+    setup:
+    def initialRequest = alreadyRequestedDeactivation
+    def requestedDate = initialRequest.approvalDate
+
+    when:
+    Result<Deactivation> result = initialRequest.approve(USER_ADMIN, MOTIVATION)
+
+    then:
+    result.success.approvalDate == requestedDate
+  }
+
+  def 'check approval sets requested deactivation date when it wasn\'t set'() {
+    setup:
+    def initialRequest = alreadyRequestedDeactivationWithoutDate
+    def requestedDate = initialRequest.approvalDate
+
+    when:
+    Result<Deactivation> result = initialRequest.approve(USER_ADMIN, MOTIVATION)
+
+    then:
+    result.success.approvalDate != requestedDate
+  }
+
   private static Deactivation getAlreadyRequestedDeactivation() {
+    return Deactivation.builder().requestedBy(USER).motivation(MOTIVATION).approvalDate(OffsetDateTime.now()).build()
+  }
+
+  private static Deactivation getAlreadyRequestedDeactivationWithoutDate() {
     return Deactivation.builder().requestedBy(USER).motivation(MOTIVATION).build()
   }
 }

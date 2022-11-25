@@ -5,6 +5,7 @@
             <g:sortableColumn class="text-center" property="person.fullname" title="Nombre Completo" params="${params}" />
             <g:sortableColumn class="text-center" property="requestedBy" title="Solicitado Por" params="${params}" />
             <g:sortableColumn class="text-center" property="motivation" title="Motivo" params="${params}" />
+            <g:sortableColumn class="text-center" property="deactivationDate" title="Fecha de baja" params="${params}" />
             <th class="text-center"></th>
         </tr>
     </thead>
@@ -39,6 +40,16 @@
                         property="motivation"
                         displayStyle="${displayStyle?:'table'}"
                         theme="${theme}"/>
+                </td>
+                 <td class="text-center">
+                    <g:if test="${bean.deactivationDate}">
+                        <f:display
+                            bean="${bean}"
+                            property="deactivationDate"
+                            displayStyle="${displayStyle?:'table'}"
+                            theme="${theme}" />
+                    </g:if>
+                    <g:else>--</g:else>
                 </td>
                 <td class="text-right actions">
                     <!-- APPROVAL -->

@@ -18,7 +18,7 @@ class PersonSpec extends Specification {
   @DeactivationTest
   def 'when deactivation is requested we can ask if deactivation is been requested'() {
     given:
-    person.requestDeactivation(USER, MOTIVATION)
+    person.requestDeactivation(USER, MOTIVATION, null)
 
     expect:
     person.isDeactivationRequested()
@@ -37,7 +37,7 @@ class PersonSpec extends Specification {
   }
 
   private void requestAndApproveDeactivation() {
-    person.requestDeactivation(USER, MOTIVATION)
+    person.requestDeactivation(USER, MOTIVATION, new Date())
     person.approveDeactivation(USER_ADMIN, MOTIVATION)
   }
 }

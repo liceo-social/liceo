@@ -28,7 +28,7 @@
                         collection="${deactivationRequestEntityList}"
                         displayStyle="table_wnr"
                         template="table_deactivation_requests"
-                        properties="person.fullname,requestedBy, motivation" />
+                        properties="person.fullname,requestedBy,motivation,deactivationDate" />
                 <div class="pagination">
                     <g:paginate total="${deactivationRequestEntityCount ?: 0}" />
                 </div>

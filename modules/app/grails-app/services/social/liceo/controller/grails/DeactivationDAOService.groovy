@@ -14,7 +14,8 @@ class DeactivationDAOService implements DeactivationDAO {
     DeactivationRequestEntity requestEntity = new DeactivationRequestEntity(
       person: personEntity,
       requestedBy: requestedBy,
-      motivation: person.deactivationMotivation
+      motivation: person.deactivationMotivation,
+      deactivationDate: person.deactivationApprovalDate
     )
 
     requestEntity.save()

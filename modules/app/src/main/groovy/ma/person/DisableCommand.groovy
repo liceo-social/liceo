@@ -1,5 +1,6 @@
 package ma.person
 
+import grails.databinding.BindingFormat
 import grails.validation.Validateable
 
 import ma.Person
@@ -25,4 +26,12 @@ class DisableCommand implements Validateable {
    * @since 0.2.0
    */
   String motivation
+
+  /**
+   * Fecha de baja solicitada
+   *
+   * @since 0.5.3
+   */
+  @BindingFormat("MM/dd/yyyy")
+  Date deactivationDate
 }

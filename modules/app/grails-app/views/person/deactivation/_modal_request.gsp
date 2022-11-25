@@ -13,8 +13,30 @@
                 </div>
                 <div class="modal-body">
                     <p><g:message code="person.deactivate.request.disclaimer"/></p>
-                    <textarea class="motivation" name="motivation"></textarea>
+                    <textarea class="motivation mb-2" name="motivation"></textarea>
                     <g:hiddenField name="person.id" value="${person.id}" />
+                    <div class="flex">
+                        <f:field
+                            label="Fecha"
+                            property="deactivationDate"
+                            widget="date"
+                            widget-disabled="true" />
+                        <f:field
+                           label="Seleccionar fecha"
+                           property="selectDate"
+                           widget="switch"
+                           wrapper="switch"
+                           widget-switch="toggleSelectDate(this);" />
+                    </div>
+                    <g:javascript>
+                         function toggleSelectDate(checkbox) {
+                            if (checkbox.checked) {
+                                $("#deactivationDate").removeAttr("disabled");
+                            } else {
+                                $("#deactivationDate").attr("disabled", true);
+                            }
+                         };
+                   </g:javascript>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <g:submitButton
