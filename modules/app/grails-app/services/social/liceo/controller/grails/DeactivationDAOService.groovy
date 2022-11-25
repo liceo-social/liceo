@@ -28,12 +28,11 @@ class DeactivationDAOService implements DeactivationDAO {
     DeactivationRequestEntity requestEntity = DeactivationRequestEntity.findByPerson(personEntity)
 
     personEntity.active = false
-    personEntity.deletionMotivation = person.deactivationMotivation
-    personEntity.deletedAt = new Date()
+    personEntity.deletionMotivation = requestEntity.motivation
+    personEntity.deletedAt = requestEntity.deactivationDate ?: new Date()
     personEntity.deletionRequestedBy = requestEntity.requestedBy
     personEntity.deletionApprovedBy = approvedBy
 
-    DeactivationRequestEntity deactivationRequestEntity = DeactivationRequestEntity.findByPerson(personEntity)
-    deactivationRequestEntity.delete()
+    requestEntity.delete()
   }
 }
