@@ -32,6 +32,6 @@ class DisableCommand implements Validateable {
    *
    * @since 0.5.3
    */
-  @BindingFormat("MM/dd/yyyy")
+  @BindingFormat("dd/MM/yyyy")
   Date deactivationDate
 }
